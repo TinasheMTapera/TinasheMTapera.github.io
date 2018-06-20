@@ -10,7 +10,7 @@ layoutdir = "layouts"
 publishdir = "public"
 
 author = "Tinashe M. Tapera"
-title = "Tinashe Tapera's Personal Website"
+title = "Tinashe's Personal Website"
 
 theme = "hugo-goa"
 
