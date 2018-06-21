@@ -22,9 +22,9 @@ enableRobotsTXT = true
 ## Site Settings
 [params]
 author = "Tinashe M. Tapera"
-intro = "Psychologist turned Data Scientist"
-description = "Junior Neuroimaging Data Scientist at University of Pennsylvania. Musician, Zimbabwean, Christian, Believer in People."
-authorimage = "COAS-GRAD-CEREMONY-2017-071.JPG"
+intro = "Data-intensive psychologist"
+description = "MSc Psychology graduate of Drexel University, with a focus in data science applications in psychology.<br>Musician, Zimbabwean, Christian, ally of the marginalised."
+authorimage = "ZNmgkZSx_400x400.jpg"
 dateformat = "Jan 2, 2006"
 
 ## Site Meta Settings
@@ -34,14 +34,9 @@ keywords = "data,data science,psychology,r,rmarkdown"
 
 ## Social Accounts
 [params.social]
-github = "<username>"
-instagram = "<username>"
-xing = "<username>"
-linkedin = "<username>"
-twitter = "<username>"
-facebook = "<username>"
-google = "<username>"
-stackoverflow = "<username>"
+github = "https://github.com/TinasheMTapera"
+linkedin = "https://www.linkedin.com/in/tinashemtapera/"
+twitter = "https://twitter.com/TaperaTinashe"
 email = "you@example.com"
 
 ## Extras
@@ -61,14 +56,3 @@ highlightjs = true
     identifier = "about"
     weight = 200
     url = "/about/"
-[[menu.main]]
-    name = "coderag"
-    identifier = "coderag"
-    weight = 300
-    url = "/coderag/"
-    
-[[menu.main]]
-    name = "post"
-    identifier = "post"
-    weight = 300
-    url = "/post/"
