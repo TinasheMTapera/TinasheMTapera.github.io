@@ -58,5 +58,5 @@ highlightjs = true
     url = "/about/"
 [[menu.main]]
     name = "Curriculum Vitae"
-    url = "/data/files/Tinashe.M.Tapera.CV.Feb2018.pdf"
+    url = "/cv/Tinashe.M.Tapera.CV.Feb2018.pdf"
     weight = 300
