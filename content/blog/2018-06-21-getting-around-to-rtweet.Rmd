@@ -20,7 +20,7 @@ So recently my Twitter as been recently bloated by tweets left right and centre 
 
 # Tweets In Moratorium
 
-My father <a href="https://twitter.com/MtaperaTapera">Michael Tapera</a> passed away from a brain tumour in 2015; although he will be sorely missed, it's fortunate that my father was famous for was his written and spoken word. He was an excellent writer and orator in just about every way, and a few days ago my mom suggested to our family to check his Twitter page for the 30 or so tweets he posted in his latter years (his diagnosis was received in 2013, and so all of these tweets were during his ailment).<br>Of course, being the data scientist I am, simply reading the tweets would not suffice: I decided to do some text mining on my dad's Twitter profile to find out what his online presence was like in his latter days.
+My father <a href="https://twitter.com/MtaperaTapera">Michael Tapera</a> passed away from a brain tumour in 2016; although he will be sorely missed, it's fortunate that my father was famous for was his written and spoken word. He was an excellent writer and orator in just about every way, and a few days ago my mom suggested to our family to check his Twitter page for the 30 or so tweets he posted in his latter years (his diagnosis was received in 2013, and so all of these tweets were during his ailment).<br>Of course, being the data scientist I am, simply reading the tweets would not suffice: I decided to do some text mining on my dad's Twitter profile to find out what his online presence was like in his latter days.
 
 # Setting Up
 
