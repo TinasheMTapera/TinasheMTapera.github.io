@@ -42,9 +42,9 @@ library(kableExtra)
 if (!requireNamespace("httpuv", quietly = TRUE)) {
   install.packages("httpuv")
 }
-token <- create_token(app = "rtweet_app",
-                      consumer_key = "emPsMkHh8bYuwaVVxuXRxoD0m",
-                      consumer_secret = "ewukblRBjE6iApmhtQLls4C44lA6tOOAohKzdfBaR7OQ4KgN1C")
+token <- create_token(app = Sys.getenv("rtweet_app",
+                      consumer_key = Sys.getenv("consumer_key"),
+                      consumer_secret = Sys.getenv("consumer_secret"))
 ```
 
 Now that we've set up, we use `rtweet`'s handy functions to grab our data:
