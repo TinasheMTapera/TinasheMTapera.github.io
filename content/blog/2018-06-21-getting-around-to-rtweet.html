@@ -23,7 +23,7 @@ So recently my Twitter as been recently bloated by tweets left right and centre 
 <hr>
 <div id="tweets-in-moratorium" class="section level1">
 <h1>Tweets In Moratorium</h1>
-<p>My father <a href="https://twitter.com/MtaperaTapera">Michael Tapera</a> passed away from a brain tumour in 2016; although he will be sorely missed, it’s fortunate that my father was famous for was his written and spoken word. He was an excellent writer and orator in just about every way, and a few days ago my mom suggested to our family to check his Twitter page for the 30 or so tweets he posted in his latter years (his diagnosis was received in 2013, and so all of these tweets were during his ailment).<br>Of course, being the data scientist I am, simply reading the tweets would not suffice: I decided to do some text mining on my dad’s Twitter profile to find out what his online presence was like in his latter days.</p>
+<p>My father <a href="https://twitter.com/MtaperaTapera">Michael Tapera</a> passed away from a brain tumour in 2016; although he will be sorely missed, it’s fortunate that my father was famous for his written and spoken word. He was an excellent writer and orator in just about every way, and a few days ago my mom suggested to our family to check his Twitter page for the 30 or so tweets he posted in his latter years (his diagnosis was received in 2013, and so all of these tweets were during his ailment).<br>Of course, being the data scientist I am, simply reading the tweets would not suffice: I decided to do some text mining on my dad’s Twitter profile to find out what his online presence was like in his latter days.</p>
 </div>
 <div id="setting-up" class="section level1">
 <h1>Setting Up</h1>
@@ -49,7 +49,7 @@ tweets = get_timeline(c(&quot;MtaperaTapera&quot;))</code></pre>
   ts_plot(&quot;days&quot;)+
   theme_minimal()+
   labs(title=&quot;Mike Tapera&#39;s Twitter Timeline&quot;, y=&quot;Number of Tweets&quot;, x = &quot;Date&quot;)</code></pre>
-<p><img src="/blog/2018-06-21-getting-around-to-rtweet_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="/blog/2018-06-21-getting-around-to-rtweet_files/figure-html/unnamed-chunk-4-1.png" width="672" /> It looks like dad probably started tweeting around the time of his operation, and took a hiatus probably around his first surgery. His activity probably picked up again once he was back on his feet.</p>
 <p>We can also see what day of the week or hour of day was most popular for his Twitter activity:</p>
 <pre class="r"><code>tweets%&gt;%
   select(created_at)%&gt;%
@@ -219,7 +219,8 @@ tidy_tweets%&gt;%
 </div>
 <div id="conclusion" class="section level1">
 <h1>Conclusion</h1>
-<p>Although it was a tragedy to lose you, especially before I could graduate and show you all the skills and expertise I developed in university, I know you were always proud of me and that you loved me and our family very much. This is the first and most important thing I wanted to do with my time after graduation, and I hope it’s befitting. We love you and miss you dad.</p>
+<p>A few small takeaways are that we’re reminded how driven dad was by early mornings and motivating others at the start of the week. We also got to see what words he was using commonly online as well as the general sentiment of his tweets over time.</p>
+<p>Dad: Although it was a tragedy to lose you, especially before I could graduate and show you all the skills and expertise I developed in university, I know you were always proud of me and that you loved me and our family very much. This is the first and most important thing I wanted to do with my time after graduation, and I hope it’s befitting. We love you and miss you dad.</p>
 <hr>
 <p id="footnote-1">
 [1] It’s important not to use polar coordinate plots in scientific settings, due to their high tendency to be misperceived. See <a href="https://eagereyes.org/blog/2016/an-illustrated-tour-of-the-pie-chart-study-results">this source</a> for more.

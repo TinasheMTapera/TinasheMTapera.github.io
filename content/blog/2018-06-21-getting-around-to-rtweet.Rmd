@@ -20,7 +20,7 @@ So recently my Twitter as been recently bloated by tweets left right and centre 
 
 # Tweets In Moratorium
 
-My father <a href="https://twitter.com/MtaperaTapera">Michael Tapera</a> passed away from a brain tumour in 2016; although he will be sorely missed, it's fortunate that my father was famous for was his written and spoken word. He was an excellent writer and orator in just about every way, and a few days ago my mom suggested to our family to check his Twitter page for the 30 or so tweets he posted in his latter years (his diagnosis was received in 2013, and so all of these tweets were during his ailment).<br>Of course, being the data scientist I am, simply reading the tweets would not suffice: I decided to do some text mining on my dad's Twitter profile to find out what his online presence was like in his latter days.
+My father <a href="https://twitter.com/MtaperaTapera">Michael Tapera</a> passed away from a brain tumour in 2016; although he will be sorely missed, it's fortunate that my father was famous for his written and spoken word. He was an excellent writer and orator in just about every way, and a few days ago my mom suggested to our family to check his Twitter page for the 30 or so tweets he posted in his latter years (his diagnosis was received in 2013, and so all of these tweets were during his ailment).<br>Of course, being the data scientist I am, simply reading the tweets would not suffice: I decided to do some text mining on my dad's Twitter profile to find out what his online presence was like in his latter days.
 
 # Setting Up
 
@@ -63,6 +63,7 @@ tweets%>%
   theme_minimal()+
   labs(title="Mike Tapera's Twitter Timeline", y="Number of Tweets", x = "Date")
 ```
+It looks like dad probably started tweeting around the time of his operation, and took a hiatus probably around his first surgery. His activity probably picked up again once he was back on his feet.
 
 We can also see what day of the week or hour of day was most popular for his Twitter activity:
 
@@ -172,7 +173,9 @@ tidy_tweets%>%
 
 # Conclusion
 
-Although it was a tragedy to lose you, especially before I could graduate and show you all the skills and expertise I developed in university, I know you were always proud of me and that you loved me and our family very much. This is the first and most important thing I wanted to do with my time after graduation, and I hope it's befitting. We love you and miss you dad.
+A few small takeaways are that we're reminded how driven dad was by early mornings and motivating others at the start of the week. We also got to see what words he was using commonly online as well as the general sentiment of his tweets over time.
+
+Dad: Although it was a tragedy to lose you, especially before I could graduate and show you all the skills and expertise I developed in university, I know you were always proud of me and that you loved me and our family very much. This is the first and most important thing I wanted to do with my time after graduation, and I hope it's befitting. We love you and miss you dad.
 
 <hr>
 <p id="footnote-1">[1] It's important not to use polar coordinate plots in scientific settings, due to their high tendency to be misperceived. See <a href="https://eagereyes.org/blog/2016/an-illustrated-tour-of-the-pie-chart-study-results">this source</a> for more.</p>
