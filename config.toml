@@ -49,7 +49,7 @@ highlightjs = true
 [[menu.main]]
     name = "about"
     identifier = "about"
-    weight = 200
+    weight = 100
     url = "/about/"
 [[menu.main]]
     name = "blog"
@@ -59,4 +59,4 @@ highlightjs = true
 [[menu.main]]
     name = "Curriculum Vitae"
     url = "/cv/Tinashe.M.Tapera.CV.Feb2018.pdf"
-    weight = 200
+    weight = 300
