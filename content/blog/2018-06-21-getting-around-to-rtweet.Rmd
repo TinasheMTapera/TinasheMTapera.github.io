@@ -49,7 +49,7 @@ token <- create_token(app = Sys.getenv("rtweet_app",
 
 Now that we've set up, we use `rtweet`'s handy functions to grab our data:
 ```{r}
-Sys.setenv(TZ="EST")
+Sys.setenv(TZ="America_New_York")
 tweets = get_timeline(c("MtaperaTapera"))
 ```
 

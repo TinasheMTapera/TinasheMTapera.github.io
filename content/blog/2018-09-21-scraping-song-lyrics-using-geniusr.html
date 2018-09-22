@@ -34,8 +34,10 @@ library(geniusr, quietly = TRUE) #genius package
 ACCESS_TOKEN = genius_token()</code></pre>
 <p>Now you can load up song lyrics and information using some of the package’s handy functions and <code>dplyr</code>:</p>
 <pre class="r"><code>#first, find the metadata of the artist
-lupe_meta = search_artist(&quot;lupe fiasco&quot;, access_token = ACCESS_TOKEN)
-lupe_meta</code></pre>
+lupe_meta = search_artist(&quot;lupe fiasco&quot;, access_token = ACCESS_TOKEN)</code></pre>
+<pre><code>## Warning in strptime(x, fmt, tz = &quot;GMT&quot;): unknown timezone
+## &#39;America_New_York&#39;</code></pre>
+<pre class="r"><code>lupe_meta</code></pre>
 <pre><code>## # A tibble: 1 x 3
 ##   artist_id artist_name artist_url                            
 ##       &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;                                 

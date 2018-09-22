@@ -38,8 +38,13 @@ library(wordcloud) #a wordcloud, duh
 library(knitr) #tables
 library(kableExtra)</code></pre>
 <p>Now that we’ve set up, we use <code>rtweet</code>’s handy functions to grab our data:</p>
-<pre class="r"><code>Sys.setenv(TZ=&quot;EST&quot;)
+<pre class="r"><code>Sys.setenv(TZ=&quot;America_New_York&quot;)
 tweets = get_timeline(c(&quot;MtaperaTapera&quot;))</code></pre>
+<pre><code>## Warning in strptime(x, fmt, tz = &quot;GMT&quot;): unknown timezone
+## &#39;America_New_York&#39;</code></pre>
+<pre><code>## Warning in strptime(x, &quot;%Y/%m/%d&quot;): unknown timezone &#39;America_New_York&#39;</code></pre>
+<pre><code>## Warning in strptime(x, format, tz = tz): unknown timezone
+## &#39;America_New_York&#39;</code></pre>
 </div>
 <div id="analysis-and-visualisation" class="section level1">
 <h1>Analysis and Visualisation</h1>
@@ -49,6 +54,11 @@ tweets = get_timeline(c(&quot;MtaperaTapera&quot;))</code></pre>
   ts_plot(&quot;days&quot;)+
   theme_minimal()+
   labs(title=&quot;Mike Tapera&#39;s Twitter Timeline&quot;, y=&quot;Number of Tweets&quot;, x = &quot;Date&quot;)</code></pre>
+<pre><code>## Warning in format.POSIXlt(as.POSIXlt(x, tz), format, usetz, ...): unknown
+## timezone &#39;America_New_York&#39;</code></pre>
+<pre><code>## Warning in strptime(xx, f, tz = tz): unknown timezone &#39;America_New_York&#39;</code></pre>
+<pre><code>## Warning in format.POSIXlt(as.POSIXlt(x, tz), format, usetz, ...): unknown
+## timezone &#39;America_New_York&#39;</code></pre>
 <p><img src="/blog/2018-06-21-getting-around-to-rtweet_files/figure-html/unnamed-chunk-4-1.png" width="672" /> It looks like dad probably started tweeting around the time of his operation, and took a hiatus probably around his first surgery. His activity probably picked up again once he was back on his feet.</p>
 <p>We can also see what day of the week or hour of day was most popular for his Twitter activity:</p>
 <pre class="r"><code>tweets%&gt;%
@@ -72,6 +82,12 @@ tweets = get_timeline(c(&quot;MtaperaTapera&quot;))</code></pre>
         legend.position = &quot;left&quot;,
         legend.title = element_blank())+
   labs(title=&quot;\&quot;Clock Plots\&quot; of Mike Tapera&#39;s\n Twitter Activity&quot;)</code></pre>
+<pre><code>## Warning in as.POSIXlt.POSIXct(x, tz = tz(x)): unknown timezone
+## &#39;America_New_York&#39;</code></pre>
+<pre><code>## Warning in format.POSIXlt(as.POSIXlt(x, tz), format, usetz, ...): unknown
+## timezone &#39;America_New_York&#39;</code></pre>
+<pre><code>## Warning in as.POSIXlt.POSIXct(x, tz = tz(x)): unknown timezone
+## &#39;America_New_York&#39;</code></pre>
 <p><img src="/blog/2018-06-21-getting-around-to-rtweet_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>I call these <strong>clock plots</strong> — the length of the bar on the clock shows how many tweets dad sent during that hour of day, while the colour differentiates between AM or PM<sup><a href="#footnote-1">[1]</a></sup>. It’s interesting, though not unexpected, that dad used to tweet the most at <strong>5AM on a Monday morning</strong> — members of the Tapera household are surely familiar with how dad used to get us up early to do Bible readings and devotions, or have some family time to encourage us. After my older brother and I left home, it’s not unusual that he started sharing his early morning/start of the week encouragements with the Twitterverse.</p>
 </div>
