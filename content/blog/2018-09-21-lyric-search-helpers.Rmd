@@ -1,8 +1,19 @@
 ---
 title: "Lyric Search Helpers"
-output:
-  html_document:
-    df_print: paged
+author: "Tinashe M. Tapera"
+date: '2018-09-21'
+comments: no
+showcomments: yes
+showpagemeta: yes
+code_folding: show
+slug: lyric-search-helpers
+tags:
+- genuis
+- dplyr
+categories:
+- R
+- machine learning
+- data science
 ---
 
 Here I demonstrate the process of scraping song lyrics from the Genius API in R.
