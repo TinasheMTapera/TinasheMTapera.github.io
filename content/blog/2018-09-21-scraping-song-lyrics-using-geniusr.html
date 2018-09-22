@@ -1,0 +1,84 @@
+---
+title: Scraping Song Lyrics Using geniusr
+author: Tinashe M. Tapera
+date: '2018-09-21'
+slug: scraping-song-lyrics-using-geniusr
+categories:
+  - data science
+  - dplyr
+  - geniusr
+  - textmining
+  - music
+tags:
+  - dplyr
+  - genuis
+  - r
+  - textmining
+  - music
+comments: no
+showcomments: yes
+showpagemeta: yes
+---
+
+
+
+<p>Here I demonstrate the process of scraping song lyrics from the Genius API in R.</p>
+<p>First, set up your API with the <code>geniusr</code> package. To use the Genius API, you need to authenticate your account, which you can do <a href="https://genius.com/developers">here</a> as you would with any other API service (Google if you don’t understand what this means). After this, set an environment variable in your .Renvironment file as:</p>
+<pre><code>GENIUS_API_TOKEN=###your###api###token####</code></pre>
+<p>Then load <code>geniusr</code> and use the function <code>genius_token()</code> to return you genius access token to a variable:</p>
+<pre class="r"><code>#install.packages(&quot;tidyverse&quot;)
+library(tidyverse, quietly = TRUE) #for data wrangling
+#install.packages(&quot;geniusr&quot;)
+library(geniusr, quietly = TRUE) #genius package
+
+ACCESS_TOKEN = genius_token()</code></pre>
+<p>Now you can load up song lyrics and information using some of the package’s handy functions and <code>dplyr</code>:</p>
+<pre class="r"><code>#first, find the metadata of the artist
+lupe_meta = search_artist(&quot;lupe fiasco&quot;, access_token = ACCESS_TOKEN)
+lupe_meta</code></pre>
+<pre><code>## # A tibble: 1 x 3
+##   artist_id artist_name artist_url                            
+##       &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;                                 
+## 1       147 Lupe Fiasco https://genius.com/artists/Lupe-fiasco</code></pre>
+<pre class="r"><code>#next, use the metadata to pull ALL of the artists songs from genius
+lupe_songlist = get_artist_songs(lupe_meta$artist_id[1], access_token = ACCESS_TOKEN)
+lupe_songlist</code></pre>
+<pre><code>## # A tibble: 378 x 7
+##    song_id song_name      song_lyrics_url       annotation_count artist_id
+##      &lt;int&gt; &lt;chr&gt;          &lt;chr&gt;                            &lt;int&gt;     &lt;int&gt;
+##  1   60421 1st &amp; 15th     https://genius.com/L…               21       147
+##  2  302059 4 Real         https://genius.com/L…               10       147
+##  3    1380 A Bathing Har… https://genius.com/L…               13       147
+##  4    5556 Absolute Free… https://genius.com/L…               29       147
+##  5   49160 Accept the Tr… https://genius.com/L…               34       147
+##  6  663358 Adoration of … https://genius.com/L…               72       147
+##  7    6361 Airplanes (Ft… https://genius.com/L…               29       147
+##  8 3955900 Alan Forever … https://genius.com/L…                9       147
+##  9    4712 All Black Eve… https://genius.com/L…               32       147
+## 10  122226 All Black Eve… https://genius.com/L…                3       147
+## # ... with 368 more rows, and 2 more variables: artist_name &lt;chr&gt;,
+## #   artist_url &lt;chr&gt;</code></pre>
+<pre class="r"><code>#lastly, use the song name column to filter for the song you want
+#then pull the song ID of that row, and use that as the id of the song
+#to scrape
+
+jump = lupe_songlist%&gt;%
+  filter(str_detect(song_name, &quot;Jump&quot;))%&gt;%
+  .$song_id%&gt;%
+  scrape_lyrics_id(., access_token = ACCESS_TOKEN)
+jump</code></pre>
+<pre><code>## # A tibble: 77 x 5
+##    line                         song_id song_name    artist_id artist_name
+##    &lt;chr&gt;                          &lt;int&gt; &lt;chr&gt;            &lt;int&gt; &lt;chr&gt;      
+##  1 Gold medals, them my role m… 2949269 Jump (Ft. G…       147 Lupe Fiasco
+##  2 Lowered old schools, flowin… 2949269 Jump (Ft. G…       147 Lupe Fiasco
+##  3 Flower bearin&#39;, call it pet… 2949269 Jump (Ft. G…       147 Lupe Fiasco
+##  4 Power sharin&#39;, call it devi… 2949269 Jump (Ft. G…       147 Lupe Fiasco
+##  5 Power, power, &#39;til ain&#39;t no… 2949269 Jump (Ft. G…       147 Lupe Fiasco
+##  6 Flower, flowers, they be dr… 2949269 Jump (Ft. G…       147 Lupe Fiasco
+##  7 Move a thousand miles per h… 2949269 Jump (Ft. G…       147 Lupe Fiasco
+##  8 And who do I meet, to the b… 2949269 Jump (Ft. G…       147 Lupe Fiasco
+##  9 It was little Susie Uzi, sh… 2949269 Jump (Ft. G…       147 Lupe Fiasco
+## 10 All bitch dope tip, wasn&#39;t … 2949269 Jump (Ft. G…       147 Lupe Fiasco
+## # ... with 67 more rows</code></pre>
+<p>Easy peezy! Thanks to <a href=https://github.com/ewenme/geniusr>Ewen Henderson</a> for the awesome package!</p>

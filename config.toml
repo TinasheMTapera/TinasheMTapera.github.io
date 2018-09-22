@@ -47,16 +47,16 @@ highlightjs = true
 
 ## Main Menu
 [[menu.main]]
-    name = "blog"
-    weight = 100
-    identifier = "blog"
-    url = "/blog/"
-[[menu.main]]
     name = "about"
     identifier = "about"
     weight = 200
     url = "/about/"
 [[menu.main]]
+    name = "blog"
+    weight = 200
+    identifier = "blog"
+    url = "/blog/"
+[[menu.main]]
     name = "Curriculum Vitae"
     url = "/cv/Tinashe.M.Tapera.CV.Feb2018.pdf"
-    weight = 300
+    weight = 200
