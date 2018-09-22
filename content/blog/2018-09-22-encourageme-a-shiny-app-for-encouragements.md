@@ -1,5 +1,5 @@
 ---
-title: 'EncourageMe: A Shiny App for Encouragements'
+title: 'EncourageMe: A Shiny App for Encouragement'
 author: Tinashe M. Tapera
 date: '2018-09-22'
 slug: encourageme-a-shiny-app-for-encouragements
