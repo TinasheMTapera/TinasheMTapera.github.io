@@ -1,6 +1,8 @@
 ---
 title: "Lyric Search Helpers"
-output: html_notebook
+output:
+  html_document:
+    df_print: paged
 ---
 
 Here I demonstrate the process of scraping song lyrics from the Genius API in R.
