@@ -66,12 +66,12 @@ And there you have it, join these two by name:
 ```{r}
 sw_colours$name = sw$name
 sw_with_checkboxes = merge(sw, sw_colours, by = "name")
-sw_with_checkboxes[,c("name", names(sw_colours))]
+head(sw_with_checkboxes[,c("name", names(sw_colours))])
 ```
 
 Admittedly, this is all quite long-winded and could even have been done better. But fortunately, someone has already tackled this problem, and the solution is available on CRAN: The `splitstackshape` package.
 
-```{r echo=FALSE}
+```{r echo=FALSE, include=FALSE}
 library(splitstackshape)
 library(tidyverse, quietly=T)
 ```
@@ -80,7 +80,7 @@ This package has handy function `concat.split()` and variants for our case:
 
 ```{r}
 sw_expanded=concat.split(sw, "skin_color", structure="expanded", type="character", fill = 0)
-select(sw_expanded, name, matches("skin_color"))
+head(select(sw_expanded, name, matches("skin_color")))
 ```
 
 Easy peasy!

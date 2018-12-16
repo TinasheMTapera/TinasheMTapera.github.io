@@ -1,0 +1,144 @@
+---
+title: 'Data Tip: Processing Checkbox-Factors'
+author: Tinashe M. Tapera
+date: '2018-10-23'
+slug: data-tip-processing-checkbox-factors
+categories:
+  - dplyr
+  - data science
+tags:
+  - dplyr
+  - data science
+comments: no
+showcomments: yes
+showpagemeta: yes
+---
+
+
+
+<p>The other day I was tasked with processing some data that had been generated from a survey that included checkboxes. You know, the “tick all that apply”, kind of questions. Nothing against this style of response, it can be quite effective for collecting unbiased data. However, platforms such as Qualtrics annoyingly make it such that checkbox responses are output as <em>singular concatenated strings per response!</em></p>
+<p>Let’s take a look at what this might look like, using the <code>Star Wars</code> dataset in the most recent version of <code>dplyr</code>:</p>
+<pre class="r"><code>dplyr::starwars</code></pre>
+<pre><code>## # A tibble: 87 x 13
+##    name     height  mass hair_color skin_color eye_color birth_year gender
+##    &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; 
+##  1 Luke Sk…    172    77 blond      fair       blue            19   male  
+##  2 C-3PO       167    75 &lt;NA&gt;       gold       yellow         112   &lt;NA&gt;  
+##  3 R2-D2        96    32 &lt;NA&gt;       white, bl… red             33   &lt;NA&gt;  
+##  4 Darth V…    202   136 none       white      yellow          41.9 male  
+##  5 Leia Or…    150    49 brown      light      brown           19   female
+##  6 Owen La…    178   120 brown, gr… light      blue            52   male  
+##  7 Beru Wh…    165    75 brown      light      blue            47   female
+##  8 R5-D4        97    32 &lt;NA&gt;       white, red red             NA   &lt;NA&gt;  
+##  9 Biggs D…    183    84 black      light      brown           24   male  
+## 10 Obi-Wan…    182    77 auburn, w… fair       blue-gray       57   male  
+## # ... with 77 more rows, and 5 more variables: homeworld &lt;chr&gt;,
+## #   species &lt;chr&gt;, films &lt;list&gt;, vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
+<pre class="r"><code>sw = dplyr::starwars</code></pre>
+<p>The variable <code>skin_color</code> is a good candidate for us to learn how to process this type of response. In this variable, Obi-Wan’s hair colour is listed as “auburn, white”, which would be like checking two boxes in a survey. In order to get, for example, a count of how many people listed “white” as their hair colour, how would we deal with this column?</p>
+<p>You could do it in base R by enumerating all of the different strings and checking if the row contains any:</p>
+<pre class="r"><code># one moment I will give it up to python,
+# R does not have any base objects for dictionaries
+# or set-like collections
+
+my_colours = list() 
+
+for(character in 1:nrow(sw)){
+  
+  current_colours = sw$skin_color[character]
+  current_colours = trimws(unlist(strsplit(current_colours,split = &quot;,&quot;)))
+  
+  my_colours = append(my_colours, current_colours)
+}
+
+my_colours = unique(unlist(my_colours))
+my_colours</code></pre>
+<pre><code>##  [1] &quot;fair&quot;          &quot;gold&quot;          &quot;white&quot;         &quot;blue&quot;         
+##  [5] &quot;light&quot;         &quot;red&quot;           &quot;unknown&quot;       &quot;green&quot;        
+##  [9] &quot;green-tan&quot;     &quot;brown&quot;         &quot;pale&quot;          &quot;metal&quot;        
+## [13] &quot;dark&quot;          &quot;brown mottle&quot;  &quot;grey&quot;          &quot;mottled green&quot;
+## [17] &quot;orange&quot;        &quot;yellow&quot;        &quot;tan&quot;           &quot;silver&quot;       
+## [21] &quot;none&quot;</code></pre>
+<p>Now we have all of the possible values. To see which rows contain one of the values, we have to create an empty dataframe and iterate over the original:</p>
+<pre class="r"><code># create the dataframe
+sw_colours = data.frame(matrix(nrow = 0, ncol = length(my_colours)))
+names(sw_colours) = my_colours
+
+# iterate over the original data frame counting hits for each
+for(character in 1:nrow(sw)){
+  
+  hits = sapply(names(sw_colours), function(x) grepl(x, sw$skin_color[character]), USE.NAMES = FALSE)
+  sw_colours[character,] = hits
+}</code></pre>
+<p>And there you have it, join these two by name:</p>
+<pre class="r"><code>sw_colours$name = sw$name
+sw_with_checkboxes = merge(sw, sw_colours, by = &quot;name&quot;)
+head(sw_with_checkboxes[,c(&quot;name&quot;, names(sw_colours))])</code></pre>
+<pre><code>##                  name  fair  gold white  blue light   red unknown green
+## 1              Ackbar FALSE FALSE FALSE FALSE FALSE FALSE   FALSE FALSE
+## 2          Adi Gallia FALSE FALSE FALSE FALSE FALSE FALSE   FALSE FALSE
+## 3    Anakin Skywalker  TRUE FALSE FALSE FALSE FALSE FALSE   FALSE FALSE
+## 4        Arvel Crynyd  TRUE FALSE FALSE FALSE FALSE FALSE   FALSE FALSE
+## 5         Ayla Secura FALSE FALSE FALSE  TRUE FALSE FALSE   FALSE FALSE
+## 6 Bail Prestor Organa FALSE FALSE FALSE FALSE FALSE FALSE   FALSE FALSE
+##   green-tan brown  pale metal  dark brown mottle  grey mottled green
+## 1     FALSE  TRUE FALSE FALSE FALSE         TRUE FALSE         FALSE
+## 2     FALSE FALSE FALSE FALSE  TRUE        FALSE FALSE         FALSE
+## 3     FALSE FALSE FALSE FALSE FALSE        FALSE FALSE         FALSE
+## 4     FALSE FALSE FALSE FALSE FALSE        FALSE FALSE         FALSE
+## 5     FALSE FALSE FALSE FALSE FALSE        FALSE FALSE         FALSE
+## 6     FALSE FALSE FALSE FALSE FALSE        FALSE FALSE         FALSE
+##   orange yellow   tan silver  none              name.1
+## 1  FALSE  FALSE FALSE  FALSE FALSE              Ackbar
+## 2  FALSE  FALSE FALSE  FALSE FALSE          Adi Gallia
+## 3  FALSE  FALSE FALSE  FALSE FALSE    Anakin Skywalker
+## 4  FALSE  FALSE FALSE  FALSE FALSE        Arvel Crynyd
+## 5  FALSE  FALSE FALSE  FALSE FALSE         Ayla Secura
+## 6  FALSE  FALSE  TRUE  FALSE FALSE Bail Prestor Organa</code></pre>
+<p>Admittedly, this is all quite long-winded and could even have been done better. But fortunately, someone has already tackled this problem, and the solution is available on CRAN: The <code>splitstackshape</code> package.</p>
+<p>This package has handy function <code>concat.split()</code> and variants for our case:</p>
+<pre class="r"><code>sw_expanded=concat.split(sw, &quot;skin_color&quot;, structure=&quot;expanded&quot;, type=&quot;character&quot;, fill = 0)
+head(select(sw_expanded, name, matches(&quot;skin_color&quot;)))</code></pre>
+<pre><code>##             name  skin_color skin_color_blue skin_color_brown
+## 1 Luke Skywalker        fair               0                0
+## 2          C-3PO        gold               0                0
+## 3          R2-D2 white, blue               1                0
+## 4    Darth Vader       white               0                0
+## 5    Leia Organa       light               0                0
+## 6      Owen Lars       light               0                0
+##   skin_color_brown mottle skin_color_dark skin_color_fair skin_color_gold
+## 1                       0               0               1               0
+## 2                       0               0               0               1
+## 3                       0               0               0               0
+## 4                       0               0               0               0
+## 5                       0               0               0               0
+## 6                       0               0               0               0
+##   skin_color_green skin_color_green-tan skin_color_grey skin_color_light
+## 1                0                    0               0                0
+## 2                0                    0               0                0
+## 3                0                    0               0                0
+## 4                0                    0               0                0
+## 5                0                    0               0                1
+## 6                0                    0               0                1
+##   skin_color_metal skin_color_mottled green skin_color_none
+## 1                0                        0               0
+## 2                0                        0               0
+## 3                0                        0               0
+## 4                0                        0               0
+## 5                0                        0               0
+## 6                0                        0               0
+##   skin_color_orange skin_color_pale skin_color_red skin_color_silver
+## 1                 0               0              0                 0
+## 2                 0               0              0                 0
+## 3                 0               0              0                 0
+## 4                 0               0              0                 0
+## 5                 0               0              0                 0
+## 6                 0               0              0                 0
+##   skin_color_tan skin_color_unknown skin_color_white skin_color_yellow
+## 1              0                  0                0                 0
+## 2              0                  0                0                 0
+## 3              0                  0                1                 0
+## 4              0                  0                1                 0
+## 5              0                  0                0                 0
+## 6              0                  0                0                 0</code></pre>
+<p>Easy peasy!</p>
