@@ -1,0 +1,86 @@
+---
+title: 'Data Tip: Processing Checkbox-Factors'
+author: Tinashe M. Tapera
+date: '2018-10-23'
+slug: data-tip-processing-checkbox-factors
+categories:
+  - dplyr
+  - data science
+tags:
+  - dplyr
+  - data science
+comments: no
+showcomments: yes
+showpagemeta: yes
+---
+
+The other day I was tasked with processing some data that had been generated from a survey that included checkboxes. You know, the "tick all that apply", kind of questions. Nothing against this style of response, it can be quite effective for collecting unbiased data. However, platforms such as Qualtrics annoyingly make it such that checkbox responses are output as *singular concatenated strings per response!*
+
+Let's take a look at what this might look like, using the `Star Wars` dataset in the most recent version of `dplyr`:
+
+```{r}
+dplyr::starwars
+sw = dplyr::starwars
+```
+
+The variable `skin_color` is a good candidate for us to learn how to process this type of response. In this variable, Obi-Wan's hair colour is listed as "auburn, white", which would be like checking two boxes in a survey. In order to get, for example, a count of how many people listed "white" as their hair colour, how would we deal with this column?
+
+You could do it in base R by enumerating all of the different strings and checking if the row contains any:
+
+```{r}
+# one moment I will give it up to python,
+# R does not have any base objects for dictionaries
+# or set-like collections
+
+my_colours = list() 
+
+for(character in 1:nrow(sw)){
+  
+  current_colours = sw$skin_color[character]
+  current_colours = trimws(unlist(strsplit(current_colours,split = ",")))
+  
+  my_colours = append(my_colours, current_colours)
+}
+
+my_colours = unique(unlist(my_colours))
+my_colours
+```
+
+Now we have all of the possible values. To see which rows contain one of the values, we have to create an empty dataframe and iterate over the original:
+
+```{r}
+# create the dataframe
+sw_colours = data.frame(matrix(nrow = 0, ncol = length(my_colours)))
+names(sw_colours) = my_colours
+
+# iterate over the original data frame counting hits for each
+for(character in 1:nrow(sw)){
+  
+  hits = sapply(names(sw_colours), function(x) grepl(x, sw$skin_color[character]), USE.NAMES = FALSE)
+  sw_colours[character,] = hits
+}
+```
+
+And there you have it, join these two by name:
+
+```{r}
+sw_colours$name = sw$name
+sw_with_checkboxes = merge(sw, sw_colours, by = "name")
+sw_with_checkboxes[,c("name", names(sw_colours))]
+```
+
+Admittedly, this is all quite long-winded and could even have been done better. But fortunately, someone has already tackled this problem, and the solution is available on CRAN: The `splitstackshape` package.
+
+```{r echo=FALSE}
+library(splitstackshape)
+library(tidyverse, quietly=T)
+```
+
+This package has handy function `concat.split()` and variants for our case:
+
+```{r}
+sw_expanded=concat.split(sw, "skin_color", structure="expanded", type="character", fill = 0)
+select(sw_expanded, name, matches("skin_color"))
+```
+
+Easy peasy!
