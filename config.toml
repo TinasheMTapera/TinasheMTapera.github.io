@@ -34,9 +34,9 @@ keywords = "data,data science,psychology,r,rmarkdown"
 
 ## Social Accounts
 [params.social]
-github = "https://github.com/TinasheMTapera"
-linkedin = "https://www.linkedin.com/in/tinashemtapera/"
-twitter = "https://twitter.com/TaperaTinashe"
+github = "TinasheMTapera"
+linkedin = "tinashemtapera"
+twitter = "TaperaTinashe"
 email = "tinashemtapera@gmail.com"
 
 ## Extras
@@ -58,5 +58,5 @@ highlightjs = true
     url = "/blog/"
 [[menu.main]]
     name = "Curriculum Vitae"
-    url = "/cv/Tinashe.M.Tapera.CV.Feb2018.pdf"
+    url = "/cv/Tinashe.M.Tapera.CV.Jun2019.pdf"
     weight = 300
