@@ -58,7 +58,7 @@ highlightjs = true
     url = "/blog/"
 [[menu.main]]
     name = "Curriculum Vitae"
-    url = "/cv/Tinashe.M.Tapera.CV.Sept2021.pdf"
+    url = "/cv/Tinashe.M.Tapera.CV.sep2021.pdf"
     weight = 300
 [markup]
   [markup.goldmark]
