@@ -5,3 +5,7 @@
 public
 .Renrivon
 data
+.DS_Store
+Thumbs.db
+/public/
+/resources/

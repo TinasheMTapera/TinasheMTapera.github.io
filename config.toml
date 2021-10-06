@@ -1,5 +1,5 @@
 ## Basic Configuration
-ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\\.md$"]
 baseurl = "/" 
 builddrafts = false
 canonifyurls = true
@@ -23,7 +23,7 @@ enableRobotsTXT = true
 [params]
 author = "Tinashe M. Tapera"
 intro = "Data-intensive psychologist"
-description = "MSc Psychology graduate of Drexel University, with a focus in data science applications in psychology.<br>Musician, Zimbabwean, Christian, ally of the marginalised."
+description = "MSc Psychology graduate of Drexel University, with a focus in data science applications in psychology."
 authorimage = "ZNmgkZSx_400x400.jpg"
 dateformat = "Jan 2, 2006"
 
@@ -58,5 +58,9 @@ highlightjs = true
     url = "/blog/"
 [[menu.main]]
     name = "Curriculum Vitae"
-    url = "/cv/Tinashe.M.Tapera.CV.Jun2019.pdf"
+    url = "/cv/Tinashe.M.Tapera.CV.Sept2021.pdf"
     weight = 300
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
