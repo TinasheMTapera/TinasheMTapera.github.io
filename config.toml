@@ -41,7 +41,7 @@ email = "tinashemtapera@gmail.com"
 
 ## Extras
 [params.extra]
-copyright = "© 2018. Tinashe M. Tapera. [Some Rights Reserved](http://creativecommons.org/licenses/by/3.0/)." 
+copyright = "© 2022. Tinashe M. Tapera. [Some Rights Reserved](http://creativecommons.org/licenses/by/3.0/)." 
 poweredby = true
 highlightjs = true
 
@@ -58,7 +58,7 @@ highlightjs = true
     url = "/blog/"
 [[menu.main]]
     name = "Curriculum Vitae"
-    url = "/cv/Tinashe.M.Tapera.CV.sep2021.pdf"
+    url = "/cv/tinashemtapera_cv.pdf"
     weight = 300
 [markup]
   [markup.goldmark]
