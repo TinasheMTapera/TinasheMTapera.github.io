@@ -1,0 +1,21 @@
+project:
+  type: website
+
+website:
+  title: "Tinashe Michael Tapera"
+  site-url: https://tinashemtapera.github.io
+  description: "Tinashe M. Tapera's Official Website"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+
+format:
+  html:
+    theme: zephyr
+    css: styles.css
+    toc: true
+
+
+
