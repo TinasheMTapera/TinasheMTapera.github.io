@@ -1,0 +1,33 @@
+project:
+  type: website
+
+website:
+  title: "Home"
+  site-url: "tinashemtapera.com"
+  description: "Tinashe M. Tapera's official website"
+  open-graph: true
+  twitter-card: 
+    site: "@TaperaTinashe"
+  navbar:
+    search: true
+    left:
+      - text: About
+        href: about.qmd
+      - text: News
+        href: news.qmd
+      - text: CV
+        href: cv.qmd
+      - text: Blog
+        href: blog.qmd
+#    right:
+#      - icon: github
+#        href: https://github.com/
+#      - icon: twitter
+#        href: https://twitter.com
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+
+
+
