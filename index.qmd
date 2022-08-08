@@ -1,8 +1,8 @@
 ---
 title: "Hi, I'm Tinashe"
-image: profile.jpg
+image: assets/img/ZNmgkZSx_400x400.jpg
 about:
-  template: solana
+  template: jolla
   links:
     - icon: twitter
       text: Twitter
@@ -16,6 +16,6 @@ about:
 
 ---
 
-About this blog
+This is the landing page.
 
 https://quarto.org/docs/reference/projects/websites.html 

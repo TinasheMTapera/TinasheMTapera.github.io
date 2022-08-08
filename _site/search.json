@@ -18,7 +18,7 @@
     "href": "news.html",
     "title": "News",
     "section": "",
-    "text": "Here’s some news"
+    "text": "Started my PhD at Northeastern University\n\n\n\nLeft the University of Pennsylvania\n\n\nFollow me for more!\nTweets by TaperaTinashe"
   },
   {
     "objectID": "index.html",
@@ -32,7 +32,7 @@
     "href": "about.html",
     "title": "About Me",
     "section": "",
-    "text": "Here’s an about me page"
+    "text": "I’m a PhD student in computer science at Northeastern University’s Khoury College of Computer Sciences. Specifically, I’m part of the Personal Health Informatics program."
   },
   {
     "objectID": "cv.html",
@@ -47,5 +47,26 @@
     "title": "Musings & Perusings",
     "section": "",
     "text": "A second title\nsome content\n\n\n\n\n\n\n\n\n\n\n  \n\n\n\n\nPost With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nJul 30, 2022\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJul 27, 2022\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html#my-background",
+    "href": "about.html#my-background",
+    "title": "About Me",
+    "section": "My Background",
+    "text": "My Background\nHaving grown up in Zimbabwe, my greatest passion was writing, producing, and performing music. I spent most of my time in my home church and my high school’s music department. I was accepted to Drexel University in 2013 to study psychology, and in my junior year I joined the accelerated BSMS in Psychology program mentored by Fengqing Zhang of the Quantitative Psychology & Statisics Lab. There, I learned about statistical/machine learning, data mining, and computer programming in R & Python, and learned to apply these skills in a range of mental & behavioural health studies. In 2017, I interned at Salesforce as a data scientist in People Analytics, where I worked on NLP and text mining problems geared to improve employee success, and in 2018, I graduated from Drexel with my BSc & MSc in psychology. \nFrom 2018 to 2022, I worked as a neuroimaging data analyst at the Penn Lifespan Informatics and Neuroimaging Center, where I used various softwares and programming tools to process, curate, and analyse neuroimaging data.\nI began my PhD at Northeastern in September 2022."
+  },
+  {
+    "objectID": "about.html#my-research",
+    "href": "about.html#my-research",
+    "title": "About Me",
+    "section": "My Research",
+    "text": "My Research\nExplain SIMBA"
+  },
+  {
+    "objectID": "about.html#when-im-not-doing-research",
+    "href": "about.html#when-im-not-doing-research",
+    "title": "About Me",
+    "section": "When I’m Not Doing Research…",
+    "text": "When I’m Not Doing Research…\nFoo bar"
   }
 ]
