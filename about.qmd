@@ -24,9 +24,9 @@ scientist in <a href = "https://www.mckinsey.com/solutions/orgsolutions/overview
 where I worked on NLP and text mining problems geared to improve
 employee success, and in 2018, I graduated from Drexel with my BSc & MSc in psychology. <br>
 
-From 2018 to 2022, I worked as a neuroimaging data analyst at the <a href="https://www.satterthwaitelab.com/">Penn Lifespan Informatics and Neuroimaging Center</a>, where I used various softwares and programming tools to process, curate, and analyse neuroimaging data.
+From 2018 to 2022, I worked as a neuroimaging data analyst at the <a href="https://www.satterthwaitelab.com/">Penn Lifespan Informatics and Neuroimaging Center</a>, where I developed and used various software and programming tools to **process, curate, and analyse neuroimaging data.**
 
-I began my PhD at Northeastern in September 2022.
+I began my PhD at Northeastern University in September 2022.
 
 ## My Research
 

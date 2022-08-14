@@ -1,0 +1,15 @@
+---
+title: "Series: Legacy Posts"
+listing:
+  contents: posts/legacy
+  sort: "date desc"
+  type: default
+  categories: false
+  sort-ui: false
+  filter-ui: false
+  fields: [date, title, description]
+page-layout: full
+title-block-banner: true
+---
+
+Here you can find older posts from my old website.

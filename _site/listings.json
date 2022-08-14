@@ -2,8 +2,16 @@
   {
     "listing": "/blog.html",
     "items": [
-      "/posts/post-with-code/index.html",
-      "/posts/welcome/index.html"
+      "/posts/legacy/legacy-series.html",
+      "/posts/01_test-quarto/01_test-quarto.html"
     ]
+  },
+  {
+    "listing": "/posts/legacy/legacy_archive.html",
+    "items": []
+  },
+  {
+    "listing": "/posts/legacy/legacy-series.html",
+    "items": []
   }
 ]

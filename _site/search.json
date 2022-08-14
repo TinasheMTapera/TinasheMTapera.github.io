@@ -1,38 +1,17 @@
 [
   {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
+    "objectID": "foo.html",
+    "href": "foo.html",
+    "title": "foo",
     "section": "",
-    "text": "This is a post with executable code."
+    "text": "this is a test document"
   },
   {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog",
-    "section": "",
-    "text": "Since this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
-  },
-  {
-    "objectID": "news.html",
-    "href": "news.html",
-    "title": "News",
-    "section": "",
-    "text": "Started my PhD at Northeastern University\n\n\n\nLeft the University of Pennsylvania\n\n\nFollow me for more!\nTweets by TaperaTinashe"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Hi, I’m Tinashe",
-    "section": "",
-    "text": "https://quarto.org/docs/reference/projects/websites.html"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About Me",
-    "section": "",
-    "text": "I’m a PhD student in computer science at Northeastern University’s Khoury College of Computer Sciences. Specifically, I’m part of the Personal Health Informatics program."
+    "objectID": "foo.html#air-quality",
+    "href": "foo.html#air-quality",
+    "title": "foo",
+    "section": "Air Quality",
+    "text": "Air Quality\nFigure 1 further explores the impact of temperature on ozone level.\n\nlibrary(ggplot2)\n\nggplot(airquality, aes(Temp, Ozone)) +\n    geom_point()\n\n\n\n\nFigure 1: Temperature and ozone level."
   },
   {
     "objectID": "cv.html",
@@ -44,16 +23,23 @@
   {
     "objectID": "blog.html",
     "href": "blog.html",
-    "title": "Musings & Perusings",
+    "title": "Tinashe M. Tapera’s Blog",
     "section": "",
-    "text": "A second title\nsome content\n\n\n\n\n\n\n\n\n\n\n  \n\n\n\n\nPost With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nJul 30, 2022\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJul 27, 2022\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+    "text": "A second title\nsome content\n\n\nLegacy Posts\nHere are my legacy posts.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSeries: Legacy Posts\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJul 27, 2022\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About Me",
+    "section": "",
+    "text": "I’m a PhD student in computer science at Northeastern University’s Khoury College of Computer Sciences. Specifically, I’m part of the Personal Health Informatics program."
   },
   {
     "objectID": "about.html#my-background",
     "href": "about.html#my-background",
     "title": "About Me",
     "section": "My Background",
-    "text": "My Background\nHaving grown up in Zimbabwe, my greatest passion was writing, producing, and performing music. I spent most of my time in my home church and my high school’s music department. I was accepted to Drexel University in 2013 to study psychology, and in my junior year I joined the accelerated BSMS in Psychology program mentored by Fengqing Zhang of the Quantitative Psychology & Statisics Lab. There, I learned about statistical/machine learning, data mining, and computer programming in R & Python, and learned to apply these skills in a range of mental & behavioural health studies. In 2017, I interned at Salesforce as a data scientist in People Analytics, where I worked on NLP and text mining problems geared to improve employee success, and in 2018, I graduated from Drexel with my BSc & MSc in psychology. \nFrom 2018 to 2022, I worked as a neuroimaging data analyst at the Penn Lifespan Informatics and Neuroimaging Center, where I used various softwares and programming tools to process, curate, and analyse neuroimaging data.\nI began my PhD at Northeastern in September 2022."
+    "text": "My Background\nHaving grown up in Zimbabwe, my greatest passion was writing, producing, and performing music. I spent most of my time in my home church and my high school’s music department. I was accepted to Drexel University in 2013 to study psychology, and in my junior year I joined the accelerated BSMS in Psychology program mentored by Fengqing Zhang of the Quantitative Psychology & Statisics Lab. There, I learned about statistical/machine learning, data mining, and computer programming in R & Python, and learned to apply these skills in a range of mental & behavioural health studies. In 2017, I interned at Salesforce as a data scientist in People Analytics, where I worked on NLP and text mining problems geared to improve employee success, and in 2018, I graduated from Drexel with my BSc & MSc in psychology. \nFrom 2018 to 2022, I worked as a neuroimaging data analyst at the Penn Lifespan Informatics and Neuroimaging Center, where I developed and used various software and programming tools to process, curate, and analyse neuroimaging data.\nI began my PhD at Northeastern University in September 2022."
   },
   {
     "objectID": "about.html#my-research",
@@ -68,5 +54,54 @@
     "title": "About Me",
     "section": "When I’m Not Doing Research…",
     "text": "When I’m Not Doing Research…\nFoo bar"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Hi, I’m Tinashe",
+    "section": "",
+    "text": "https://quarto.org/docs/reference/projects/websites.html"
+  },
+  {
+    "objectID": "posts/legacy/2018-06-21-legacy-blog-posts.html",
+    "href": "posts/legacy/2018-06-21-legacy-blog-posts.html",
+    "title": "Legacy Blog Posts",
+    "section": "",
+    "text": "That time I proposed that You’re Probably Already a Data Scientist. [link]\n\n\nThat time I did a fellowship with the Statistical And Mathematical Sciences Institute at NC State. [link]\n\n\nThat time I did analysis, visualisation, and topic modeling on the Gmail archive of Drexel University’s Peer Counseling Helpline. [link]\n\n\nThat time I interned at Salesforce. [link]\n\n\nThat time I took it a step further and built a dashboard app for the Peer Counseling Helpline to do data science themselves. [link]"
+  },
+  {
+    "objectID": "posts/legacy/legacy_archive.html",
+    "href": "posts/legacy/legacy_archive.html",
+    "title": "Series: Legacy Posts",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
+    "objectID": "posts/legacy/legacy-series.html",
+    "href": "posts/legacy/legacy-series.html",
+    "title": "Series: Legacy Posts",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "Since this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is a post with executable code."
+  },
+  {
+    "objectID": "posts/01_test-quarto/01_test-quarto.html",
+    "href": "posts/01_test-quarto/01_test-quarto.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "Since this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
   }
 ]

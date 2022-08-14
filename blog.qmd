@@ -1,7 +1,7 @@
 ---
-title: "Musings & Perusings"
+title: "Tinashe M. Tapera's Blog"
 listing:
-  contents: posts
+  contents: posts/**/*.qmd
   sort: "date desc"
   type: default
   categories: true
@@ -22,3 +22,9 @@ lorem ipsum etc
 some content
 
 ----------------
+
+#### [Legacy Posts](posts/legacy/legacy-series.html)
+
+Here are my legacy posts.
+
+
