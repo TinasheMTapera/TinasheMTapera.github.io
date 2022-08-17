@@ -1,31 +1,17 @@
 [
   {
-    "objectID": "foo.html",
-    "href": "foo.html",
-    "title": "foo",
+    "objectID": "posts/legacy/2018-06-21-legacy-blog-posts.html",
+    "href": "posts/legacy/2018-06-21-legacy-blog-posts.html",
+    "title": "Legacy Blog Posts",
     "section": "",
-    "text": "this is a test document"
+    "text": "That time I proposed that You’re Probably Already a Data Scientist. [link]\n\n\nThat time I did a fellowship with the Statistical And Mathematical Sciences Institute at NC State. [link]\n\n\nThat time I did analysis, visualisation, and topic modeling on the Gmail archive of Drexel University’s Peer Counseling Helpline. [link]\n\n\nThat time I interned at Salesforce. [link]\n\n\nThat time I took it a step further and built a dashboard app for the Peer Counseling Helpline to do data science themselves. [link]"
   },
   {
-    "objectID": "foo.html#air-quality",
-    "href": "foo.html#air-quality",
-    "title": "foo",
-    "section": "Air Quality",
-    "text": "Air Quality\nFigure 1 further explores the impact of temperature on ozone level.\n\nlibrary(ggplot2)\n\nggplot(airquality, aes(Temp, Ozone)) +\n    geom_point()\n\n\n\n\nFigure 1: Temperature and ozone level."
-  },
-  {
-    "objectID": "cv.html",
-    "href": "cv.html",
-    "title": "CV",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Hi, I’m Tinashe",
     "section": "",
-    "text": "You can access my CV here"
-  },
-  {
-    "objectID": "blog.html",
-    "href": "blog.html",
-    "title": "Tinashe M. Tapera’s Blog",
-    "section": "",
-    "text": "A second title\nsome content\n\n\nLegacy Posts\nHere are my legacy posts.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSeries: Legacy Posts\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJul 27, 2022\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+    "text": "https://quarto.org/docs/reference/projects/websites.html"
   },
   {
     "objectID": "about.html",
@@ -56,52 +42,31 @@
     "text": "When I’m Not Doing Research…\nFoo bar"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Hi, I’m Tinashe",
+    "objectID": "cv.html",
+    "href": "cv.html",
+    "title": "CV",
     "section": "",
-    "text": "https://quarto.org/docs/reference/projects/websites.html"
+    "text": "You can access my CV here"
   },
   {
-    "objectID": "posts/legacy/2018-06-21-legacy-blog-posts.html",
-    "href": "posts/legacy/2018-06-21-legacy-blog-posts.html",
-    "title": "Legacy Blog Posts",
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Tinashe M. Tapera’s Blog",
     "section": "",
-    "text": "That time I proposed that You’re Probably Already a Data Scientist. [link]\n\n\nThat time I did a fellowship with the Statistical And Mathematical Sciences Institute at NC State. [link]\n\n\nThat time I did analysis, visualisation, and topic modeling on the Gmail archive of Drexel University’s Peer Counseling Helpline. [link]\n\n\nThat time I interned at Salesforce. [link]\n\n\nThat time I took it a step further and built a dashboard app for the Peer Counseling Helpline to do data science themselves. [link]"
-  },
-  {
-    "objectID": "posts/legacy/legacy_archive.html",
-    "href": "posts/legacy/legacy_archive.html",
-    "title": "Series: Legacy Posts",
-    "section": "",
-    "text": "No matching items"
+    "text": "A second title\nsome content\n\n\nLegacy Posts\nHere are my legacy posts.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSeries: Legacy Posts\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJul 27, 2022\n\n\nTristan O’Malley\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRemembering Mike Tapera Through Data Science & rtweet\n\n\n\n\n\n\n\nR\n\n\nmachine learning\n\n\ndata science\n\n\n\n\n\n\n\n\n\n\n\nJun 21, 2018\n\n\nTinashe M. Tapera\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/legacy/legacy-series.html",
     "href": "posts/legacy/legacy-series.html",
     "title": "Series: Legacy Posts",
     "section": "",
-    "text": "No matching items"
+    "text": "Legacy Blog Posts\n\n\n\n\n\n\n\n\n\n\n\n\nJun 21, 2018\n\n\nTinashe M. Tapera\n\n\n\n\n\n\n\n\nRemembering Mike Tapera Through Data Science & rtweet\n\n\n\n\n\n\n\n\n\n\n\n\nJun 21, 2018\n\n\nTinashe M. Tapera\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog",
+    "objectID": "posts/legacy/2018-06-21-getting-around-to-rtweet.html",
+    "href": "posts/legacy/2018-06-21-getting-around-to-rtweet.html",
+    "title": "Remembering Mike Tapera Through Data Science & rtweet",
     "section": "",
-    "text": "Since this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
-  },
-  {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
-    "section": "",
-    "text": "This is a post with executable code."
-  },
-  {
-    "objectID": "posts/01_test-quarto/01_test-quarto.html",
-    "href": "posts/01_test-quarto/01_test-quarto.html",
-    "title": "Welcome To My Blog",
-    "section": "",
-    "text": "Since this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+    "text": "So recently my Twitter as been recently bloated by tweets left right and centre all to do with  and with his work on the rtweet package. The hype train has certainly left the station, but I thought it was about time I checked out what all the fuss was about before I became completely out of touch, so let’s get down to it!\n\n\nTweets In Moratorium\nMy father Michael Tapera passed away from a brain tumour in 2016; although he will be sorely missed, it’s fortunate that my father was famous for his written and spoken word. He was an excellent writer and orator in just about every way, and a few days ago my mom suggested to our family to check his Twitter page for the 30 or so tweets he posted in his latter years (his diagnosis was received in 2013, and so all of these tweets were during his ailment).Of course, being the data scientist I am, simply reading the tweets would not suffice: I decided to do some text mining on my dad’s Twitter profile to find out what his online presence was like in his latter days.\n\n\nSetting Up\nLoading rtweet is really easy through CRAN, and setting up the Twitter API connection is similarly simple; see this page for a how-to.\n\n#install.packages(\"rtweet\")\nlibrary(rtweet)\nlibrary(tidyverse) #include for tidy R programming\nlibrary(plotly) #graphing\nlibrary(lubridate) #working with date times\nlibrary(tidytext) #text mining stuff\nlibrary(wordcloud) #a wordcloud, duh\nlibrary(knitr) #tables\nlibrary(kableExtra)\n\nNow that we’ve set up, we use rtweet’s handy functions to grab our data:\n\nauth_as(\"default\")\n\nReading auth from '/Users/tinashemtapera/Library/Preferences/org.R-project.R/R/\nrtweet/default.rds'\n\nSys.setenv(TZ=\"America_New_York\")\ntweets = get_timeline(c(\"MtaperaTapera\"))\n\nWarning in strptime(x, fmt, tz = \"GMT\"): unknown timezone 'America_New_York'\n\n\nWarning in strptime(x, format, tz = tz): unknown timezone 'America_New_York'\n\n\n\n\nAnalysis and Visualisation\nWe can plot a general visualisation of dad’s Twitter activity.\n\ntweets%>%\n  select(created_at)%>%\n  ts_plot(\"days\")+\n  theme_minimal()+\n  labs(title=\"Mike Tapera's Twitter Timeline\", y=\"Number of Tweets\", x = \"Date\")\n\nWarning in as.POSIXlt.POSIXct(x, tz = tz): unknown timezone 'America_New_York'\n\n\nWarning in format.POSIXlt(as.POSIXlt(x, tz), format, usetz, ...): unknown\ntimezone 'America_New_York'\n\n\nWarning in as.POSIXlt.POSIXct(x): unknown timezone 'America_New_York'\n\n\nWarning in format.POSIXlt(as.POSIXlt(x, tz), format, usetz, ...): unknown\ntimezone 'America_New_York'\n\n\n\n\n\nIt looks like dad probably started tweeting around the time of his operation, and took a hiatus probably around his first surgery. His activity probably picked up again once he was back on his feet.\nWe can also see what day of the week or hour of day was most popular for his Twitter activity:\n\ntweets%>%\n  select(created_at)%>%\n  mutate(hour_of_day = hour(created_at),\n         day_of_week = wday(created_at, label = TRUE),\n         day_or_night = ifelse(hour_of_day > 11, \"pm\", \"am\"))%>%\n  mutate(hour_of_day = ifelse(hour_of_day < 1, 12,\n                              ifelse(hour_of_day > 12, hour_of_day-12, hour_of_day)))%>%\n  count(hour_of_day, day_of_week, day_or_night)%>%\n  ggplot(aes(x=hour_of_day, y=n))+\n  geom_bar(aes(fill = day_or_night),stat=\"identity\")+\n  facet_wrap(~day_of_week)+\n  coord_polar(start=0.25)+\n  theme_minimal()+\n  scale_x_continuous(breaks = 1:12,minor_breaks = NULL)+\n  theme(axis.title.y=element_blank(),\n        axis.text.y=element_blank(),\n        axis.ticks.y=element_blank(),\n        axis.title.x=element_blank(),\n        legend.position = \"left\",\n        legend.title = element_blank())+\n  labs(title=\"\\\"Clock Plots\\\" of Mike Tapera's\\n Twitter Activity\")\n\nWarning in as.POSIXlt.POSIXct(x, tz): unknown timezone 'America_New_York'\n\n\nWarning in format.POSIXlt(as.POSIXlt(x, tz), format, usetz, ...): unknown\ntimezone 'America_New_York'\n\n\nWarning in as.POSIXlt.POSIXct(x, tz = tz(x)): unknown timezone\n'America_New_York'\n\n\n\n\n\nI call these clock plots — the length of the bar on the clock shows how many tweets dad sent during that hour of day, while the colour differentiates between AM or PM[1]. It’s interesting, though not unexpected, that dad used to tweet the most at 5AM on a Monday morning — members of the Tapera household are surely familiar with how dad used to get us up early to do Bible readings and devotions, or have some family time to encourage us. After my older brother and I left home, it’s not unusual that he started sharing his early morning/start of the week encouragements with the Twitterverse.\n\n\nWhat Did He Tweet About?\nOf course, it’d also be nice to get an overview of what dad used to Tweet about. We can do some simple text mining on his Twitter feed to find out, using the tidytext package.\n\n#create a dataframe to work with\ntext_df = data.frame(tweet = 1:nrow(tweets), date = date(tweets$created_at), text = tweets$text, stringsAsFactors = FALSE)\n\nWarning in as.POSIXlt.POSIXct(x, tz = tz(x)): unknown timezone\n'America_New_York'\n\n#tokenise\ntidy_tweets = text_df%>%\n  unnest_tokens(word, text)\n\n#remove stop words (functional words with no contextual importance)\ndata(stop_words)\ntidy_tweets = tidy_tweets %>%\n  anti_join(stop_words)\n\nNow let’s visualise what words he used most in his Twitter:\n\ntidy_tweets%>%\n  count(word)%>%\n  filter(n>1)%>%\n  mutate(word = reorder(word, n)) %>%\n  ggplot(aes(word, n)) +\n  geom_col()+\n  coord_flip()+\n  theme_minimal()+\n  labs(title=\"Mike Tapera's Most Commonly\\nTweeted Words\")\n\n\n\n\nFor those who knew my dad, you can very clearly hear him mentioning a lot of these words quite often in formal conversation. My dad was not only a successful accountant, but he was also a pastor, family counselor, and public speaker. These words reflect those duties quite well.\n\n\nSentiment Analysis\nAnother interesting analysis is that of sentiment, which can tell us a general idea of the emotions within of a body of text. Thanks to the tidytext package, this is also relatively easy to do with dad’s tweets.\nThe NRC Lexicon is an extremely useful dataset in which the authors assigned a plethora of words to 1 (or more) of 8 fundamental human emotions: anger, fear, anticipation, trust, surprise, sadness, joy, and disgust. Using this lexicon, we can filter our Twitter tokens to find out which of these emotions dad tweeted about most (with some overlap, of course).\n\nnrc = get_sentiments(\"nrc\")\ntidy_tweets%>%\n  inner_join(nrc)%>%\n  filter(sentiment != \"negative\" & sentiment != \"positive\")%>%\n  count(sentiment, sort = TRUE)%>%\n  kable()%>%\n  kable_styling()\n\n\n\n \n  \n    sentiment \n    n \n  \n \n\n  \n    trust \n    21 \n  \n  \n    anticipation \n    20 \n  \n  \n    joy \n    20 \n  \n  \n    fear \n    12 \n  \n  \n    surprise \n    5 \n  \n  \n    anger \n    4 \n  \n  \n    sadness \n    4 \n  \n  \n    disgust \n    3 \n  \n\n\n\n\n\nWith some overlap, we can see that dad tweeted most with trust, anticipation, and joy words. Encouraging 😊, but some words can belong to different sentiment categories (e.g. “guard” is categorised under both fear, and trust). Instead, we can go with the positive/negative 5-scale score of the AFINN lexicon, to give us sentiment scores of each available word, and then average these scores for each tweet.\n\nafinn = get_sentiments(\"afinn\")\ntidy_tweets%>%\n  inner_join(afinn)%>%\n  group_by(tweet)%>%\n  mutate(score = value) %>%\n  mutate(sentiment = mean(score))%>%\n  select(-c(one_of(\"word\", \"score\")))%>%\n  distinct()%>%\n  ggplot(aes(x=tweet, y=sentiment))+\n  geom_bar(stat = \"identity\")+\n  theme_minimal()+\n  labs(title=\"Average Sentiment of Mike Tapera's\\nTweets Over Time\",\n       x = \"Tweet Number\",\n       y = \"Average Sentiment Score\")+\n  scale_x_continuous(limits = c(1,31), breaks = seq(0,30,5), minor_breaks = 1:31)\n\n\n\n\nIt’s great to see that on Twitter, dad was rarely negative and had positive things to say even towards the end of his life when facing the ominousness of brain cancer.\n\n\nObligatory Word Cloud\nNo Twitter text mining exercise is complete without a word cloud, although in my opinion they are often quite useless[2].\n\ntidy_tweets%>%\n  count(word)%>%\n  with(., (wordcloud(word, n, max.words = 100,min.freq = 2)))\n\n\n\n\nNULL\n\n\n\n\nConclusion\nA few small takeaways are that we’re reminded how driven dad was by early mornings and motivating others at the start of the week. We also got to see what words he was using commonly online as well as the general sentiment of his tweets over time.\nDad: Although it was a tragedy to lose you, especially before I could graduate and show you all the skills and expertise I developed in university, I know you were always proud of me and that you loved me and our family very much. This is the first and most important thing I wanted to do with my time after graduation, and I hope it’s befitting. We love you and miss you dad.\n\n\n[1] It’s important not to use polar coordinate plots in scientific settings, due to their hendency to be misperceived. See this source for more.\n\n\n[2] Wordclouds suck; see  this source for more."
   }
 ]

@@ -1,0 +1,213 @@
+---
+title: "Remembering Mike Tapera Through Data Science & rtweet"
+author: "Tinashe M. Tapera"
+date: '2018-06-21'
+# comments: no
+showcomments: yes
+showpagemeta: yes
+# code_folding: show
+slug: getting-around-to-rtweet
+tags:
+- rtweet
+- twitter
+categories:
+- R
+- machine learning
+- data science
+---
+
+So recently my Twitter as been bloated by tweets left, right, and centre all to do with <a href="https://twitter.com/kearneymw">Professor Mike Kearney</a> and his work on the `rtweet` package. The hype train has certainly left the station, but I thought it was about time I checked out what all the fuss was about before I became completely out of touch, so let's get down to it!<hr>
+
+# Tweets In Moratorium
+
+My father <a href="https://twitter.com/MtaperaTapera">Michael Tapera</a> passed away from a brain tumour in 2016; although he will be sorely missed, it's fortunate that my father was famous for his written and spoken word. He was an excellent writer and orator in just about every way, and a few days ago my mom suggested to our family to check his Twitter page for the 30 or so tweets he posted in his latter years (his diagnosis was received in 2013, and so all of these tweets were during his ailment).<br>Of course, being the data scientist I am, simply reading the tweets would not suffice: I decided to do some text mining on my dad's Twitter profile to find out what his online presence was like in his latter days.
+
+# Setting Up
+
+Loading `rtweet` is really easy through CRAN, and setting up the Twitter API connection is similarly simple; see <a href="http://rtweet.info/articles/auth.html">this page</a> for a how-to.
+```{r,warning=FALSE,message=FALSE}
+#install.packages("rtweet")
+library(rtweet)
+library(tidyverse) #include for tidy R programming
+library(plotly) #graphing
+library(lubridate) #working with date times
+library(tidytext) #text mining stuff
+library(wordcloud) #a wordcloud, duh
+library(knitr) #tables
+library(kableExtra)
+```
+
+Now that we've set up, we use `rtweet`'s handy functions to grab our data:
+```{r}
+auth_as("default")
+Sys.setenv(TZ="America_New_York")
+tweets = get_timeline(c("MtaperaTapera"))
+```
+
+# Analysis and Visualisation
+
+We can plot a general visualisation of dad's Twitter activity.
+```{r, message=FALSE}
+tweets%>%
+  select(created_at)%>%
+  ts_plot("days")+
+  theme_minimal()+
+  labs(title="Mike Tapera's Twitter Timeline", y="Number of Tweets", x = "Date")
+```
+It looks like dad probably started tweeting around the time of his operation, and took a hiatus probably around his first surgery. His activity probably picked up again once he was back on his feet.
+
+We can also see what day of the week or hour of day was most popular for his Twitter activity:
+
+```{r}
+tweets%>%
+  select(created_at)%>%
+  mutate(hour_of_day = hour(created_at),
+         day_of_week = wday(created_at, label = TRUE),
+         day_or_night = ifelse(hour_of_day > 11, "pm", "am"))%>%
+  mutate(hour_of_day = ifelse(hour_of_day < 1, 12,
+                              ifelse(hour_of_day > 12, hour_of_day-12, hour_of_day)))%>%
+  count(hour_of_day, day_of_week, day_or_night)%>%
+  ggplot(aes(x=hour_of_day, y=n))+
+  geom_bar(aes(fill = day_or_night),stat="identity")+
+  facet_wrap(~day_of_week)+
+  coord_polar(start=0.25)+
+  theme_minimal()+
+  scale_x_continuous(breaks = 1:12,minor_breaks = NULL)+
+  theme(axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank(),
+        axis.title.x=element_blank(),
+        legend.position = "left",
+        legend.title = element_blank())+
+  labs(title="\"Clock Plots\" of Mike Tapera's\n Twitter Activity")
+```
+
+I call these <strong>clock plots</strong> — the length of the bar on the clock shows how many tweets dad sent during that hour of day, while the colour differentiates between AM or PM[^1]. It's interesting, though not unexpected, that dad used to tweet the most at <strong>5AM on a Monday morning</strong> — members of the Tapera household are surely familiar with how dad used to get us up early to do Bible readings and devotions, or have some family time to encourage us. After my older brother and I left home, it's not unusual that he started sharing his early morning/start of the week encouragements with the Twitterverse.
+
+[^1]: It's important not to use polar coordinate plots in scientific settings, due to their tendency to be misperceived. See <a href="https://eagereyes.org/blog/2016/an-illustrated-tour-of-the-pie-chart-study-results">this source</a> for more.</p>
+
+# What Did He Tweet About?
+
+Of course, it'd also be nice to get an overview of what dad used to Tweet about. We can do some simple text mining on his Twitter feed to find out, using the <a href="https://www.tidytextmining.com/tidytext.html">`tidytext`</a> package.
+
+```{r, message=FALSE}
+#create a dataframe to work with
+text_df = data.frame(tweet = 1:nrow(tweets), date = date(tweets$created_at), text = tweets$text, stringsAsFactors = FALSE)
+
+#tokenise
+tidy_tweets = text_df%>%
+  unnest_tokens(word, text)
+
+#remove stop words (functional words with no contextual importance)
+data(stop_words)
+tidy_tweets = tidy_tweets %>%
+  anti_join(stop_words)
+```
+
+Now let's visualise what words he used most in his Twitter:
+```{r}
+tidy_tweets%>%
+  count(word)%>%
+  filter(n>1)%>%
+  mutate(word = reorder(word, n)) %>%
+  ggplot(aes(word, n)) +
+  geom_col()+
+  coord_flip()+
+  theme_minimal()+
+  labs(title="Mike Tapera's Most Commonly\nTweeted Words")
+```
+For those who knew my dad, you can very clearly hear him mentioning a lot of these words quite often in formal conversation. My dad was not only a successful accountant, but he was also a pastor, family counselor, and public speaker. These words reflect those duties quite well.
+
+# Sentiment Analysis
+
+Another interesting analysis is that of <strong>sentiment</strong>, which can tell us a general idea of the <strong>emotions within of a body of text</strong>. Thanks to the `tidytext` package, this is also relatively easy to do with dad's tweets.
+
+The <a href="http://saifmohammad.com/WebPages/NRC-Emotion-Lexicon.htm">NRC Lexicon</a> is an extremely useful dataset in which the authors assigned a plethora of words to 1 (or more) of 8 fundamental human emotions: <i>anger, fear, anticipation, trust, surprise, sadness, joy,</i> and <i>disgust</i>. Using this lexicon, we can filter our Twitter tokens to find out which of these emotions dad tweeted about most (with some overlap, of course).
+
+```{r, eval=FALSE, include=FALSE}
+# a fix for missing path to the resource
+# textdata::lexicon_nrc(return_path=T)
+folder_path <- textdata::lexicon_nrc(return_path=T)
+system(paste0("mkdir ", file.path(folder_path, "NRC-Emotion-Lexicon/NRC-Emotion-Lexicon-v0.92")))
+system(paste0("cp ", file.path(folder_path, "NRC-Emotion-Lexicon/NRC-Emotion-Lexicon-Wordlevel-v0.92.txt"), " ", file.path(folder_path, "NRC-Emotion-Lexicon/NRC-Emotion-Lexicon-v0.92/")))
+
+# now we have to process the nrc data using a slightly modified version of the subfunction detailed in the original function from the textdata-package: https://github.com/EmilHvitfeldt/textdata/blob/main/R/lexicon_nrc.R
+name_path <- file.path(folder_path, "NRCWordEmotion.rds")
+# slightly modified version:
+process_nrc <- function(folder_path, name_path) {
+  library(readr)
+  library(tibble)
+  data <- read_tsv(file.path(
+    folder_path,
+    "NRC-Emotion-Lexicon/NRC-Emotion-Lexicon-v0.92/NRC-Emotion-Lexicon-Wordlevel-v0.92.txt"
+  ),
+  col_names = FALSE, col_types = cols(
+    X1 = col_character(),
+    X2 = col_character(),
+    X3 = col_double()
+  )
+  )
+  data <- data[data$X3 == 1, ]
+  data <- tibble(
+    word = data$X1,
+    sentiment = data$X2
+  )
+  write_rds(data, name_path)
+}
+
+process_nrc(folder_path, name_path) # process
+
+# check if you now have access to the lexicon
+#get_sentiments("nrc") 
+```
+
+
+```{r, message=FALSE}
+nrc = get_sentiments("nrc")
+tidy_tweets%>%
+  inner_join(nrc)%>%
+  filter(sentiment != "negative" & sentiment != "positive")%>%
+  count(sentiment, sort = TRUE)%>%
+  kable()%>%
+  kable_styling()
+```
+
+With some overlap, we can see that dad tweeted most with trust, anticipation, and joy words. Encouraging 😊, but some words can belong to different sentiment categories (e.g. "guard" is categorised under both <i>fear</i>, and <i>trust</i>). Instead, we can go with the positive/negative 5-scale score of the <a href="http://www2.imm.dtu.dk/pubdb/views/publication_details.php?id=6010">AFINN lexicon</a>, to give us sentiment scores of each available word, and then average these scores for each tweet.
+
+```{r, message=FALSE}
+afinn = get_sentiments("afinn")
+tidy_tweets%>%
+  inner_join(afinn)%>%
+  group_by(tweet)%>%
+  mutate(score = value) %>%
+  mutate(sentiment = mean(score))%>%
+  select(-c(one_of("word", "score")))%>%
+  distinct()%>%
+  ggplot(aes(x=tweet, y=sentiment))+
+  geom_bar(stat = "identity")+
+  theme_minimal()+
+  labs(title="Average Sentiment of Mike Tapera's\nTweets Over Time",
+       x = "Tweet Number",
+       y = "Average Sentiment Score")+
+  scale_x_continuous(limits = c(1,31), breaks = seq(0,30,5), minor_breaks = 1:31)
+```
+
+It's great to see that on Twitter, dad was rarely negative and had positive things to say even towards the end of his life when facing the ominousness of brain cancer.
+
+# Obligatory Word Cloud
+
+No Twitter text mining exercise is complete without a <strong>word cloud</strong>, although in my opinion they are often quite useless[^2].
+
+[^2]: Wordclouds suck; see <a href="https://www.visioncritical.com/pros-and-cons-word-clouds-visualizations/"> this source</a> for more.
+
+```{r, message=FALSE, warning=FALSE}
+tidy_tweets%>%
+  count(word)%>%
+  with(., (wordcloud(word, n, max.words = 100,min.freq = 2)))
+```
+
+# Conclusion
+
+A few small takeaways are that we're reminded how driven dad was by early mornings and motivating others at the start of the week. We also got to see what words he was using commonly online as well as the general sentiment of his tweets over time.
+
+Dad: Although it was a tragedy to lose you, especially before I could graduate and show you all the skills and expertise I developed in university, I know you were always proud of me and that you loved me and our family very much. This is the first and most important thing I wanted to do with my time after graduation, and I hope it's befitting. We love you and miss you dad.

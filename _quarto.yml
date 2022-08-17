@@ -2,7 +2,7 @@ project:
   type: website
 
 website:
-  title: "Home"
+  title: "Tinashe the Data Scientist"
   site-url: "tinashemtapera.com"
   description: "Tinashe M. Tapera's official website"
   open-graph: true

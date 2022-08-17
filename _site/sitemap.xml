@@ -1,47 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>tinashemtapera.com/foo.html</loc>
-    <lastmod>2022-08-08T04:19:07.446Z</lastmod>
-  </url>
-  <url>
-    <loc>tinashemtapera.com/cv.html</loc>
-    <lastmod>2022-08-08T04:19:07.856Z</lastmod>
-  </url>
-  <url>
-    <loc>tinashemtapera.com/blog.html</loc>
-    <lastmod>2022-08-13T16:21:51.128Z</lastmod>
-  </url>
-  <url>
-    <loc>tinashemtapera.com/about.html</loc>
-    <lastmod>2022-08-08T04:20:03.286Z</lastmod>
+    <loc>tinashemtapera.com/posts/legacy/2018-06-21-legacy-blog-posts.html</loc>
+    <lastmod>2022-08-17T22:36:01.311Z</lastmod>
   </url>
   <url>
     <loc>tinashemtapera.com/index.html</loc>
-    <lastmod>2022-08-13T15:50:27.413Z</lastmod>
+    <lastmod>2022-08-17T23:45:51.548Z</lastmod>
   </url>
   <url>
-    <loc>tinashemtapera.com/posts/legacy/2018-06-21-legacy-blog-posts.html</loc>
-    <lastmod>2022-08-13T15:44:37.600Z</lastmod>
+    <loc>tinashemtapera.com/about.html</loc>
+    <lastmod>2022-08-17T22:12:05.765Z</lastmod>
   </url>
   <url>
-    <loc>tinashemtapera.com/posts/legacy/legacy_archive.html</loc>
-    <lastmod>2022-08-13T15:47:24.509Z</lastmod>
+    <loc>tinashemtapera.com/cv.html</loc>
+    <lastmod>2022-08-17T22:12:06.722Z</lastmod>
+  </url>
+  <url>
+    <loc>tinashemtapera.com/blog.html</loc>
+    <lastmod>2022-08-17T23:40:43.978Z</lastmod>
   </url>
   <url>
     <loc>tinashemtapera.com/posts/legacy/legacy-series.html</loc>
-    <lastmod>2022-08-13T16:22:00.793Z</lastmod>
+    <lastmod>2022-08-17T23:44:18.590Z</lastmod>
   </url>
   <url>
-    <loc>tinashemtapera.com/posts/welcome/index.html</loc>
-    <lastmod>2022-08-13T16:08:26.048Z</lastmod>
-  </url>
-  <url>
-    <loc>tinashemtapera.com/posts/post-with-code/index.html</loc>
-    <lastmod>2022-08-13T16:08:28.558Z</lastmod>
-  </url>
-  <url>
-    <loc>tinashemtapera.com/posts/01_test-quarto/01_test-quarto.html</loc>
-    <lastmod>2022-08-13T16:21:50.756Z</lastmod>
+    <loc>tinashemtapera.com/posts/legacy/2018-06-21-getting-around-to-rtweet.html</loc>
+    <lastmod>2022-08-17T23:38:17.336Z</lastmod>
   </url>
 </urlset>

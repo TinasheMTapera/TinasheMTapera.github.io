@@ -3,15 +3,15 @@
     "listing": "/blog.html",
     "items": [
       "/posts/legacy/legacy-series.html",
-      "/posts/01_test-quarto/01_test-quarto.html"
+      "/posts/01_test-quarto/01_test-quarto.html",
+      "/posts/legacy/2018-06-21-getting-around-to-rtweet.html"
     ]
   },
   {
-    "listing": "/posts/legacy/legacy_archive.html",
-    "items": []
-  },
-  {
     "listing": "/posts/legacy/legacy-series.html",
-    "items": []
+    "items": [
+      "/posts/legacy/2018-06-21-legacy-blog-posts.html",
+      "/posts/legacy/2018-06-21-getting-around-to-rtweet.html"
+    ]
   }
 ]
