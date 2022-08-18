@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Tinashe M. Tapera">
+<meta name="dcterms.date" content="2022-03-12">
+
+<title>Tinashe the Data Scientist - Automated CV/Resume with R, CircleCI, &amp; Google Sheets</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Tinashe the Data Scientist - Automated CV/Resume with R, CircleCI, &amp; Google Sheets">
+<meta property="og:description" content="A couple of years ago I was in a corporate tool limbo as I’d just left Drexel University, so my license with Microsoft Word had expired.">
+<meta property="og:site-name" content="Tinashe the Data Scientist">
+<meta name="twitter:title" content="Tinashe the Data Scientist - Automated CV/Resume with R, CircleCI, &amp; Google Sheets">
+<meta name="twitter:description" content="A couple of years ago I was in a corporate tool limbo as I’d just left Drexel University, so my license with Microsoft Word had expired.">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Tinashe the Data Scientist</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">About</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../news.html">News</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../cv.html">CV</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html">Blog</a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Automated CV/Resume with R, CircleCI, &amp; Google Sheets</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">data science</div>
+                <div class="quarto-category">rmarkdown</div>
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">continuous integration</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Tinashe M. Tapera </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">March 12, 2022</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<center>
+<b>I hate updating my resume.</b>
+</center>
+<p>A couple of years ago I was in a corporate tool limbo as I’d just left Drexel University, so my license with Microsoft Word had expired. In addition to having the most difficult time collaborating with MSW users on a paper, I also didn’t have a way to efficiently edit the resumes and CVs I’d developed. I tried opening files in <a href="https://www.libreoffice.org/">Libre Office</a>, which is a great freeware option for the office suite of tools, but frankly didn’t give seamless transition between features in MS.</p>
+<section id="why-ditch-ms-word-for-your-cv" class="level1">
+<h1>Why Ditch MS Word for Your CV?</h1>
+<p>Don’t get me wrong – using MS products is all well and good when that’s pretty much all you do. I once got into an argument with a law graduate friend who made a very convincing point about how templates are easily transferred, signatures tracked and authenticated, and multiple versions of documents in print composition can be compared in their field. But as someone who writes code, I want out of any scenario where I can’t just edit plain text for most of the work. This is part of a philosophy of the difference between a plain text editor and a word processor. A word processor workflow does a lot of work for you by having a point-and-click GUI that formats and automates the styling of a document, whereas a plain text editor leaves you to only edit the content – no frills, no special effects, just content. Then, once you’re happy with the <em>content</em> of your document, you can work on the <em>typesetting</em>, or how it will look on a page.</p>
+<p>This separation of content creation and typesetting is, in my opinion, a far more productive workflow that should be adopted by everyone. In fact, if you’ve ever written a letter in MS Word, you probably already have adopted this workflow in the form of <em>templates</em>. For a better explanation of why you might want to separate content creation and typesetting, see <a href="https://richardlent.github.io/post/the-plain-text-workflow/">this blog post</a>. But there’s more to appreciate here when you are someone who writes code for a living. When you create documents with code you get all the advantages that come with coding too, most importantly: version control, continuous integration, and formatting management.</p>
+<section id="version-control-with-ms-word-sucks" class="level2">
+<h2 class="anchored" data-anchor-id="version-control-with-ms-word-sucks">Version Control with MS Word Sucks</h2>
+<p>If you’ve ever created a document and named it <code>myreport_ProfessorXfeedback_version4_March12_FINAL.docx</code>, you already know what I mean.</p>
+<p><img src="http://www.phdcomics.com/comics/archive/phd101212s.gif" alt="version control sucks"></p>
+<p>Credit: <a href="https://PhDcomics.com">PhDcomics.com</a></p>
+<p>Using plain text gives you the ability to version control files with Git+Github and similar tools, which gives you clearer commit history, change integration, etc. Now, admittedly, MS Word claims to have a version control system but I’ve never had much success with that, being totally honest, especially in comparison to Git-based workflows.</p>
+</section>
+<section id="formatting" class="level2">
+<h2 class="anchored" data-anchor-id="formatting">Formatting</h2>
+<p>In addition to version control sucking in MS word, managing reference format with something like <code>bibtex</code> also sucks; managing special characters from <code>latex</code> is a huge pain that isn’t handled well by MSW either. Again, <em>plain text</em> let’s you see things as you generate them, and worry about what they look like on a page later. Not to mention… tables 😤</p>
+
+<iframe id="reddit-embed" src="https://www.redditmedia.com/r/mildlyinfuriating/comments/i4r2ox/when_word_refuses_to_align_tables/?ref_source=embed&amp;ref=share&amp;embed=true" sandbox="allow-scripts allow-same-origin allow-popups" style="border: none;" height="420" width="640" scrolling="no">
+</iframe>
+<p>Once again, you don’t have to worry about this formatting nonsense until you’re ready to “publish” your work, and when you are, you have the option to choose from a variety of formats that your content just gets dumped into. <del>This website, for example,</del><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> is built on the <a href="https://github.com/kaapiandcode/hugo-goa">Goa template</a> from the <a href="https://gohugo.io/">Hugo web framework</a>. I just generate content in any plain text editor, and drop it into the framework that renders all the fancy bits for me. Speaking of which…</p>
+</section>
+<section id="continuous-integration" class="level2">
+<h2 class="anchored" data-anchor-id="continuous-integration">Continuous Integration</h2>
+<p>The best part of this project was making something that could be regenerated any time I needed it to, by an automated service. As opposed to having to open the Word document myself, make edits, save it, and export it, I have set up a system that does all of that for me at the push of a button. The only thing <em>I</em> need to do to make it work, is to edit the data that goes <em>into</em> the document. I do this with google sheets, but any data source can be used. This means when I earn a new title, publication, or role, I just open up google sheets, add a line to the doc with the details, then hit “Rerun” on the CircleCI continuous intergation service.</p>
+<p>That’s it; that’s really it. No aligning tables, no content formatting, no shoddy print previews, and the output is accessible from CircleCI any time I need it.</p>
+</section>
+</section>
+<section id="the-workflow" class="level1">
+<h1>The Workflow</h1>
+<p>The downside to this approach should be apparent: <strong>you have to set it up first.</strong> This entire project took me about 2 or 3 nights on-and-off, but wasn’t particularly challenging. Fortunately, a lot of folks have already accomplished this and it was easy to follow their instructions, clone their code, and adjust it for my own usage. Hence, I’m not going to explain how to do it in this post – just demonstrate the benefits of doing it. The <a href="https://www.google.com/search?q=curriculum+vitae+in+Rmarkdown&amp;sxsrf=APq-WBt8gbmUdcI3cS0kq3tkcSnGuOmEiw%3A1647108030894&amp;ei=vt8sYsySNoyZptQPib6wsAc&amp;ved=0ahUKEwjM6dnIk8H2AhWMjIkEHQkfDHYQ4dUDCA4&amp;uact=5&amp;oq=curriculum+vitae+in+Rmarkdown&amp;gs_lcp=Cgdnd3Mtd2l6EAMyBggAEBYQHjoHCAAQRxCwAzoHCAAQsAMQQzoECCMQJzoKCC4QxwEQrwEQJzoECAAQQzoFCAAQkQI6BQgAEIAEOg0ILhCxAxDHARCjAhAKOg4ILhCABBCxAxDHARCvAToOCC4QgAQQsQMQxwEQ0QM6BwgAEMkDEEM6CAgAEIAEELEDOgcIABCxAxBDOggIABCxAxCRAjoLCAAQgAQQsQMQgwE6CwguEIAEEMcBEK8BOgoIABCABBCHAhAUOgQIABANOggIABAIEA0QHjoKCAAQCBANEAoQHkoECEEYAEoECEYYAFDTAlieN2CBOWgBcAF4AIABwQGIAf8MkgEEMTYuNJgBAKABAcgBCsABAQ&amp;sclient=gws-wiz">Google search results</a> for this task are full of options, but I especially benefited the most from <a href="https://github.com/mleary/resume">Matt Leary’s resume template</a> and <a href="https://github.com/seabbs/cv">Sam Abbott’s CV template</a>. Ultimately, the workflow looks like this:</p>
+<p><img src="cv_wf.png" alt="" style="width:700px;height:450px;"></p>
+<section id="input-data-from-google-sheets" class="level2">
+<h2 class="anchored" data-anchor-id="input-data-from-google-sheets">Input data from Google sheets</h2>
+<p>This is where it all starts; I found it great to organise it in a <a href="https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html"><em>tidy</em> format</a> (each data point is a value, each column is a variable, each row is an observation). Furthermore, I can separate the data into different sheets for different CV categories.</p>
+<p><img src="cv_inputs.png" alt="" style="width:700px;height:450px;"></p>
+</section>
+<section id="read-in-data-in-.rmd" class="level2">
+<h2 class="anchored" data-anchor-id="read-in-data-in-.rmd">Read in Data In .Rmd</h2>
+<p>I wrote a <a href="https://github.com/TinasheMTapera/ReproducibleResumeCV/blob/main/run.R">script</a> in R that sets up and calls the Rmarkdown scripts, with configured parameters for both the long form CV and the one page resume. The RMarkdowns read in the data and parse it into a tidy format ready for the <a href="https://pkg.mitchelloharawild.com/vitae/"><code>vitae</code></a> and <a href="https://pagedown.rbind.io/"><code>pagedown</code></a> packages – these do most of the hard work.</p>
+</section>
+<section id="knit-with-css-latex" class="level2">
+<h2 class="anchored" data-anchor-id="knit-with-css-latex">Knit with <code>CSS</code> + <code>Latex</code></h2>
+<p>The packages for R CVs and resumes come with CSS definition files; I <a href="https://github.com/TinasheMTapera/ReproducibleResumeCV/commit/3a19029f0904f81c2cfa070fe6e4d9aec91f96af">tinkered</a> with these minimally, but I’m considering asking a CSS professional to make me a unique one. Once they’re ready to render, <code>knitr</code> takes it away, with some help from <code>latex</code>.</p>
+</section>
+<section id="circle-ci" class="level2">
+<h2 class="anchored" data-anchor-id="circle-ci">Circle CI</h2>
+<p>Lastly, I created a <a href="https://github.com/TinasheMTapera/ReproducibleResumeCV/blob/main/Dockerfile">Dockerfile</a> that runs the above procedure on CircleCI. Once you upload the project to Github, and link that to Circle, then any time you add a commit to Github, the procedure runs as a job. You can configure how CircleCI runs in the <code>config.yml</code>, including <em>storing the output files!</em> <a href="https://github.com/TinasheMTapera/ReproducibleResumeCV/blob/main/.circleci/config.yml#L41-L50">These lines</a> demonstrate how Circle knows to store outputs.</p>
+</section>
+</section>
+<section id="running-it" class="level1">
+<h1>Running It</h1>
+<p>Now, whenever I need a new copy of my CV or resume, I just hop on to Google Sheets, update a new line of info, head over to Circle CI and hit “Re-run workflow”.</p>
+<p>Like magic, <a href="http://tinashemtapera.com/cv/tinashemtapera_cv.pdf">brand new CV</a>!</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1" role="doc-endnote"><p>The old version of this site<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Tinashe M. Tapera">
-<meta name="dcterms.date" content="2018-06-21">
+<meta name="dcterms.date" content="2018-09-22">
 
-<title>Tinashe the Data Scientist - Legacy Blog Posts</title>
+<title>Tinashe the Data Scientist - EncourageMe: A Shiny App for Encouragement</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,11 +58,11 @@ ul.task-list{list-style: none;}
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Tinashe the Data Scientist - Legacy Blog Posts">
-<meta property="og:description" content="Here’s a list of the best content I posted on my old blog hosted on Quora. Some are better than others, but I hope collectively they demonstrate some transparency and my growth over the years!">
+<meta property="og:title" content="Tinashe the Data Scientist - EncourageMe: A Shiny App for Encouragement">
+<meta property="og:description" content="During my time at Drexel, I volunteered on the University’s Peer Counseling Helpline.">
 <meta property="og:site-name" content="Tinashe the Data Scientist">
-<meta name="twitter:title" content="Tinashe the Data Scientist - Legacy Blog Posts">
-<meta name="twitter:description" content="Here’s a list of the best content I posted on my old blog hosted on Quora. Some are better than others, but I hope collectively they demonstrate some transparency and my growth over the years!">
+<meta name="twitter:title" content="Tinashe the Data Scientist - EncourageMe: A Shiny App for Encouragement">
+<meta name="twitter:description" content="During my time at Drexel, I volunteered on the University’s Peer Counseling Helpline.">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -102,13 +102,13 @@ ul.task-list{list-style: none;}
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Legacy Blog Posts</h1>
+      <h1 class="title">EncourageMe: A Shiny App for Encouragement</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">data science</div>
                 <div class="quarto-category">R</div>
-                <div class="quarto-category">rmarkdown</div>
-                <div class="quarto-category">machine learning</div>
-                <div class="quarto-category">old stuff</div>
+                <div class="quarto-category">data science</div>
+                <div class="quarto-category">psychology</div>
+                <div class="quarto-category">RShiny</div>
+                <div class="quarto-category">web programming</div>
               </div>
                   </div>
   </div>
@@ -126,7 +126,7 @@ ul.task-list{list-style: none;}
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">June 21, 2018</p>
+        <p class="date">September 22, 2018</p>
       </div>
     </div>
       
@@ -143,27 +143,37 @@ ul.task-list{list-style: none;}
 
 
 
-<p>Here’s a list of the best content I posted on my old blog hosted on <a href="https://dataintensive.quora.com/">Quora</a>. Some are better than others, but I hope collectively they demonstrate some transparency and my growth over the years!</p>
+<p>During my time at Drexel, I volunteered on the University’s <a href="https://drexel.edu/counselingandhealth/counseling-center/peer-counseling/">Peer Counseling Helpline</a>. Being a peer counselor teaches you a multitude of important conversational and relational skills in what’s called <i>active listening</i>, and one of the most effective ones is <i>encouragement</i>. As you can guess, an encouragement in active listening involves conveying to the caller that their efforts, whatever they may be, are not in vain. Used appropriately, it can be a powerful tool for helping callers process their problems.</p>
+<p>Ironically, I only learned exactly how effective they could be when someone was kind enough to use them with me. Earlier this year, a close friend<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> went through the trouble of handwriting a bunch of encouragements for me when I was struggling to keep up with thesis work, research, classes, depression/anxiety, job search, and everything else that was happening in life at the time. After pulling myself out of that difficult period, I decided to return the favour by building an RShiny app that she (or anybody else) could use if they ever needed some encouragement.</p>
+<p>The app is hosted by R Studio at <a href="https://tinashemtapera.shinyapps.io/encouragemeshiny/">shinyapps.io</a>, but I’ve embedded it below:</p>
+<script type="text/javascript" src="iframeResizer.min.js"></script>
+<style>
+  iframe {
+    min-width: 100%;
+  }
+</style>
+<iframe id="myIframe" src="https://tinashemtapera.shinyapps.io/encouragemeshiny" scrolling="yes" frameborder="no" height="500px">
+</iframe>
+<script>
+  iFrameResize({
+    heightCalculationMethod: 'taggedElement'
+  });
+</script>
+<section id="tech-specs" class="level3">
+<h3 class="anchored" data-anchor-id="tech-specs">Tech Specs</h3>
+<p>The app itself is very simple: on launch, it reads in a file of quotes I hand picked, and simply samples one every time you hit the action button.</p>
+<p>Web programming with RShiny gets more and more intersting every time you do it. I highly recommend it to anybody who has experience with R and wants to grow. RShiny allows you to write all of your basic application/dashboard functionality in R, and then when you want to spice it up, you can get your hands dirty (slowly) with HTML and CSS pretty seamlessly. In this app, I made aesthetic modifications (like the fonts and footer), but with web programming your only limitations are your imagination, and determination to make it work! You can examine the code on <a href="https://github.com/TinasheMTapera/EncourageMeShiny">Github</a>.</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
 <ol>
-<li>
-That time I proposed that You’re Probably Already a Data Scientist. <a href="http://qr.ae/TUp51C">[link]</a>
-</li>
-<li>
-That time I did a fellowship with the Statistical And Mathematical Sciences Institute at NC State. <a href="http://qr.ae/TUp51j">[link]</a>
-</li>
-<li>
-That time I did analysis, visualisation, and topic modeling on the Gmail archive of Drexel University’s Peer Counseling Helpline. <a href="http://qr.ae/TbZEkm">[link]</a>
-</li>
-<li>
-That time I interned at Salesforce. <a href="http://qr.ae/TUp5TU">[link]</a>
-</li>
-<li>
-That time I took it a step further and built a dashboard app for the Peer Counseling Helpline to do data science themselves. <a href="http://qr.ae/TUp5TP">[link]</a>
-</li>
-
-
-
-</ol></main> <!-- /main -->
+<li id="fn1" role="doc-endnote"><p>This “friend” is now my wife. Go figure!<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>tinashemtapera.com/posts/legacy/2018-06-21-legacy-blog-posts.html</loc>
-    <lastmod>2022-08-17T22:36:01.311Z</lastmod>
+    <lastmod>2022-08-17T23:59:50.543Z</lastmod>
   </url>
   <url>
     <loc>tinashemtapera.com/index.html</loc>
-    <lastmod>2022-08-17T23:45:51.548Z</lastmod>
+    <lastmod>2022-08-17T23:52:55.927Z</lastmod>
   </url>
   <url>
     <loc>tinashemtapera.com/about.html</loc>
@@ -18,14 +18,34 @@
   </url>
   <url>
     <loc>tinashemtapera.com/blog.html</loc>
-    <lastmod>2022-08-17T23:40:43.978Z</lastmod>
+    <lastmod>2022-08-17T23:53:27.718Z</lastmod>
   </url>
   <url>
     <loc>tinashemtapera.com/posts/legacy/legacy-series.html</loc>
-    <lastmod>2022-08-17T23:44:18.590Z</lastmod>
+    <lastmod>2022-08-17T23:54:30.529Z</lastmod>
   </url>
   <url>
     <loc>tinashemtapera.com/posts/legacy/2018-06-21-getting-around-to-rtweet.html</loc>
     <lastmod>2022-08-17T23:38:17.336Z</lastmod>
+  </url>
+  <url>
+    <loc>tinashemtapera.com/posts/legacy/2018-09-22-encourageme-a-shiny-app-for-encouragements.html</loc>
+    <lastmod>2022-08-18T00:07:33.511Z</lastmod>
+  </url>
+  <url>
+    <loc>tinashemtapera.com/posts/legacy/2018-10-23-data-tip-processing-checkbox-factors.html</loc>
+    <lastmod>2022-08-18T05:53:54.402Z</lastmod>
+  </url>
+  <url>
+    <loc>tinashemtapera.com/posts/legacy/2018-12-15-dplyr-crash-course.html</loc>
+    <lastmod>2022-08-18T06:01:20.295Z</lastmod>
+  </url>
+  <url>
+    <loc>tinashemtapera.com/posts/legacy/2019-01-17-data-tip-assignment-with-the-t-pipe.html</loc>
+    <lastmod>2022-08-18T06:10:42.202Z</lastmod>
+  </url>
+  <url>
+    <loc>tinashemtapera.com/posts/legacy/2022-03-12-automated-cv-resume-with-r-circleci-google-sheets.html</loc>
+    <lastmod>2022-08-18T06:20:20.257Z</lastmod>
   </url>
 </urlset>
