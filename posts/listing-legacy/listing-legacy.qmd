@@ -1,10 +1,11 @@
 ---
-title: "Series: Legacy Posts"
-listing: default
-  # contents: posts/legacy
-    # - "legacy/*.md"
+title: "Legacy Posts"
+listing:
+  contents: 
+    - "*.Rmd"
+    - "*.qmd"
   # sort: "date desc"
-  # type: default
+  type: grid
   # categories: false
   # sort-ui: false
   # filter-ui: false
@@ -13,4 +14,4 @@ listing: default
 # title-block-banner: true
 ---
 
-Here you can find older posts from my old website.
+Here you can find archived older posts from my old website.

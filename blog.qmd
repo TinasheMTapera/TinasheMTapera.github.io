@@ -1,7 +1,10 @@
 ---
 title: "Tinashe M. Tapera's Blog"
 listing:
-  contents: posts/**/*.qmd
+  contents: 
+    - "posts/**/*.qmd"
+    - "posts/**/*.md"
+  
   sort: "date desc"
   type: default
   categories: true
@@ -23,8 +26,5 @@ some content
 
 ----------------
 
-#### [Legacy Posts](posts/legacy/legacy-series.html)
-
-Here are my legacy posts.
 
 

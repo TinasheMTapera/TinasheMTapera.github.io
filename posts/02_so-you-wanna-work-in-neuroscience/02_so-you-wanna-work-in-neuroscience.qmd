@@ -1,0 +1,212 @@
+---
+title: "So You Wanna Get Into Neuroscience...?"
+subtitle: "Lessons Learned From 4 Years As a Staff Scientist in a Neuroimaging Lab (Guided by The I.T. Crowd)"
+author: "Tinashe M. Tapera"
+date: "2022-08-20"
+image: /assets/img/it_crowd.gif
+---
+
+## Introduction
+
+After 4 eventful years, I left my position as
+Senior Neuroimaging Data Analyst at my lab, [PennLINC](https://pennlinc.io), in August of 2022.
+And I'll be honest — I didn't know very much about
+neuroimaging when I began. I felt very much like Jen in the I.T.
+Crowd, having joined a circle of passionate geeks who could
+smell my impostor syndrome from a mile away.
+
+<div style='position:relative'><iframe src='https://gfycat.com/ifr/FamousGrandioseAtlanticblackgoby' frameborder='0' scrolling='no' width='100%' height='100%' style='position:absolute;top:0;left:0' allowfullscreen></iframe></div><p> <a href="https://gfycat.com/famousgrandioseatlanticblackgoby">via Gfycat</a></p>
+
+And while I'm shifting _away_ from neuroscience itself,
+I can confidently say I am proud to have had the opportunity to
+work in it. Neuroscience is an exciting, active, and rewarding
+field that is growing at lightning speed. Alongside the rise of
+data science as the "sexiest job of the 21st century"^[[Not gonna lie, this article got me into data science](https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century)], 
+neuroscience has established itself as one of the
+flagship fields for data science-type work. A cohort of even a few
+dozen participants in a neuroscience experiment can generate hundreds of gigabytes of functional
+imaging data. The math, statistics, and machine learning methods
+are novel and complex, and being improved upon every day. And the
+cross-disciplinary nature means you can cater your research
+interests to include anything from cognitive science and
+philosophy of mind, to optogenetics and biomechanics. All 
+in all, neuroscience is a field ripe for the budding data
+scientist of any kind, as a PhD candidate or staff scientist.
+
+Sadly, though, neuroscience does have a critical flaw: **it suffers from the ivory tower syndrome of academia.** That is to say, there
+are many talented and intelligent people _within_ neuroscience, 
+but a lot of the skills required to _get started_ in neuroscience
+are not talked about nearly as much as they could be. Furthermore,
+my lived experience is testament to the fact that a lot of these
+skills are far more accessible than we believe, and one does not
+need a PhD to get started on a neuroscience journey.
+While I believe that this is an epistemological shortcoming, I also
+believe it can be remedied with a little bit more transparency
+and openness. So, in this post I'm going to outline **4 technical skills that neuroscientists use every day,** and hopefully convince you that **you don't need to be a PhD student to get started in neuroscience**... with the help of I.T. Crowd gifs. 
+
+## 4 Technical Skills Neuroscientists Use Every Day
+
+### 1. The Command Line
+
+If you're going to work with big data, you're going to have to
+learn to navigate a computer _without_ a mouse. The reason for
+this is simple — for that much data, most institutions rely on
+Linux-based compute clusters, not desktops and laptops. 
+They store, process, and analyse their data using tools that would
+be infinitely harder to use if they tried to develop friendly
+GUIs for them. In fact, at PennLINC, we actively try to veer
+students and staff _away_ from programs that claim to provide
+a fun GUI for our work, because the GUI adds extra inflexible 
+dependencies actually cost us more time in the long run.
+
+That being said, the command line can be intimidating!
+Modern computing has made general use so easy, that more
+advanced tasks can seem quite daunting. Here are a few points to
+remember when jumping into the command line:
+
+- **You probably won't break it permanently.** Remember that computer
+engineers have set up systems (such as the `sudo` argument) to
+make sure that everyday users don't bork their entire computer
+in one go. Even if you do mess up something, it's usually a matter
+of incorrect paths or conflicting packages — these problems 
+can usually be solved by simply starting over (just burn it down).
+In the words of Roy, "have you tried turning it off and
+on again?"
+
+<div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/Oe4V14aLzv7JC" width="60%" height="60%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/parents-computers-it-crowd-Oe4V14aLzv7JC">via GIPHY</a></p>
+
+- **You get faster the more you practice.** This can't be stated
+enough — clicking into a folder and reading the content _feels_
+pretty seamless, but you will find the more you practice that
+"windows explorer" or "finder" is actually incredibly opaque and
+hides critical information you need, and extracting it takes ages
+longer than at the command line. So stick with it and **be patient
+with yourself**, you'll see the benefits one function at a time.
+
+To get started with familiarising yourself with the command line,
+I recommend two dual approaches:
+
+1. _Structured learning_ via something like  [RyansTutorials.net](https://ryanstutorials.net/linuxtutorial/), 
+which will get you into a structured, directed learning path with
+someone who has some pedagogical clout and knows how to teach
+people; and
+
+2. _Unstructured learning_ via, "getting your hands dirty". If you
+find yourself opening a folder and twiddling around, ask yourself,
+"how would I do this _without_ Finder/Explorer?" Google the
+question — you'll be surprised at how many everyday computer operations are simply Linux commands with a fancy button.
+
+### 2. Python & R
+
+I really don't have to give much information on why these are
+necessary skills in neuroscience — data science requires coding
+languages — but I will say — Python has a pretty marginal edge
+in popularity for neuroscience at the moment. I believe the
+reason is that older neuroscientists came from the world of
+Matlab, and so tend to operationalise the techniques in terms of
+matrices, which are very accessible in Python's `numpy` package.
+That being said, R is still handy in neuroscience for scientific
+documentation/publishing and statistical analysis/machine
+learning, so it is to every neuroscientist's advantage to 
+learn both Python & R. Not to mention, the majority of
+neuroimaging pipelines^["Pipelines" are an important conceptual skill of neuroimaging; data often needs to be cleaned or analyzed in a series of specific steps catered to the kind of data it is and the different parameters within that data. Understanding the value of pipelines, and eventually implementing or inventing your own, is a neuroscientist's cash cow, so-to-speak.] are being developed with [`nipype`](https://nipype.readthedocs.io/en/latest/index.html), an
+awesome Python package for stringing together complex 
+and dynamic pipelines for preprocessing and analyzing the data.
+
+Generally, I'd advise getting as much programming knowledge as
+you possibly can. Even the most clinically focused, non-techy
+neuroscientist has to fit at least one model to their data, 
+and doing this requires programming. Even if you consider
+yourself "not a math person" or "not into that tech stuff", 
+don't disqualify yourself from simply _knowing how to do it if you have to_. After all, as scientists, we are all really standard nerds.
+
+<div class="tenor-gif-embed" data-postid="8067807" data-share-method="host" data-aspect-ratio="1.07965" data-width="60%"><a href="https://tenor.com/view/pk5-it-crowd-standard-nerds-gif-8067807">Pk5 It Crowd GIF</a>from <a href="https://tenor.com/search/pk5-gifs">Pk5 GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
+### 3. `git` & Version Control
+
+Version control is the idea of saving and maintaining software
+code as it evolves over time. Much like Dropbox or Google Drive
+have options to "revert back to X version" of your file, version
+control is "software-for-software" that helps you monitor, track,
+and combine (merge), versions of software code you write. It's so
+critical in neuroscience that our group, PennLINC, often would
+verify the robustness of other group's pipelines by looking at
+their version control trends — how frequently does this group
+make changes to their software? What kind of issues do they make
+changes in response to? Are their changes reactionary or are they
+planned and added to a periodic software update milestone?
+
+It should be clear that writing code (Python or R) should go hand
+in hand with understanding that code should never suffer from
+`document_my-edits_version-17_FINAL_AUG2022_Supervisor-feedback_v4.docx` syndrome — version control is how programmers avoid that problem. A couple of notes about version control:
+
+- **There is no project too small for version control.** Adding a
+directory to `git` costs _nothing_, so do it with pretty much
+_any_ folder with code in it. If your folder contains large
+proprietary/binary files (like large files created by a specific
+program), just add them to your `.gitignore` to make sure they're not tracked by `git`.
+
+- **`git` is a software for version control; Github is a company that hosts version control servers.**
+Even though I personally almost exclusively use Github services, they don't
+inherently deserve as much power as they have, so don't hesitate
+to check out alternatives like Gitlab.
+
+- Try out the **Github CLI** [(`gh cli`)](https://cli.github.com/manual/installation); it's actually pretty great!
+
+- If you'd like to track large proprietary/binary files, `git
+annex` is available, but I actually recommend a handy tool called
+[`datalad`](https://www.datalad.org/) for handling both code text
+and large files. I strongly believe `datalad` is going to become
+a neuroimaging and neuroscience standard in the coming years — 
+YOU HEARD IT HERE FIRST FOLKS!
+
+- **Open-source makes the world a better place.** By sharing your
+code, you provide other people with the opportunity to learn and
+grow, and perhaps develop their own solutions to problems they
+have, their community has, or even _you_ have. Part of the goal
+of this blog is to open-source knowledge so that everyone can
+have the opportunity to learn from my shortcomings, mistakes
+and experiences. `git` (with companies like Github) makes that extremely easy, so share your
+code online (ethically and with permission from your supervisor) with the neuroimaging community so people can learn from your awesomeness — even if you believe your code sucks!
+
+<div class="tenor-gif-embed" data-postid="24956116" data-share-method="host" data-aspect-ratio="1.80791" data-width="60%"><a href="https://tenor.com/view/it-does-you-no-harm-to-look-a-little-foolish-from-time-to-time-chris-o-dowd-roy-trenneman-gif-24956116">It Does You No Harm To Look A Little Foolish GIF</a>from <a href="https://tenor.com/search/it+does+you+no+harm-gifs">It Does You No Harm GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
+### 4. Applied Data Science in Neuroscience
+
+This one is more abstract, but generally I think of this as the
+way that it all comes together — the stats, math, code, and
+the brain science. Getting into this is admittedly tricky,
+because it's not quite clear _what_ you should be looking for.
+
+My answer? Hear it straight from the horse's mouth. 
+
+A simple Google search for
+"neuroscience with Python" yields a handful of great online
+workbooks, notebooks, and tutorials, published by labs as a
+shared "lab documentation". I've not vetted them all, but from a
+cursory glance, they're all worth a look over. I'd recommend, 
+though, to make sure you check out [Andy's Brain Book](https://andysbrainbook.readthedocs.io/en/latest/index.html)
+ to get acquainted with functional MRI if you're totally new to it.
+The book walks you through a number of common neuroimaging analysis
+tools that you'll surely interact with if you decide to jump into
+neuroscience.
+
+I'll give this caveat, however. These workbooks that cater
+specifically to the content of fMRI and neuroscience are
+somewhat less important, because this is ideally the stuff you'd
+learn in class and on the job, so-to-speak. What's more important
+is that you come into the job with the technical proficiency to
+not be slowed down by a new contextual task. In other words,
+it's better that you know Python very well, so that when someone
+asks you to use numpy to perform affine transforms on a masked
+functional image, your bottleneck should be asking "what's
+masking?", and not, "what's `numpy`?"
+
+## Conclusion
+
+<div class="tenor-gif-embed" data-postid="24976144" data-share-method="host" data-aspect-ratio="1.21673" data-width="60%"><a href="https://tenor.com/view/the-it-crowd-it-crowd-moss-moss-the-it-crowd-the-it-crowd-moss-gif-24976144">The It Crowd Moss GIF</a>from <a href="https://tenor.com/search/the+it+crowd-gifs">The It Crowd GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
+Hopefully this overview of proficiencies can help you 
+get a head start in your journey in Neuroscience. Neuroscience is
+a great scientific field, and I'm going
+to miss it.

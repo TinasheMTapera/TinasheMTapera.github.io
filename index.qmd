@@ -17,5 +17,3 @@ about:
 ---
 
 This is the landing page.
-
-https://quarto.org/docs/reference/projects/websites.html 

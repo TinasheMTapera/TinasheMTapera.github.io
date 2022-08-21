@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Tristan O’Malley">
-<meta name="dcterms.date" content="2022-07-27">
 
-<title>Tinashe the Data Scientist - Welcome To My Blog</title>
+<title>Tinashe the Data Scientist - Legacy Posts</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -28,6 +26,8 @@ ul.task-list{list-style: none;}
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
 <link href="../../assets/img/data-science.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-listing/list.min.js"></script>
+<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -56,17 +56,45 @@ ul.task-list{list-style: none;}
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-author','listing-date','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-date","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Tinashe the Data Scientist - Welcome To My Blog">
-<meta property="og:description" content="This is the first post in a Quarto blog. Welcome!">
-<meta property="og:image" content="tinashemtapera.com/posts/01_test-quarto/thumbnail.jpg">
+<meta property="og:title" content="Tinashe the Data Scientist - Legacy Posts">
+<meta property="og:description" content="Here you can find archived older posts from my old website.">
 <meta property="og:site-name" content="Tinashe the Data Scientist">
-<meta name="twitter:title" content="Tinashe the Data Scientist - Welcome To My Blog">
-<meta name="twitter:description" content="This is the first post in a Quarto blog. Welcome!">
-<meta name="twitter:image" content="tinashemtapera.com/posts/01_test-quarto/thumbnail.jpg">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tinashe the Data Scientist - Legacy Posts">
+<meta name="twitter:description" content="Here you can find archived older posts from my old website.">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -122,29 +150,14 @@ ul.task-list{list-style: none;}
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Welcome To My Blog</h1>
-                                <div class="quarto-categories">
-                <div class="quarto-category">news</div>
-              </div>
-                  </div>
+      <h1 class="title">Legacy Posts</h1>
+                      </div>
   </div>
     
   
   <div class="quarto-title-meta">
 
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>Tristan O’Malley </p>
-            </div>
-    </div>
       
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">July 27, 2022</p>
-      </div>
-    </div>
       
     </div>
     
@@ -159,13 +172,106 @@ ul.task-list{list-style: none;}
 
 
 
-<p>This is the first post in a Quarto blog. Welcome!</p>
-<p><img src="thumbnail.jpg" class="img-fluid"></p>
-<p>Since this post doesn’t specify an explicit <code>image</code>, the first image in the post will be used in the listing page of posts.</p>
+<p>Here you can find archived older posts from my old website.</p>
 
 
 
-</main> <!-- /main -->
+
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="data science,rmarkdown,R,continuous integration" data-listing-date-sort="1647061200000" data-listing-file-modified-sort="1660803605613" data-listing-reading-time-sort="5.315">
+<a href="../../posts/listing-legacy/2022-03-12-automated-cv-resume-with-r-circleci-google-sheets.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Automated CV/Resume with R, CircleCI, &amp; Google Sheets
+</h5>
+<div class="card-text listing-description">
+A couple of years ago I was in a corporate tool limbo as I’d just left Drexel University, so my license with Microsoft Word had expired. In addition to having the most difficult time collaborating with MSW users on a paper, I also didn’t have a way to efficiently edit the resumes and CVs I’d developed. I tried opening files in Libre Office, which is a great freeware option for the office suite of tools, but frankly didn’t give seamless transition between features in MS.
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Tinashe M. Tapera
+</div>
+<div class="listing-date">
+Mar 12, 2022
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="dplyr,magrittr" data-listing-date-sort="1547701200000" data-listing-file-modified-sort="1660802959694" data-listing-reading-time-sort="0.63">
+<a href="../../posts/listing-legacy/2019-01-17-data-tip-assignment-with-the-t-pipe.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Data Tip: Assignment with the ’T’ Pipe
+</h5>
+<div class="card-text listing-description">
+So today, I found myself in an interesting situation wherein I was writing out an R object to disk, but needed to keep the file’s name and path in session so I could do something with it later. Typically, doing that would look like this:
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Tinashe M. Tapera
+</div>
+<div class="listing-date">
+Jan 17, 2019
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="dplyr,data science" data-listing-date-sort="1540267200000" data-listing-file-modified-sort="1660801947070" data-listing-reading-time-sort="1.735">
+<a href="../../posts/listing-legacy/2018-10-23-data-tip-processing-checkbox-factors.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Data Tip: Processing Checkbox-Factors
+</h5>
+<div class="card-text listing-description">
+The other day I was tasked with processing some data that had been generated from a survey that included checkboxes. You know, the “tick all that apply”, kind of questions. Nothing against this style of response, it can be quite effective for collecting unbiased data. However, platforms such as Qualtrics annoyingly make it such that checkbox responses are output as <em>singular concatenated strings per response!</em>
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Tinashe M. Tapera
+</div>
+<div class="listing-date">
+Oct 23, 2018
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="3" data-categories="R,machine learning,data science" data-listing-date-sort="1529553600000" data-listing-file-modified-sort="1660779339785" data-listing-reading-time-sort="6.855">
+<a href="../../posts/listing-legacy/2018-06-21-getting-around-to-rtweet.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Remembering Mike Tapera Through Data Science &amp; rtweet
+</h5>
+<div class="card-text listing-description">
+My father Michael Tapera passed away from a brain tumour in 2016; although he will be sorely missed, it’s fortunate that my father was famous for his written and spoken word. He was an excellent writer and orator in just about every way, and a few days ago my mom suggested to our family to check his Twitter page for the 30 or so tweets he posted in his latter years (his diagnosis was received in 2013, and so all of these tweets were during his ailment).<br>Of course, being the data scientist I am, simply reading the tweets would not suffice: I decided to do some text mining on my dad’s Twitter profile to find out what his online presence was like in his latter days.
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Tinashe M. Tapera
+</div>
+<div class="listing-date">
+Jun 21, 2018
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

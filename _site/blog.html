@@ -25,6 +25,7 @@ ul.task-list{list-style: none;}
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./assets/img/data-science.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-listing/list.min.js"></script>
 <script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
@@ -38,7 +39,7 @@ ul.task-list{list-style: none;}
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
-  "copy-button": false,
+  "copy-button": true,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
@@ -65,9 +66,9 @@ ul.task-list{list-style: none;}
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -125,6 +126,23 @@ ul.task-list{list-style: none;}
     <a class="nav-link active" href="./blog.html" aria-current="page">Blog</a>
   </li>  
 </ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/TinasheMTapera"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/TaperaTinashe"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com/TinasheMTapera"><i class="bi bi-linkedin" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
               <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
@@ -151,7 +169,7 @@ ul.task-list{list-style: none;}
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(1)</span></div><div class="category" data-category="data science">data science <span class="quarto-category-count">(1)</span></div><div class="category" data-category="machine learning">machine learning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="news">news <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(13)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(5)</span></div><div class="category" data-category="RShiny">RShiny <span class="quarto-category-count">(1)</span></div><div class="category" data-category="continuous integration">continuous integration <span class="quarto-category-count">(1)</span></div><div class="category" data-category="data science">data science <span class="quarto-category-count">(5)</span></div><div class="category" data-category="dplyr">dplyr <span class="quarto-category-count">(3)</span></div><div class="category" data-category="machine learning">machine learning <span class="quarto-category-count">(2)</span></div><div class="category" data-category="magrittr">magrittr <span class="quarto-category-count">(1)</span></div><div class="category" data-category="news">news <span class="quarto-category-count">(1)</span></div><div class="category" data-category="old stuff">old stuff <span class="quarto-category-count">(1)</span></div><div class="category" data-category="psychology">psychology <span class="quarto-category-count">(1)</span></div><div class="category" data-category="rmarkdown">rmarkdown <span class="quarto-category-count">(2)</span></div><div class="category" data-category="web programming">web programming <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
@@ -167,43 +185,156 @@ ul.task-list{list-style: none;}
 <h1>A second title</h1>
 <p>some content</p>
 <hr>
-<section id="legacy-posts" class="level4">
-<h4 class="anchored" data-anchor-id="legacy-posts"><a href="posts/legacy/legacy-series.html">Legacy Posts</a></h4>
-<p>Here are my legacy posts.</p>
 
 
 
-</section>
 </section>
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1660775649369" data-listing-reading-time-sort="0.05">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1660941347438" data-listing-reading-time-sort="0.055">
 <div class="thumbnail">
-<a href="./posts/legacy/legacy-series.html">
+<a href="./posts/listing-legacy/listing-legacy.html">
 <div class="thumbnail-image">
 
 </div>
-</a><p><a href="./posts/legacy/legacy-series.html"></a></p>
+</a><p><a href="./posts/listing-legacy/listing-legacy.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/legacy/legacy-series.html">
+<a href="./posts/listing-legacy/listing-legacy.html">
 <h3 class="no-anchor listing-title">
-Series: Legacy Posts
+Legacy Posts
 </h3>
 <div class="listing-subtitle">
 
 </div>
 <div class="listing-description">
-Here you can find older posts from my old website.
+Here you can find archived older posts from my old website.
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/legacy/legacy-series.html"> </a>
+<a href="./posts/listing-legacy/listing-legacy.html"> </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="news" data-listing-date-sort="1658894400000" data-listing-file-modified-sort="1660748429392" data-listing-reading-time-sort="0.16">
+<div class="quarto-post image-right" data-index="1" data-listing-file-modified-sort="1660942425533" data-listing-reading-time-sort="0.025">
+<div class="thumbnail">
+<a href="./posts/listing-test/listing-test.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/listing-test/listing-test.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/listing-test/listing-test.html">
+<h3 class="no-anchor listing-title">
+another listing
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+a second set of listings
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/listing-test/listing-test.html"> </a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1660968000000" data-listing-file-modified-sort="1661124131650" data-listing-reading-time-sort="8.555">
+<div class="thumbnail">
+<p><a href="./posts/02_so-you-wanna-work-in-neuroscience/02_so-you-wanna-work-in-neuroscience.html"> <img src="./assets/img/it_crowd.gif" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/02_so-you-wanna-work-in-neuroscience/02_so-you-wanna-work-in-neuroscience.html">
+<h3 class="no-anchor listing-title">
+So You Wanna Get Into Neuroscience…?
+</h3>
+<div class="listing-subtitle">
+Lessons Learned From 4 Years As a Staff Scientist in a Neuroimaging Lab (Guided by The I.T. Crowd)
+</div>
+<div class="listing-description">
+After 4 eventful years, I left my position as Senior Neuroimaging Data Analyst at my lab, PennLINC, in August of 2022. And I’ll be honest — I didn’t know very much about neuroimaging when I began. I felt very much like Jen in the I.T. Crowd, having joined a circle of passionate geeks who could smell my impostor syndrome from a mile away.
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/02_so-you-wanna-work-in-neuroscience/02_so-you-wanna-work-in-neuroscience.html">
+<div class="listing-date">
+Aug 20, 2022
+</div>
+<div class="listing-author">
+Tinashe M. Tapera
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-listing-date-sort="1659326400000" data-listing-file-modified-sort="1660942572837" data-listing-reading-time-sort="0.03">
+<div class="thumbnail">
+<a href="./posts/listing-test/02-test_post.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/listing-test/02-test_post.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/listing-test/02-test_post.html">
+<h3 class="no-anchor listing-title">
+test2
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+This is a second test post
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/listing-test/02-test_post.html">
+<div class="listing-date">
+Aug 1, 2022
+</div>
+<div class="listing-author">
+Tinashe M. Tapera
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-listing-date-sort="1659067200000" data-listing-file-modified-sort="1660942522896" data-listing-reading-time-sort="0.02">
+<div class="thumbnail">
+<a href="./posts/listing-test/01-test_post.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/listing-test/01-test_post.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/listing-test/01-test_post.html">
+<h3 class="no-anchor listing-title">
+test1
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+This is a post
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/listing-test/01-test_post.html">
+<div class="listing-date">
+Jul 29, 2022
+</div>
+<div class="listing-author">
+Tinashe M. Tapera
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="5" data-categories="news" data-listing-date-sort="1658894400000" data-listing-file-modified-sort="1660748429392" data-listing-reading-time-sort="0.16">
 <div class="thumbnail">
 <p><a href="./posts/01_test-quarto/01_test-quarto.html"> <img src="./posts/01_test-quarto/thumbnail.jpg" class="thumnail-image"> </a></p>
 </div>
@@ -238,16 +369,241 @@ Tristan O’Malley
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="R,machine learning,data science" data-listing-date-sort="1529553600000" data-listing-file-modified-sort="1660779339785" data-listing-reading-time-sort="6.855">
+<div class="quarto-post image-right" data-index="6" data-categories="data science,rmarkdown,R,continuous integration" data-listing-date-sort="1647061200000" data-listing-file-modified-sort="1660803605613" data-listing-reading-time-sort="5.315">
 <div class="thumbnail">
-<a href="./posts/legacy/2018-06-21-getting-around-to-rtweet.html">
+<a href="./posts/listing-legacy/2022-03-12-automated-cv-resume-with-r-circleci-google-sheets.html">
 <div class="thumbnail-image">
 
 </div>
-</a><p><a href="./posts/legacy/2018-06-21-getting-around-to-rtweet.html"></a></p>
+</a><p><a href="./posts/listing-legacy/2022-03-12-automated-cv-resume-with-r-circleci-google-sheets.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/legacy/2018-06-21-getting-around-to-rtweet.html">
+<a href="./posts/listing-legacy/2022-03-12-automated-cv-resume-with-r-circleci-google-sheets.html">
+<h3 class="no-anchor listing-title">
+Automated CV/Resume with R, CircleCI, &amp; Google Sheets
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('data science'); return false;">
+data science
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('rmarkdown'); return false;">
+rmarkdown
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
+R
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('continuous integration'); return false;">
+continuous integration
+</div>
+</div>
+<a href="./posts/listing-legacy/2022-03-12-automated-cv-resume-with-r-circleci-google-sheets.html">
+<div class="listing-description">
+A couple of years ago I was in a corporate tool limbo as I’d just left Drexel University, so my license with Microsoft Word had expired. In addition to having the most difficult time collaborating with MSW users on a paper, I also didn’t have a way to efficiently edit the resumes and CVs I’d developed. I tried opening files in Libre Office, which is a great freeware option for the office suite of tools, but frankly didn’t give seamless transition between features in MS.
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/listing-legacy/2022-03-12-automated-cv-resume-with-r-circleci-google-sheets.html">
+<div class="listing-date">
+Mar 12, 2022
+</div>
+<div class="listing-author">
+Tinashe M. Tapera
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="7" data-categories="dplyr,magrittr" data-listing-date-sort="1547701200000" data-listing-file-modified-sort="1660802959694" data-listing-reading-time-sort="0.63">
+<div class="thumbnail">
+<a href="./posts/listing-legacy/2019-01-17-data-tip-assignment-with-the-t-pipe.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/listing-legacy/2019-01-17-data-tip-assignment-with-the-t-pipe.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/listing-legacy/2019-01-17-data-tip-assignment-with-the-t-pipe.html">
+<h3 class="no-anchor listing-title">
+Data Tip: Assignment with the ’T’ Pipe
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('dplyr'); return false;">
+dplyr
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('magrittr'); return false;">
+magrittr
+</div>
+</div>
+<a href="./posts/listing-legacy/2019-01-17-data-tip-assignment-with-the-t-pipe.html">
+<div class="listing-description">
+So today, I found myself in an interesting situation wherein I was writing out an R object to disk, but needed to keep the file’s name and path in session so I could do something with it later. Typically, doing that would look like this:
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/listing-legacy/2019-01-17-data-tip-assignment-with-the-t-pipe.html">
+<div class="listing-date">
+Jan 17, 2019
+</div>
+<div class="listing-author">
+Tinashe M. Tapera
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="8" data-categories="dplyr,R" data-listing-date-sort="1544850000000" data-listing-file-modified-sort="1660802466427" data-listing-reading-time-sort="0.065">
+<div class="thumbnail">
+<a href="./posts/listing-legacy/2018-12-15-dplyr-crash-course.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/listing-legacy/2018-12-15-dplyr-crash-course.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/listing-legacy/2018-12-15-dplyr-crash-course.html">
+<h3 class="no-anchor listing-title">
+Dplyr Crash Course
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('dplyr'); return false;">
+dplyr
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
+R
+</div>
+</div>
+<a href="./posts/listing-legacy/2018-12-15-dplyr-crash-course.html">
+<div class="listing-description">
+Link to slides from the dplyr crash course I taught &gt;&gt;&gt; LINK
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/listing-legacy/2018-12-15-dplyr-crash-course.html">
+<div class="listing-date">
+Dec 15, 2018
+</div>
+<div class="listing-author">
+Tinashe M. Tapera
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="9" data-categories="dplyr,data science" data-listing-date-sort="1540267200000" data-listing-file-modified-sort="1660801947070" data-listing-reading-time-sort="1.735">
+<div class="thumbnail">
+<a href="./posts/listing-legacy/2018-10-23-data-tip-processing-checkbox-factors.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/listing-legacy/2018-10-23-data-tip-processing-checkbox-factors.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/listing-legacy/2018-10-23-data-tip-processing-checkbox-factors.html">
+<h3 class="no-anchor listing-title">
+Data Tip: Processing Checkbox-Factors
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('dplyr'); return false;">
+dplyr
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('data science'); return false;">
+data science
+</div>
+</div>
+<a href="./posts/listing-legacy/2018-10-23-data-tip-processing-checkbox-factors.html">
+<div class="listing-description">
+The other day I was tasked with processing some data that had been generated from a survey that included checkboxes. You know, the “tick all that apply”, kind of questions. Nothing against this style of response, it can be quite effective for collecting unbiased data. However, platforms such as Qualtrics annoyingly make it such that checkbox responses are output as <em>singular concatenated strings per response!</em>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/listing-legacy/2018-10-23-data-tip-processing-checkbox-factors.html">
+<div class="listing-date">
+Oct 23, 2018
+</div>
+<div class="listing-author">
+Tinashe M. Tapera
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="10" data-categories="R,data science,psychology,RShiny,web programming" data-listing-date-sort="1537588800000" data-listing-file-modified-sort="1660781246699" data-listing-reading-time-sort="1.76">
+<div class="thumbnail">
+<a href="./posts/listing-legacy/2018-09-22-encourageme-a-shiny-app-for-encouragements.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/listing-legacy/2018-09-22-encourageme-a-shiny-app-for-encouragements.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/listing-legacy/2018-09-22-encourageme-a-shiny-app-for-encouragements.html">
+<h3 class="no-anchor listing-title">
+EncourageMe: A Shiny App for Encouragement
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
+R
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('data science'); return false;">
+data science
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('psychology'); return false;">
+psychology
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('RShiny'); return false;">
+RShiny
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('web programming'); return false;">
+web programming
+</div>
+</div>
+<a href="./posts/listing-legacy/2018-09-22-encourageme-a-shiny-app-for-encouragements.html">
+<div class="listing-description">
+During my time at Drexel, I volunteered on the University’s Peer Counseling Helpline. Being a peer counselor teaches you a multitude of important conversational and relational skills in what’s called <i>active listening</i>, and one of the most effective ones is <i>encouragement</i>. As you can guess, an encouragement in active listening involves conveying to the caller that their efforts, whatever they may be, are not in vain. Used appropriately, it can be a powerful tool for helping callers process their problems.
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/listing-legacy/2018-09-22-encourageme-a-shiny-app-for-encouragements.html">
+<div class="listing-date">
+Sep 22, 2018
+</div>
+<div class="listing-author">
+Tinashe M. Tapera
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="11" data-categories="R,machine learning,data science" data-listing-date-sort="1529553600000" data-listing-file-modified-sort="1660779339785" data-listing-reading-time-sort="6.855">
+<div class="thumbnail">
+<a href="./posts/listing-legacy/2018-06-21-getting-around-to-rtweet.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/listing-legacy/2018-06-21-getting-around-to-rtweet.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/listing-legacy/2018-06-21-getting-around-to-rtweet.html">
 <h3 class="no-anchor listing-title">
 Remembering Mike Tapera Through Data Science &amp; rtweet
 </h3>
@@ -266,14 +622,65 @@ machine learning
 data science
 </div>
 </div>
-<a href="./posts/legacy/2018-06-21-getting-around-to-rtweet.html">
+<a href="./posts/listing-legacy/2018-06-21-getting-around-to-rtweet.html">
 <div class="listing-description">
 My father Michael Tapera passed away from a brain tumour in 2016; although he will be sorely missed, it’s fortunate that my father was famous for his written and spoken word. He was an excellent writer and orator in just about every way, and a few days ago my mom suggested to our family to check his Twitter page for the 30 or so tweets he posted in his latter years (his diagnosis was received in 2013, and so all of these tweets were during his ailment).<br>Of course, being the data scientist I am, simply reading the tweets would not suffice: I decided to do some text mining on my dad’s Twitter profile to find out what his online presence was like in his latter days.
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/legacy/2018-06-21-getting-around-to-rtweet.html">
+<a href="./posts/listing-legacy/2018-06-21-getting-around-to-rtweet.html">
+<div class="listing-date">
+Jun 21, 2018
+</div>
+<div class="listing-author">
+Tinashe M. Tapera
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="12" data-categories="data science,R,rmarkdown,machine learning,old stuff" data-listing-date-sort="1529553600000" data-listing-file-modified-sort="1660774304787" data-listing-reading-time-sort="0.605">
+<div class="thumbnail">
+<a href="./posts/listing-legacy/2018-06-21-legacy-blog-posts.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/listing-legacy/2018-06-21-legacy-blog-posts.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/listing-legacy/2018-06-21-legacy-blog-posts.html">
+<h3 class="no-anchor listing-title">
+Legacy Blog Posts
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('data science'); return false;">
+data science
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
+R
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('rmarkdown'); return false;">
+rmarkdown
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('machine learning'); return false;">
+machine learning
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('old stuff'); return false;">
+old stuff
+</div>
+</div>
+<a href="./posts/listing-legacy/2018-06-21-legacy-blog-posts.html">
+<div class="listing-description">
+Here’s a list of the best content I posted on my old blog hosted on Quora. Some are better than others, but I hope collectively they demonstrate some transparency and my growth over the years!
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/listing-legacy/2018-06-21-legacy-blog-posts.html">
 <div class="listing-date">
 Jun 21, 2018
 </div>
@@ -386,6 +793,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">
+        <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="./about.html">About</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="./LICENSE">LICENSE</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/TinasheMTapera/TinasheMTapera.github.io">View on Github</a>
+  </li>  
+</ul>
+      </div>
+  </div>
+</footer>
 
 
 

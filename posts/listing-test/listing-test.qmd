@@ -1,0 +1,16 @@
+---
+title: "another listing"
+listing:
+  contents: 
+    - "*.qmd"
+  # sort: "date desc"
+  type: grid
+  # categories: false
+  # sort-ui: false
+  # filter-ui: false
+  # fields: [date, title, description]
+# page-layout: full
+# title-block-banner: true
+---
+
+a second set of listings

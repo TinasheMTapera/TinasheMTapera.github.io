@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Tinashe M. Tapera">
+<meta name="dcterms.date" content="2022-08-20">
+
+<title>Tinashe the Data Scientist - So You Wanna Get Into Neuroscience…?</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../assets/img/data-science.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": true,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Tinashe the Data Scientist - So You Wanna Get Into Neuroscience…?">
+<meta property="og:description" content="Lessons Learned From 4 Years As a Staff Scientist in a Neuroimaging Lab (Guided by The I.T. Crowd)">
+<meta property="og:image" content="tinashemtapera.com/assets/img/it_crowd.gif">
+<meta property="og:site-name" content="Tinashe the Data Scientist">
+<meta name="twitter:title" content="Tinashe the Data Scientist - So You Wanna Get Into Neuroscience…?">
+<meta name="twitter:description" content="Lessons Learned From 4 Years As a Staff Scientist in a Neuroimaging Lab (Guided by The I.T. Crowd)">
+<meta name="twitter:image" content="tinashemtapera.com/assets/img/it_crowd.gif">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Tinashe the Data Scientist</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">About</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../news.html">News</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../cv.html">CV</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html">Blog</a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/TinasheMTapera"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/TaperaTinashe"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com/TinasheMTapera"><i class="bi bi-linkedin" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">So You Wanna Get Into Neuroscience…?</h1>
+            <p class="subtitle lead">Lessons Learned From 4 Years As a Staff Scientist in a Neuroimaging Lab (Guided by The I.T. Crowd)</p>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Tinashe M. Tapera </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">August 20, 2022</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>After 4 eventful years, I left my position as Senior Neuroimaging Data Analyst at my lab, <a href="https://pennlinc.io">PennLINC</a>, in August of 2022. And I’ll be honest — I didn’t know very much about neuroimaging when I began. I felt very much like Jen in the I.T. Crowd, having joined a circle of passionate geeks who could smell my impostor syndrome from a mile away.</p>
+<div style="position:relative">
+<iframe src="https://gfycat.com/ifr/FamousGrandioseAtlanticblackgoby" frameborder="0" scrolling="no" width="100%" height="100%" style="position:absolute;top:0;left:0" allowfullscreen="">
+</iframe>
+</div>
+<p>
+<a href="https://gfycat.com/famousgrandioseatlanticblackgoby">via Gfycat</a>
+</p>
+<p>And while I’m shifting <em>away</em> from neuroscience itself, I can confidently say I am proud to have had the opportunity to work in it. Neuroscience is an exciting, active, and rewarding field that is growing at lightning speed. Alongside the rise of data science as the “sexiest job of the 21st century”<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, neuroscience has established itself as one of the flagship fields for data science-type work. A cohort of even a few dozen participants in a neuroscience experiment can generate hundreds of gigabytes of functional imaging data. The math, statistics, and machine learning methods are novel and complex, and being improved upon every day. And the cross-disciplinary nature means you can cater your research interests to include anything from cognitive science and philosophy of mind, to optogenetics and biomechanics. All in all, neuroscience is a field ripe for the budding data scientist of any kind, as a PhD candidate or staff scientist.</p>
+<p>Sadly, though, neuroscience does have a critical flaw: <strong>it suffers from the ivory tower syndrome of academia.</strong> That is to say, there are many talented and intelligent people <em>within</em> neuroscience, but a lot of the skills required to <em>get started</em> in neuroscience are not talked about nearly as much as they could be. Furthermore, my lived experience is testament to the fact that a lot of these skills are far more accessible than we believe, and one does not need a PhD to get started on a neuroscience journey. While I believe that this is an epistemological shortcoming, I also believe it can be remedied with a little bit more transparency and openness. So, in this post I’m going to outline <strong>4 technical skills that neuroscientists use every day,</strong> and hopefully convince you that <strong>you don’t need to be a PhD student to get started in neuroscience</strong>… with the help of I.T. Crowd gifs.</p>
+</section>
+<section id="technical-skills-neuroscientists-use-every-day" class="level2">
+<h2 class="anchored" data-anchor-id="technical-skills-neuroscientists-use-every-day">4 Technical Skills Neuroscientists Use Every Day</h2>
+<section id="the-command-line" class="level3">
+<h3 class="anchored" data-anchor-id="the-command-line">1. The Command Line</h3>
+<p>If you’re going to work with big data, you’re going to have to learn to navigate a computer <em>without</em> a mouse. The reason for this is simple — for that much data, most institutions rely on Linux-based compute clusters, not desktops and laptops. They store, process, and analyse their data using tools that would be infinitely harder to use if they tried to develop friendly GUIs for them. In fact, at PennLINC, we actively try to veer students and staff <em>away</em> from programs that claim to provide a fun GUI for our work, because the GUI adds extra inflexible dependencies actually cost us more time in the long run.</p>
+<p>That being said, the command line can be intimidating! Modern computing has made general use so easy, that more advanced tasks can seem quite daunting. Here are a few points to remember when jumping into the command line:</p>
+<ul>
+<li><strong>You probably won’t break it permanently.</strong> Remember that computer engineers have set up systems (such as the <code>sudo</code> argument) to make sure that everyday users don’t bork their entire computer in one go. Even if you do mess up something, it’s usually a matter of incorrect paths or conflicting packages — these problems can usually be solved by simply starting over (just burn it down). In the words of Roy, “have you tried turning it off and on again?”</li>
+</ul>
+<div style="width:100%;height:0;padding-bottom:56%;position:relative;">
+<iframe src="https://giphy.com/embed/Oe4V14aLzv7JC" width="60%" height="60%" style="position:absolute" frameborder="0" class="giphy-embed" allowfullscreen="">
+</iframe>
+</div>
+<p>
+<a href="https://giphy.com/gifs/parents-computers-it-crowd-Oe4V14aLzv7JC">via GIPHY</a>
+</p>
+<ul>
+<li><strong>You get faster the more you practice.</strong> This can’t be stated enough — clicking into a folder and reading the content <em>feels</em> pretty seamless, but you will find the more you practice that “windows explorer” or “finder” is actually incredibly opaque and hides critical information you need, and extracting it takes ages longer than at the command line. So stick with it and <strong>be patient with yourself</strong>, you’ll see the benefits one function at a time.</li>
+</ul>
+<p>To get started with familiarising yourself with the command line, I recommend two dual approaches:</p>
+<ol type="1">
+<li><p><em>Structured learning</em> via something like <a href="https://ryanstutorials.net/linuxtutorial/">RyansTutorials.net</a>, which will get you into a structured, directed learning path with someone who has some pedagogical clout and knows how to teach people; and</p></li>
+<li><p><em>Unstructured learning</em> via, “getting your hands dirty”. If you find yourself opening a folder and twiddling around, ask yourself, “how would I do this <em>without</em> Finder/Explorer?” Google the question — you’ll be surprised at how many everyday computer operations are simply Linux commands with a fancy button.</p></li>
+</ol>
+</section>
+<section id="python-r" class="level3">
+<h3 class="anchored" data-anchor-id="python-r">2. Python &amp; R</h3>
+<p>I really don’t have to give much information on why these are necessary skills in neuroscience — data science requires coding languages — but I will say — Python has a pretty marginal edge in popularity for neuroscience at the moment. I believe the reason is that older neuroscientists came from the world of Matlab, and so tend to operationalise the techniques in terms of matrices, which are very accessible in Python’s <code>numpy</code> package. That being said, R is still handy in neuroscience for scientific documentation/publishing and statistical analysis/machine learning, so it is to every neuroscientist’s advantage to learn both Python &amp; R. Not to mention, the majority of neuroimaging pipelines<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> are being developed with <a href="https://nipype.readthedocs.io/en/latest/index.html"><code>nipype</code></a>, an awesome Python package for stringing together complex and dynamic pipelines for preprocessing and analyzing the data.</p>
+<p>Generally, I’d advise getting as much programming knowledge as you possibly can. Even the most clinically focused, non-techy neuroscientist has to fit at least one model to their data, and doing this requires programming. Even if you consider yourself “not a math person” or “not into that tech stuff”, don’t disqualify yourself from simply <em>knowing how to do it if you have to</em>. After all, as scientists, we are all really standard nerds.</p>
+<div class="tenor-gif-embed" data-postid="8067807" data-share-method="host" data-aspect-ratio="1.07965" data-width="60%">
+<a href="https://tenor.com/view/pk5-it-crowd-standard-nerds-gif-8067807">Pk5 It Crowd GIF</a>from <a href="https://tenor.com/search/pk5-gifs">Pk5 GIFs</a>
+</div>
+<script type="text/javascript" async="" src="https://tenor.com/embed.js"></script>
+</section>
+<section id="git-version-control" class="level3">
+<h3 class="anchored" data-anchor-id="git-version-control">3. <code>git</code> &amp; Version Control</h3>
+<p>Version control is the idea of saving and maintaining software code as it evolves over time. Much like Dropbox or Google Drive have options to “revert back to X version” of your file, version control is “software-for-software” that helps you monitor, track, and combine (merge), versions of software code you write. It’s so critical in neuroscience that our group, PennLINC, often would verify the robustness of other group’s pipelines by looking at their version control trends — how frequently does this group make changes to their software? What kind of issues do they make changes in response to? Are their changes reactionary or are they planned and added to a periodic software update milestone?</p>
+<p>It should be clear that writing code (Python or R) should go hand in hand with understanding that code should never suffer from <code>document_my-edits_version-17_FINAL_AUG2022_Supervisor-feedback_v4.docx</code> syndrome — version control is how programmers avoid that problem. A couple of notes about version control:</p>
+<ul>
+<li><p><strong>There is no project too small for version control.</strong> Adding a directory to <code>git</code> costs <em>nothing</em>, so do it with pretty much <em>any</em> folder with code in it. If your folder contains large proprietary/binary files (like large files created by a specific program), just add them to your <code>.gitignore</code> to make sure they’re not tracked by <code>git</code>.</p></li>
+<li><p><strong><code>git</code> is a software for version control; Github is a company that hosts version control servers.</strong> Even though I personally almost exclusively use Github services, they don’t inherently deserve as much power as they have, so don’t hesitate to check out alternatives like Gitlab.</p></li>
+<li><p>Try out the <strong>Github CLI</strong> <a href="https://cli.github.com/manual/installation">(<code>gh cli</code>)</a>; it’s actually pretty great!</p></li>
+<li><p>If you’d like to track large proprietary/binary files, <code>git annex</code> is available, but I actually recommend a handy tool called <a href="https://www.datalad.org/"><code>datalad</code></a> for handling both code text and large files. I strongly believe <code>datalad</code> is going to become a neuroimaging and neuroscience standard in the coming years — YOU HEARD IT HERE FIRST FOLKS!</p></li>
+<li><p><strong>Open-source makes the world a better place.</strong> By sharing your code, you provide other people with the opportunity to learn and grow, and perhaps develop their own solutions to problems they have, their community has, or even <em>you</em> have. Part of the goal of this blog is to open-source knowledge so that everyone can have the opportunity to learn from my shortcomings, mistakes and experiences. <code>git</code> (with companies like Github) makes that extremely easy, so share your code online (ethically and with permission from your supervisor) with the neuroimaging community so people can learn from your awesomeness — even if you believe your code sucks!</p></li>
+</ul>
+<div class="tenor-gif-embed" data-postid="24956116" data-share-method="host" data-aspect-ratio="1.80791" data-width="60%">
+<a href="https://tenor.com/view/it-does-you-no-harm-to-look-a-little-foolish-from-time-to-time-chris-o-dowd-roy-trenneman-gif-24956116">It Does You No Harm To Look A Little Foolish GIF</a>from <a href="https://tenor.com/search/it+does+you+no+harm-gifs">It Does You No Harm GIFs</a>
+</div>
+<script type="text/javascript" async="" src="https://tenor.com/embed.js"></script>
+</section>
+<section id="applied-data-science-in-neuroscience" class="level3">
+<h3 class="anchored" data-anchor-id="applied-data-science-in-neuroscience">4. Applied Data Science in Neuroscience</h3>
+<p>This one is more abstract, but generally I think of this as the way that it all comes together — the stats, math, code, and the brain science. Getting into this is admittedly tricky, because it’s not quite clear <em>what</em> you should be looking for.</p>
+<p>My answer? Hear it straight from the horse’s mouth.</p>
+<p>A simple Google search for “neuroscience with Python” yields a handful of great online workbooks, notebooks, and tutorials, published by labs as a shared “lab documentation”. I’ve not vetted them all, but from a cursory glance, they’re all worth a look over. I’d recommend, though, to make sure you check out <a href="https://andysbrainbook.readthedocs.io/en/latest/index.html">Andy’s Brain Book</a> to get acquainted with functional MRI if you’re totally new to it. The book walks you through a number of common neuroimaging analysis tools that you’ll surely interact with if you decide to jump into neuroscience.</p>
+<p>I’ll give this caveat, however. These workbooks that cater specifically to the content of fMRI and neuroscience are somewhat less important, because this is ideally the stuff you’d learn in class and on the job, so-to-speak. What’s more important is that you come into the job with the technical proficiency to not be slowed down by a new contextual task. In other words, it’s better that you know Python very well, so that when someone asks you to use numpy to perform affine transforms on a masked functional image, your bottleneck should be asking “what’s masking?”, and not, “what’s <code>numpy</code>?”</p>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<div class="tenor-gif-embed" data-postid="24976144" data-share-method="host" data-aspect-ratio="1.21673" data-width="60%">
+<a href="https://tenor.com/view/the-it-crowd-it-crowd-moss-moss-the-it-crowd-the-it-crowd-moss-gif-24976144">The It Crowd Moss GIF</a>from <a href="https://tenor.com/search/the+it+crowd-gifs">The It Crowd GIFs</a>
+</div>
+<script type="text/javascript" async="" src="https://tenor.com/embed.js"></script>
+<p>Hopefully this overview of proficiencies can help you get a head start in your journey in Neuroscience. Neuroscience is a great scientific field, and I’m going to miss it.</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1" role="doc-endnote"><p><a href="https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century">Not gonna lie, this article got me into data science</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>“Pipelines” are an important conceptual skill of neuroimaging; data often needs to be cleaned or analyzed in a series of specific steps catered to the kind of data it is and the different parameters within that data. Understanding the value of pipelines, and eventually implementing or inventing your own, is a neuroscientist’s cash cow, so-to-speak.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">
+        <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../about.html">About</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../LICENSE">LICENSE</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/TinasheMTapera/TinasheMTapera.github.io">View on Github</a>
+  </li>  
+</ul>
+      </div>
+  </div>
+</footer>
+
+
+
+</body></html>

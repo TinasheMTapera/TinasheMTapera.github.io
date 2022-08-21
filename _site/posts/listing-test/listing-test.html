@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Tinashe M. Tapera">
-<meta name="dcterms.date" content="2018-12-15">
 
-<title>Tinashe the Data Scientist - Dplyr Crash Course</title>
+<title>Tinashe the Data Scientist - another listing</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -27,6 +25,9 @@ ul.task-list{list-style: none;}
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../assets/img/data-science.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-listing/list.min.js"></script>
+<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -38,7 +39,7 @@ ul.task-list{list-style: none;}
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
-  "copy-button": false,
+  "copy-button": true,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
@@ -55,14 +56,44 @@ ul.task-list{list-style: none;}
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-author','listing-date','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-date","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Tinashe the Data Scientist - Dplyr Crash Course">
-<meta property="og:description" content="Link to slides from the dplyr crash course I taught >>> LINK">
+<meta property="og:title" content="Tinashe the Data Scientist - another listing">
+<meta property="og:description" content="a second set of listings">
 <meta property="og:site-name" content="Tinashe the Data Scientist">
-<meta name="twitter:title" content="Tinashe the Data Scientist - Dplyr Crash Course">
-<meta name="twitter:description" content="Link to slides from the dplyr crash course I taught >>> LINK">
+<meta name="twitter:title" content="Tinashe the Data Scientist - another listing">
+<meta name="twitter:description" content="a second set of listings">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -93,6 +124,23 @@ ul.task-list{list-style: none;}
     <a class="nav-link" href="../../blog.html">Blog</a>
   </li>  
 </ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/TinasheMTapera"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/TaperaTinashe"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com/TinasheMTapera"><i class="bi bi-linkedin" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
               <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
@@ -102,30 +150,14 @@ ul.task-list{list-style: none;}
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Dplyr Crash Course</h1>
-                                <div class="quarto-categories">
-                <div class="quarto-category">dplyr</div>
-                <div class="quarto-category">R</div>
-              </div>
-                  </div>
+      <h1 class="title">another listing</h1>
+                      </div>
   </div>
     
   
   <div class="quarto-title-meta">
 
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>Tinashe M. Tapera </p>
-            </div>
-    </div>
       
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">December 15, 2018</p>
-      </div>
-    </div>
       
     </div>
     
@@ -140,11 +172,62 @@ ul.task-list{list-style: none;}
 
 
 
-<p>Link to slides from the dplyr crash course I taught &gt;&gt;&gt; <a href="https://tinashemtapera.github.io/DplyrCrashCourse/">LINK</a></p>
+<p>a second set of listings</p>
 
 
 
-</main> <!-- /main -->
+
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1659067200000" data-listing-file-modified-sort="1660942522896" data-listing-reading-time-sort="0.02">
+<a href="../../posts/listing-test/01-test_post.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+test1
+</h5>
+<div class="card-text listing-description">
+This is a post
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Tinashe M. Tapera
+</div>
+<div class="listing-date">
+Jul 29, 2022
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-listing-date-sort="1659326400000" data-listing-file-modified-sort="1660942572837" data-listing-reading-time-sort="0.03">
+<a href="../../posts/listing-test/02-test_post.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+test2
+</h5>
+<div class="card-text listing-description">
+This is a second test post
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Tinashe M. Tapera
+</div>
+<div class="listing-date">
+Aug 1, 2022
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -243,6 +326,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">
+        <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../about.html">About</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../LICENSE">LICENSE</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/TinasheMTapera/TinasheMTapera.github.io">View on Github</a>
+  </li>  
+</ul>
+      </div>
+  </div>
+</footer>
 
 
 

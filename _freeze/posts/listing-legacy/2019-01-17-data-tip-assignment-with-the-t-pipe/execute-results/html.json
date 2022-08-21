@@ -1,0 +1,14 @@
+{
+  "hash": "da4b8cd3e6258e48309c3ee175f4a0aa",
+  "result": {
+    "markdown": "---\ntitle: 'Data Tip: Assignment with the ’T’ Pipe'\nauthor: Tinashe M. Tapera\ndate: '2019-01-17'\nslug: data-tip-assignment-with-the-t-pipe\ncategories:\n  - dplyr\n  - magrittr\ntags:\n  - dplyr\n  - magrittr\n# comments: no\nshowcomments: yes\nshowpagemeta: yes\n---\n\n\nSo today, I found myself in an interesting situation wherein I was writing out an R object to disk, but needed to keep the file's name and path in session so I could do something with it later. Typically, doing that would look like this:\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# first, make some data, to write to disk\nmydat <- data(iris) \nfname <- \"iris.csv\"\nwrite.csv(x = mydat, fname)\n\n# do some coding\n# do some coding\n# do some coding\n\n# later on, reference the file using the fname variable\nfile.exists(fname)\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] TRUE\n```\n:::\n\n```{.r .cell-code}\nfile.remove(fname)\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] TRUE\n```\n:::\n:::\n\n\nFor some, this might be perfectly fine, but I found another interesting way of doing this using `magrittr`'s \"Tee\" pipe (`%T>%`):\n\n\n::: {.cell}\n\n```{.r .cell-code}\nshhh <- suppressPackageStartupMessages\nshhh(library(dplyr, quietly = TRUE))\nshhh(library(magrittr, quietly = TRUE))\n\nfname2 <- \"iris2.csv\" %T>%\n  write.csv(mydat, .)\n\nfile.exists(fname2)\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] TRUE\n```\n:::\n\n```{.r .cell-code}\nfile.remove(fname2)\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] TRUE\n```\n:::\n:::\n\n\nJust an interesting way to assign an object and send the LHS of the pipe along the chain in one go.",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
