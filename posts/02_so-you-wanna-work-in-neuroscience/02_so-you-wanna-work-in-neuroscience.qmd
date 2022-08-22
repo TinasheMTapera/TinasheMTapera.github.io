@@ -3,7 +3,7 @@ title: "So You Wanna Get Into Neuroscience...?"
 subtitle: "Lessons Learned From 4 Years As a Staff Scientist in a Neuroimaging Lab (Guided by The I.T. Crowd)"
 author: "Tinashe M. Tapera"
 date: "2022-08-20"
-image: /assets/img/it_crowd.gif
+image: it_crowd.gif
 ---
 
 ## Introduction
