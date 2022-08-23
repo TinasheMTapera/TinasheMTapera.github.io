@@ -9,3 +9,6 @@ data
 Thumbs.db
 /public/
 /resources/
+
+/.quarto/
+/_site/

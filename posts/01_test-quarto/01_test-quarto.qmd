@@ -1,0 +1,11 @@
+---
+title: "Ported Over to Quarto!"
+author: "Tinashe M. Tapera"
+date: "2022-07-27"
+categories: [news]
+---
+
+This is the first post in a Quarto blog. Welcome!
+
+![](thumbnail.jpg)
+

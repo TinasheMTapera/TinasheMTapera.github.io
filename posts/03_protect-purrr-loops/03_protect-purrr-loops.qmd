@@ -1,0 +1,204 @@
+---
+title: "Managing Expected Loop Failures with Purrr"
+author: "Tinashe M. Tapera"
+date: "2022-08-21"
+image: infinite_loop.mp4
+---
+
+```{r, message=FALSE, warning=FALSE}
+library(dplyr)
+library(purrr)
+
+set.seed(12345)
+```
+
+Looping is a fundamental programming paradigm. You have a set of inputs,
+and you wanna run a function on each of them:
+
+```{r}
+inputs <- sample(1:100, 10)
+
+add_ten <- function(x) {
+  return(x + 10)
+}
+
+# base R looping
+outputs <- c()
+for(x in inputs){
+  outputs <- c(outputs, (add_ten(x)))
+}
+# \loop
+
+print(glue::glue("{inputs} -> {outputs}"))
+```
+
+With the `purrr` library, we get the same functionality as looping^[In truth, `purrr` doesn't implement a `for` or `while` loop; it's actually a tidy implementation of the `*apply` family of functions. Awesome!]
+but with an arguably friendlier interface and more compliant mechanics with the
+idiosyncracies of the `tidyverse`:
+
+```{r}
+# much nicer!
+outputs <- map(inputs, add_ten)
+print(glue::glue("{inputs} -> {outputs}"))
+```
+
+This is all fine and dandy, but let's say you get a failure from the data,
+like, `add_ten` throws an error if the output is greater than 100:
+
+```{r}
+add_ten <- function(x) {
+  output <- x + 10
+  if(output > 100){
+    stop("The output is too great!")
+  }
+  return(output)
+}
+```
+
+In a for loop, this fails as expected:
+
+```{r, error=TRUE}
+outputs <- c()
+for(x in inputs){
+  outputs <- c(outputs, (add_ten(x)))
+}
+```
+
+If I had to debug it this code, I would probably set up an iterator:
+
+```{r, error=TRUE}
+outputs <- c()
+for(x in 1:length(inputs)){
+  print(x)
+  outputs <- c(outputs, (add_ten(inputs[x])))
+}
+```
+
+It failed at 5, so I'll check `inputs[5]` and debug:
+
+```{r}
+inputs[5]
+# the output would be greater than 100! Duh!!
+```
+
+But with `purrr::map()`, there isn't a straightforward way to debug like this.
+And if you have a large dataset, with a long-running function, you probably
+don't want to wait until the `map` call fails and you have to go digging around
+into exactly _which_ object in the vector had the problem.
+
+**Enter: `safely()` and `possibly()`.**
+
+These are two functions that modify the behaviour of a `purrr`
+call. You can wrap your function in one of these, and `purrr` will give you
+a couple of ways of managing what happens if and when your loop fails or throws
+some kind of warning or unexpected output. Here's an example with the `add_ten`
+function, using `quietly()` to force `map` to keep going even if there's a failure:
+
+```{r}
+add_ten <- function(x) {
+  output <- x + 10
+  if(output > 100){
+    stop("The output is too great!")
+  }
+  return(output)
+}
+
+add_ten_safely <- safely(add_ten)
+```
+
+```{r}
+out <- add_ten_safely(10)
+out
+```
+
+```{r}
+out <- add_ten_safely(95)
+out
+```
+
+Here, we see that `safely()` returns a list of outputs, with `result` and `error`.
+Implementing this in our `dplyr` chain would thus look like:
+
+```{r}
+outputs <- map(inputs, add_ten_safely)
+outputs
+```
+
+What if we want to have a default value returned if there is an error?
+Well, in base R we'd do something like this:
+
+```{r}
+add_ten_w_error_base <- function(x) {
+  output <- x + 10
+  if(output > 100){
+    # send a message to the console as a side effect
+    message("The output is too great!") 
+    # return a value
+    return(NA)
+  }
+  return(output)
+}
+
+outputs <- map(inputs, add_ten_w_error_base)
+outputs
+```
+
+But in `purrr`, `safely()` comes with the option to just specify this in the
+function with the `otherwise` argument! Check it out:
+
+```{r}
+add_ten_safely <- safely(add_ten, otherwise = NA)
+
+outputs <- map(inputs, add_ten_safely)
+outputs
+```
+
+This is very useful! What's more, the `possibly()` function defaults to only
+returning the successful result _or_ the error condition, so you don't even
+have to deal with a janky list output:
+
+```{r}
+add_ten_possibly <- possibly(add_ten, otherwise = NA)
+
+outputs <- map(inputs, add_ten_possibly)
+outputs
+```
+
+Which is easily parseable:
+
+```{r}
+unlist(outputs)
+```
+
+## Why Is This Useful
+
+I'd say this is a useful family of functions in a limited handful of scenarios, but comes
+in clutch when you meet them. When I first tried these functions out,
+I was processing a number of input files (n < 1000) with an external Matlab
+function that read in the file, calculated a parameter, and sent it back to R.
+In my experience, this approach was great because I 1) a long-ish list of
+inputs to a function, 2) had a function that took more than 5-10 minutes
+to run, per input, and 3) had an expected failure case that I didn't much
+care about (parameter inputs were invalid) and predictable/not unexpected,
+so I didn't quite want to handle them with a within-function `tryCatch` strategy. 
+
+In fact, most programmers (probably Python folks) are probably asking right now, 
+"why would't you just use a `tryCatch` and not deal with another dependency?"
+
+Well, the answer is that I think with this method, we keep the functions much
+more compact and straightforward, while also acknowledging that I will get
+errors returned when I expect them. This would be an unsafe approach when I
+do not know what inputs are expected, and what exactly can go wrong. But on this
+particular afternoon at work, I knew pretty much _every_ input dataset, and
+knew/didn't care about the reasons for a failure of the processing. I felt that
+this scenario lended itself well to the _prima facie_, handwavy approach of
+using `otherwise` in what's essentially an `apply` call with syntactic sugar.
+
+So, the lesson here is, use `purrr` functions instead of your loops. Or don't,
+I guess. I'm not the expert here. I was honestly just tired and needed a better
+solution that "check each of these files for the different errors they could throw", `purrr` worked out perfectly.
+
+Anyway, here's a perfect loop to summarise this blog post. Any loop can be
+perfect, but when they are, they're kinda freaky. Best to expect some failures.
+
+![](https://thumbs.gfycat.com/BiodegradableDefensiveAiredale-mobile.mp4)
