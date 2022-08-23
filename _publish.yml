@@ -1,0 +1,4 @@
+- source: project
+  netlify:
+    - id: a19e01b0-4352-4ba6-a85d-9641af1c7aaf
+      url: 'https://tinashemtapera.com'

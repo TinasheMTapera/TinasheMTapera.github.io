@@ -6,12 +6,12 @@ editor: source
 ::: {.column-margin}
 #### Follow me for more!
 
-<a class="twitter-timeline" data-width="300" data-height="200" data-theme="dark" href="https://twitter.com/TaperaTinashe?ref_src=twsrc%5Etfw">Tweets by TaperaTinashe</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<a class="twitter-timeline" data-width="300" data-height="400" data-theme="light" href="https://twitter.com/TaperaTinashe?ref_src=twsrc%5Etfw">Tweets by TaperaTinashe</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 :::
 
 #### September 7th 2022
-Started my PhD at Northeastern University
+Started new position as PhD student at Northeastern University
 
 #### August 15th 2022
 Left the University of Pennsylvania

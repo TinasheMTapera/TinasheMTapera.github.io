@@ -1,6 +1,9 @@
 project:
   type: website
 
+execute:
+  freeze: auto
+  
 website:
   title: "Tinashe the Data Scientist"
   site-url: "tinashemtapera.com"

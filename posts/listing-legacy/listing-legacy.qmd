@@ -4,14 +4,14 @@ listing:
   contents: 
     - "*.Rmd"
     - "*.qmd"
-  # sort: "date desc"
+  sort: "date desc"
   type: grid
-  # categories: false
-  # sort-ui: false
-  # filter-ui: false
-  # fields: [date, title, description]
-# page-layout: full
-# title-block-banner: true
+  categories: true
+  sort-ui: false
+  filter-ui: false
+  max-description-length: 125
+image: "cv_wf.png"
+title-block-banner: true
 ---
 
 Here you can find archived older posts from my old website.

@@ -2,29 +2,18 @@
 title: "Tinashe M. Tapera's Blog"
 listing:
   contents: 
-    - "posts/**/*.qmd"
-    - "posts/**/*.md"
+    - "posts/[0-9]*/*.qmd"
+    - "posts/[0-9]*/*.md"
+    - "posts/listing-*/listing-*.qmd"
   
   sort: "date desc"
-  type: default
+  type: grid
   categories: true
   sort-ui: false
   filter-ui: false
-page-layout: full
+  max-description-length: 125
 title-block-banner: true
 ---
 
 # Welcome to the blog
-
-content content content
-
-lorem ipsum etc
-
-# A second title
-
-some content
-
-----------------
-
-
 
