@@ -15,5 +15,5 @@ listing:
 title-block-banner: true
 ---
 
-# Welcome to the blog
+# Welcome to the blog!
 
