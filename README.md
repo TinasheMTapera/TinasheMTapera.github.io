@@ -1,5 +1,5 @@
 # TinasheMTapera.github.io
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/a19e01b0-4352-4ba6-a85d-9641af1c7aaf/deploy-status)](https://app.netlify.com/sites/eloquent-cucurucho-ad51e8/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3ea52885-aae7-4912-90fd-e98ad609f9ee/deploy-status)](https://app.netlify.com/sites/eloquent-cucurucho-ad51e8/deploys)
 
 Personal Website & Blog files published in Quarto and deployed on Netlify
