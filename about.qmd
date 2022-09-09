@@ -4,22 +4,30 @@ markdown:
     wrap: 72
 ---
 
-I'm a PhD student in computer science at Northeastern University's [Khoury College of Computer Sciences](https://www.khoury.northeastern.edu/). Specifically, I'm part of the Personal Health Informatics program.
+I'm a PhD student in computer science at Northeastern University's [Khoury College of Computer Sciences](https://www.khoury.northeastern.edu/). Specifically, I'm part of the [Personal Health Informatics program](https://phi.khoury.northeastern.edu/).
 
-## My Background
+## My Background 🇿🇼
 
 Having grown up in Zimbabwe, my greatest passion was writing, producing, and performing music. I spent most of my time in <a href="https://celebrationmin.org/">my home church</a> and [my high school's music department](https://stjohnszim.com/). I was accepted to Drexel University in 2013 to study <strong>psychology</strong>, and in my junior year I joined the accelerated BSMS in Psychology program mentored by <a href="http://www.pages.drexel.edu/~fz53/homepage.html">Fengqing Zhang of the Quantitative Psychology & Statisics Lab.</a> There, I learned about <strong>statistical/machine learning, data mining, and computer programming in R & Python</strong>, and learned to <strong>apply these skills in a range of mental & behavioural health studies.</strong> In 2017, I interned at Salesforce as a data scientist in <a href = "https://www.mckinsey.com/solutions/orgsolutions/overview/people-analytics">People Analytics</a>, where I worked on NLP and text mining problems geared to improve employee success, and in 2018, I graduated from Drexel with my BSc & MSc in psychology. <br>
 
-From 2018 to 2022, I worked as a neuroimaging data analyst at the <a href="https://www.satterthwaitelab.com/">Penn Lifespan Informatics and Neuroimaging Center</a>, where I developed and used various software and programming tools to **process, curate, and analyse neuroimaging data.**
+From 2018 to 2022, I worked as a neuroimaging data analyst at the <a href="https://www.satterthwaitelab.com/">Penn Lifespan Informatics and Neuroimaging Center</a>, where I developed and used various software and programming tools to **process, curate, and analyse neuroimaging data.** Primarily, my role as a data analyst involved developing robust, reproducible, and scalable data preprocessing pipelines, using technologies like Python, R, bash, and docker.
 
 I began my PhD at Northeastern University in September 2022.
 
-## My Research
+## My Research📲
 
-This section is in development... 🚧
+Nowadays, it's not unusual to expect everyone to have at least one smart device on or around their person at all times. Smart devices, particularly phones, have become ubiquitous in modern day life, and these devices capture *a lot of data about us*.
 
-<!-- TODO: explain using SIMBA acronym -->
+Unfortunately, most companies use our personal data against us by encouraging us to do one thing: **consume all the time**. Because we live in a world where our phones understand human behavior (particularly, *your* behavior) better than we do, the idea of sharing data with your phone and the cloud can be scary. But this data can be useful in other ways. Apps and technologies that are built from your personalized data can [direct you to music or movies you didn't know you'd like](https://towardsdatascience.com/uncovering-how-the-spotify-algorithm-works-4d3c021ebc0); they can create flexible directions on the road based on your habits; they can help you [discover your preferred clothing style](https://algorithms-tour.stitchfix.com/); and importantly, they can empower us to be more in control of our health.
 
-## When I'm Not Doing Research...
+My goal as a PhD student is to study how individuals ***interact*** with their phones and other wearable devices. I want to use the data collected by these devices to try and ***infer*** something about their mental health. Once we know our inferences are robust, we can then deploy technologies on their devices that can ***predict*** what mental health state an individual is in throughout their daily life. If the technology predicts that the individual may be about to encounter a stressful situation that could derail their mental health, we can then deploy a personalized, just-in-time technology to that person that can ***intervene*** on that scenario, in a way that the person can engage with on their own terms.
 
-This section is in development... 🚧
+This is just one of the many ways *Personal Health Informatics* is changing the way we think about healthcare.
+
+## When I'm Not Doing Research...🏡
+
+-   I'm a mentor in the R for Data Science ([R4DS](https://www.rfordatasci.com/)) slack group (join [here!](r4ds.io/join))
+
+-   I [jump rope](https://www.healthline.com/health/fitness/jump-rope-vs-running) as my exercise of choice
+
+-   I play Apex Legends with my wife and my little brother
