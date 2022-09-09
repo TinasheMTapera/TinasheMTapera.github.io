@@ -81,7 +81,7 @@ inputs[5]
 # the output would be greater than 100! Duh!!
 ```
 
-But with `purrr::map()`, there isn't a straightforward way to debug like this.
+But with `purrr::map()`, there isn't a straightforward way to debug like this^[I'm lying of course; there is `imap`; but that's not why we're here today].
 And if you have a large dataset, with a long-running function, you probably
 don't want to wait until the `map` call fails and you have to go digging around
 into exactly _which_ object in the vector had the problem.
@@ -177,9 +177,9 @@ in clutch when you meet them. When I first tried these functions out,
 I was processing a number of input files (n < 1000) with an external Matlab
 function that read in the file, calculated a parameter, and sent it back to R.
 In my experience, this approach was great because I 1) a long-ish list of
-inputs to a function, 2) had a function that took more than 5-10 minutes
+inputs to a function, 2) had a function that took around 5-10 minutes
 to run, per input, and 3) had an expected failure case that I didn't much
-care about (parameter inputs were invalid) and predictable/not unexpected,
+care about (parameter inputs were sometimes invalid) and predictable/not unexpected,
 so I didn't quite want to handle them with a within-function `tryCatch` strategy. 
 
 In fact, most programmers (probably Python folks) are probably asking right now, 
@@ -196,7 +196,7 @@ using `otherwise` in what's essentially an `apply` call with syntactic sugar.
 
 So, the lesson here is, use `purrr` functions instead of your loops. Or don't,
 I guess. I'm not the expert here. I was honestly just tired and needed a better
-solution that "check each of these files for the different errors they could throw", `purrr` worked out perfectly.
+solution than "check each of these files for the different errors they could throw", and for that, `purrr` worked out perfectly.
 
 Anyway, here's a perfect loop to summarise this blog post. Any loop can be
 perfect, but when they are, they're kinda freaky. Best to expect some failures.

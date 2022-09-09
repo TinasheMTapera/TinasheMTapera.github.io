@@ -15,7 +15,7 @@ neuroimaging when I began. I felt very much like Jen in the I.T.
 Crowd, having joined a circle of passionate geeks who could
 smell my impostor syndrome from a mile away.
 
-<div style='position:relative'><iframe src='https://gfycat.com/ifr/FamousGrandioseAtlanticblackgoby' frameborder='0' scrolling='no' width='100%' height='100%' style='position:absolute;top:0;left:0' allowfullscreen></iframe></div><p> <a href="https://gfycat.com/famousgrandioseatlanticblackgoby">via Gfycat</a></p>
+<div style='position:relative; padding-bottom:calc(55.28% + 44px)'><iframe src='https://gfycat.com/ifr/FamousGrandioseAtlanticblackgoby' frameborder='0' scrolling='no' width='100%' height='100%' style='position:absolute;top:0;left:0;' allowfullscreen></iframe></div>
 
 And while I'm shifting _away_ from neuroscience itself,
 I can confidently say I am proud to have had the opportunity to
@@ -57,14 +57,16 @@ be infinitely harder to use if they tried to develop friendly
 GUIs for them. In fact, at PennLINC, we actively try to veer
 students and staff _away_ from programs that claim to provide
 a fun GUI for our work, because the GUI adds extra inflexible 
-dependencies actually cost us more time in the long run.
+dependencies that actually cost us more time in the long run.
 
 That being said, the command line can be intimidating!
 Modern computing has made general use so easy, that more
 advanced tasks can seem quite daunting. Here are a few points to
 remember when jumping into the command line:
 
-- **You probably won't break it permanently.** Remember that computer
+- **You probably won't break it permanently.** 
+
+Remember that computer
 engineers have set up systems (such as the `sudo` argument) to
 make sure that everyday users don't bork their entire computer
 in one go. Even if you do mess up something, it's usually a matter
@@ -75,12 +77,14 @@ on again?"
 
 <div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/Oe4V14aLzv7JC" width="60%" height="60%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/parents-computers-it-crowd-Oe4V14aLzv7JC">via GIPHY</a></p>
 
-- **You get faster the more you practice.** This can't be stated
+- **You get faster the more you practice.** 
+
+This can't be stated
 enough — clicking into a folder and reading the content _feels_
-pretty seamless, but you will find the more you practice that
+pretty seamless, but you will find the more you practice using the command line, that
 "windows explorer" or "finder" is actually incredibly opaque and
-hides critical information you need, and extracting it takes ages
-longer than at the command line. So stick with it and **be patient
+hides critical information you need, and extracting that takes ages
+longer than if you'd done it at the command line. So stick with it and **be patient
 with yourself**, you'll see the benefits one function at a time.
 
 To get started with familiarising yourself with the command line,
@@ -100,7 +104,7 @@ question — you'll be surprised at how many everyday computer operations are si
 
 I really don't have to give much information on why these are
 necessary skills in neuroscience — data science requires coding
-languages — but I will say — Python has a pretty marginal edge
+languages. But I will say, Python has a pretty marginal edge
 in popularity for neuroscience at the moment. I believe the
 reason is that older neuroscientists came from the world of
 Matlab, and so tend to operationalise the techniques in terms of
@@ -140,16 +144,19 @@ It should be clear that writing code (Python or R) should go hand
 in hand with understanding that code should never suffer from
 `document_my-edits_version-17_FINAL_AUG2022_Supervisor-feedback_v4.docx` syndrome — version control is how programmers avoid that problem. A couple of notes about version control:
 
-- **There is no project too small for version control.** Adding a
+- **There is no project too small for version control.** 
+
+Adding a
 directory to `git` costs _nothing_, so do it with pretty much
 _any_ folder with code in it. If your folder contains large
 proprietary/binary files (like large files created by a specific
 program), just add them to your `.gitignore` to make sure they're not tracked by `git`.
 
 - **`git` is a software for version control; Github is a company that hosts version control servers.**
+
 Even though I personally almost exclusively use Github services, they don't
 inherently deserve as much power as they have, so don't hesitate
-to check out alternatives like Gitlab.
+to check out alternatives like Gitlab or BitBucket.
 
 - Try out the **Github CLI** [(`gh cli`)](https://cli.github.com/manual/installation); it's actually pretty great!
 
@@ -157,14 +164,15 @@ to check out alternatives like Gitlab.
 annex` is available, but I actually recommend a handy tool called
 [`datalad`](https://www.datalad.org/) for handling both code text
 and large files. I strongly believe `datalad` is going to become
-a neuroimaging and neuroscience standard in the coming years — 
-YOU HEARD IT HERE FIRST FOLKS!
+a neuroimaging and neuroscience standard in the coming years, so get ahead of the curve.
 
-- **Open-source makes the world a better place.** By sharing your
+- **Open-source makes the world a better place.** 
+
+By sharing your
 code, you provide other people with the opportunity to learn and
 grow, and perhaps develop their own solutions to problems they
 have, their community has, or even _you_ have. Part of the goal
-of this blog is to open-source knowledge so that everyone can
+of this blog is to open-source my knowledge so that everyone can
 have the opportunity to learn from my shortcomings, mistakes
 and experiences. `git` (with companies like Github) makes that extremely easy, so share your
 code online (ethically and with permission from your supervisor) with the neuroimaging community so people can learn from your awesomeness — even if you believe your code sucks!

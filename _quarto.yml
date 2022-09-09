@@ -9,8 +9,8 @@ website:
   site-url: "tinashemtapera.com"
   description: "Tinashe M. Tapera's official website"
   favicon: "assets/img/data-science.png"
-  preview:
-    timeout: 3600
+  # preview:
+  #   timeout: 3600
   
   # navs
   page-navigation: true
@@ -30,7 +30,7 @@ website:
       - icon: twitter
         href: https://twitter.com/TaperaTinashe
       - icon: linkedin
-        href: https://linkedin.com/TinasheMTapera
+        href: https://linkedin.com/in/tinashemtapera
   
    #     href: 
    #   - icon: twitter
@@ -46,8 +46,10 @@ website:
         href: about.qmd
       - text: "LICENSE"
         href: LICENSE
-      - text: "View on Github"
+      - text: "View source on Github"
         href: https://github.com/TinasheMTapera/TinasheMTapera.github.io
+      - text: "Buy me a Coffee"
+        href: https://www.buymeacoffee.com/tinashemtapera
   #socials
   open-graph: true
   twitter-card: 
