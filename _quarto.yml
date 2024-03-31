@@ -5,7 +5,7 @@ execute:
   freeze: auto
   
 website:
-  title: "Tinashe the Data Scientist"
+  title: "Tinashe Michael Tapera"
   site-url: "tinashemtapera.com"
   description: "Tinashe M. Tapera's official website"
   favicon: "assets/img/data-science.png"
