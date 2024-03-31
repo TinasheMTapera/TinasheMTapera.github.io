@@ -2,6 +2,6 @@
 title: "CV"
 ---
 
-🚧This page is IN DEVELOPMENT.🚧
+This CV is automatically generated using Google sheets, R, and Github Sctions. Check out my [`ReproducibleResumeCV`](https://github.com/TinasheMTapera/ReproducibleResumeCV) project on GitHub!
 
-In the meantime, you can check out my [`ReproducibleResumeCV`](https://github.com/TinasheMTapera/ReproducibleResumeCV) project on GitHub, to see my first attempt at automating a CV!
+<a href="https://github.com/TinasheMTapera/ReproducibleResumeCV/blob/main/long_form_cv/long_form_cv_vitae.pdf" target="_blank">PDF</a>
