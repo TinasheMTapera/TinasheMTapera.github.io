@@ -1,0 +1,130 @@
+---
+title: "Building a Personal Package"
+author: "Tinashe M. Tapera"
+date: "2024-08-16"
+image: https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcG5rOWxoeDBxOG10dTh2OTZtamVsMmJzbmk3M3VkbGM4YmM1NTBscCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XbJLL1uIH3PwEB2hui/giphy.gif
+---
+
+Do you ever find yourself revisiting short code snippets you’ve written over and over
+again? It’s probably a sign that you should be maintaining a personal R package.
+
+![You should have a package](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcG5rOWxoeDBxOG10dTh2OTZtamVsMmJzbmk3M3VkbGM4YmM1NTBscCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XbJLL1uIH3PwEB2hui/giphy.gif)
+
+There are multiple benefits to writing your own personal package. Some early career
+R programmers believe that package development is a task that you should only 
+undertake if you’re creating something particularly novel, elaborate, or serious, 
+when in truth an R package is just a collection of functions that help you get your
+job done. It can be as complex, or as simple, as you need it to be. Some advantages 
+include improved code organization, easier code reuse, and better collaboration 
+with others. Additionally, creating your own package allows you to document your
+functions and ensure they are well-tested, which can save you time in the long run. 
+What’s more, you get to practice your package development workflow in a low-stakes 
+environment, giving you the option to be as formal or informal as you want with 
+regards to standardized workflows, tools, and frameworks. For example, I used my 
+personal package as a way to test out a bunch of features from the `fusen` package, 
+which is a package designed for “notebook-driven-development” that I’ve been 
+investigating. Importantly, you can use the package to document any particularly 
+elegant or novel solutions you might have come up with for niche situations you’ve 
+been faced with in your work (without a place to put them existing beforehand, 
+you’re less likely to document it when the moment arrives), and by using GitHub, 
+have access to these solutions in a matter of seconds at any machine.
+
+So, with all of that being said, here are 3 functions I put in my personal package 
+to get the ball rolling. Over time, my list of functions will grow and the 
+package’s utility will increase on its own.
+
+## `len_uniq`
+
+If you ever find yourself doing this pattern often:
+
+```{r, eval=FALSE}
+some_vector %>%
+    unique() %>%
+    length()
+
+# OR
+length(unique(some_vector))
+```
+
+It's time to write a function for it:
+
+```{r function-len_uniq}
+#' len_uniq
+#' 
+#' A short hand for unique() %>% length()
+#' 
+#' @param vec A vector with a various objects
+#' @return The number of unique objects in the vector
+#' @export
+#'
+#' @examples
+len_uniq <- function(vec) {
+  length(unique(vec))
+}
+```
+
+`fusen` allows me to write all of the function's examples and tests in one single RMarkdown
+or Quarto document. Check out the [repo](https://github.com/TinasheMTapera/tinasheR/blob/main/dev/flat_core.Rmd) to see how it works.
+
+## `sort_uniq`
+
+Likewise, I'm also prone doing this a lot:
+
+
+```{r, eval=FALSE}
+some_vec %>%
+    unique() %>%
+    sort()
+
+# OR 
+sort(unique(some_vec))
+```
+
+So, putting that in a function, I defined:
+
+
+```{r}
+#' sort_uniq
+#' 
+#' A Shorthand for unique() %>% sort()
+#'
+#' @param vec A vector that can be reasonably sorted
+#' @return A sorted vector of unique values in the vector
+#' @export
+#'
+#' @examples
+sort_uniq <- function(vec) {
+  sort(unique(vec))
+}
+```
+
+## Not %in% operator
+
+This is a personal pet peeve of mine, so I had to write a function
+for it. Python's `not in` is just too fun not to emulate in R:
+
+
+```{r}
+#' %!in%
+#' 
+#' An operator that negates the %in% operator
+#' 
+#' @return boolean
+#' 
+#' @export
+`%!in%` <- Negate(`%in%`)
+```
+
+And using these 3 functions, I already had enough material to develop
+a simple package that includes documentation with Roxygen,
+testing with `testthat`, and publishing with `pkgdown` — all useful
+skills to know before the day comes that you're asked to build
+something "important".
+
+## Conclusion
+
+Even with that little effort, we've managed to develop a fully
+documented and operational personal R package available on
+Github for me to use whenever I need my shorthand snippets: [tinasheR](https://tinashemtapera.github.io/tinasheR/). 
+
+I hope this might encourage you to develop your own!
