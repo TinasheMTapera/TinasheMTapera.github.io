@@ -2,7 +2,7 @@
 title: "Managing Expected Loop Failures with Purrr"
 author: "Tinashe M. Tapera"
 date: "2022-08-21"
-image: infinite_loop.mp4
+image: https://media0.giphy.com/media/jyEpo3XfNNghuMubJO/200w.gif?cid=6c09b952zy0kglvx4sq8g1znubrr2lidaa879xlsnqpdfexu&ep=v1_videos_search&rid=200w.gif&ct=v
 ---
 
 ```{r, message=FALSE, warning=FALSE}
@@ -201,4 +201,4 @@ solution than "check each of these files for the different errors they could thr
 Anyway, here's a perfect loop to summarise this blog post. Any loop can be
 perfect, but when they are, they're kinda freaky. Best to expect some failures.
 
-![](https://thumbs.gfycat.com/BiodegradableDefensiveAiredale-mobile.mp4)
+<blockquote class="reddit-embed-bq" style="height:500px" data-embed-height="740"><a href="https://www.reddit.com/r/perfectloops/comments/184mtrv/missed_a_spot_l/">Missed a spot... [L]</a><br> by<a href="https://www.reddit.com/user/igneus/">u/igneus</a> in<a href="https://www.reddit.com/r/perfectloops/">perfectloops</a></blockquote><script async="" src="https://embed.reddit.com/widgets.js" charset="UTF-8"></script>

@@ -1,0 +1,111 @@
+---
+title: "My Summer in Oncology Data Science"
+author: "Tinashe M. Tapera"
+date: "2024-08-27"
+image: https://www.concertai.com/hubfs/Concertai_March2024/images/ConcertAI%20Logo%20SQ%20Press%20Blue%20Wave.png
+---
+
+I spent the past summer on leave from my PhD, and instead took
+an opportunity to intern at ConcertAI, a multinational
+healthcare technology company in the oncology space. ConcertAI
+desccribe themselves as, "Powerful, integrated real-world 
+data and AI-driven solutions to transform how insights are 
+generated and accelerate therapeutic innovations to patients."
+
+Fortunately for me, there was an opening in the summer intern
+listing for someone who was well-versed in R, building
+dashboards, and data science in general. So, while I had
+no experience in oncology at the time, I decided to send an application.
+
+I'm fairly certain I was in stiff competition for the position,
+but one thing that I think helped was that I developed a quick
+and dirty project where I tinkered with open source oncology data
+(you can see the project [here](https://tinashemtapera.github.io/Tinkering_with_oncology/)).
+I believe jumping into a data set in your own naivité can be a
+good way to demonstrate your potential to a prospective employer
+(kind of like doing the take-home task thing but without the
+headache of it feeling like some kind of assessment).
+
+## Key Takeaways
+
+The internship went fairly well, and I'm grateful to my
+managers and to CAI for having me. My official title
+was "RWD Product Data Scientist," and my eventual
+final output was a dashboard built in R that was
+published on CAI's Posit Connect instance.
+Real World Data (and a similar term, Real World Evidence)
+sounds like a hat-on-a-hat for describing what data
+scientists do — analyze data. _When would that data ever not
+come from the real world?_ Well in practice, the phrase refers
+to the fact that sometimes biotechnology companies have to
+distinguish between data that comes from a controlled
+environment (such as a study) and data that is collected
+in, well, the real world. **In RWD, you might be preparing
+data in the form of Emergency Medical Records or insurance
+claims.** This is different from the tasks of, say,
+a biostatistician whose primary datasets might be prepared
+studies that were either conducted by the company or
+that the company is somehow connected to. Hence, in the
+biotech world, it's important to know whether you'd fit in
+the RWD or biostat role based on the data you'd prefer to work with.
+
+![Real World Data can be...different](https://i.redd.it/eohi4601quv21.jpg)
+
+Speaking of, **corporate level datasets are big. Like, really big.**
+It's hard as an academic to get an appreciation for how big they are
+without seeing it firsthand. In fact, it's one of my biggest
+peeves about having not had formal computer science or engineering
+experience — throughout my experiences in labs and other such environments, the data has normally been
+small enought to either fit on a laptop, or sit on a server
+where one can SSH in and run analyses on samples or even fit the
+whole dataset in memory. In corporate settings, businesses collect
+everything _continuously_, using active databases with billions or records
+accessible through very strict and formal infrastructure. At CAI, they used
+a version of MySQL that is partitioned into many different schemas and tables,
+each tailored to different business units' needs and operations. This brings
+me to my second takeaway: R users need to put some work into formalizing
+training on interacting with databases. I believe we leave it till far
+too long in our training to learn how to set up, access, and interact with
+a database. In fact, I'm tempted to say that this training should come
+before any of the fancy machine learning stuff. That being said, there
+are some efforts being made to remedy this, such as the stellar support
+for databases in R provided by [Posit's `dbplyr` package](https://dbplyr.tidyverse.org).
+In addition, there are two books[^1] on my radar to review that provide some
+instruction on how to make a database in a docker image and interact
+with it, simulating the process of working on corporate infrastructure. I
+look forward to reporting back on how it goes.
+
+![Working with production databases is no simple task](https://programmerhumor.io/wp-content/uploads/2023/03/programmerhumor-io-programming-memes-4c904cb79516eb4.png)
+
+The last takeaway I have worth mentioning is that because I was working
+on a Shiny app, at production level no-less, I feel into the
+inevitable problem of a Shiny app being too long to be readable in
+one file of code. While I didn't have time to implement it in this
+project, I am now very strongly considering giving some reading to
+the `golem` package's book [Engineering Production-Grade Shiny Apps.](https://engineering-shiny.org/index.html)
+The book isn't necessarily about writing Shiny code, but instead
+is about the framework with which it's recommended to think about
+and structure your app creating process. It goes hand in hand with
+how the [`tidyverse` manifesto](https://tidyverse.tidyverse.org/articles/manifesto.html) is a framework for tidy data analysis, the
+[grammar of graphics](https://byrneslab.net/classes/biol607/readings/wickham_layered-grammar.pdf) is a framework for data visualization, and
+[`tidymodels`](https://www.tidymodels.org/start/) is the latest framework for machine learning in R.
+Frameworks help us scale our work reliably, safely, and flexibly, and
+provide guard rails against common mistakes and pitfalls. A good
+framework is essential when you're developing production level
+code, and so I aim to put `golem` on my learning list for the
+near future.
+
+![Golem has a weird hex but I think it's worth checking out](https://raw.githubusercontent.com/ThinkR-open/golem/master/inst/rstudio/templates/project/golem.png)
+
+For now, those are the main conclusions I've arrived at when it
+comes to working in biotech. There's still lots to learn if
+I'm ever to return to oncology or RWD or biotech in general,
+but for now, it's back to the PhD at Northeastern where I
+hope to sharpen my scientific inquiry skills and do some more cool things
+with data.
+
+[^1]: [Hands on Data Engineering with R, Python, and PostgreSQL](https://www.amazon.com/Hands-Data-Engineering-Python-PostgreSQL/dp/1705963676), which looks like an official read, and [R, Databases and Docker](https://smithjd.github.io/sql-pet/) which is more of a tutorial-style online book.
+
+
+
+
