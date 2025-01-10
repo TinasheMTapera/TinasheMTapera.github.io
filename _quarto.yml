@@ -18,8 +18,8 @@ website:
     left:
       - text: About
         href: about.qmd
-      - text: News
-        href: news.qmd
+      #- text: News
+      #  href: news.qmd
       - text: CV
         href: cv.qmd
       - text: Blog

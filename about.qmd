@@ -4,7 +4,7 @@ markdown:
     wrap: 72
 ---
 
-I'm a PhD student in computer science at Northeastern University's [Khoury College of Computer Sciences](https://www.khoury.northeastern.edu/). Specifically, I'm part of the [Personal Health Informatics program](https://phi.khoury.northeastern.edu/).
+I'm a Master's student in Health Informatics, joint between Northeastern University's [Khoury College of Computer Science](https://www.khoury.northeastern.edu/) and [Bouvé College of Health Sciences](https://bouve.northeastern.edu).
 
 ## My Background 🇿🇼
 
@@ -12,21 +12,46 @@ Having grown up in Zimbabwe, my greatest passion was writing, producing, and per
 
 From 2018 to 2022, I worked as a neuroimaging data analyst at the <a href="https://www.satterthwaitelab.com/">Penn Lifespan Informatics and Neuroimaging Center</a>, where I developed and used various software and programming tools to **process, curate, and analyse neuroimaging data.** Primarily, my role as a data analyst involved developing robust, reproducible, and scalable data preprocessing pipelines, using technologies like Python, R, bash, and docker.
 
-I began my PhD at Northeastern University in September 2022.
+## My Data Science Interests🪚
 
-## My Research📲
+My goal as a research software engineer is to advance the goals of PIs, their labs,
+and their students, by providing high-quality software and engineering support.
+Science is a team sport, and relying on a single data science unicorn is as much a myth as it
+is a handicap to good work. As such, my philosophy is that successful labs and teams
+silo and integrate different skill sets among talented individuals in the 
+data science pipeline. I thrive in roles where I can get my hands dirty tackling 
+the nitty-gritty barriers to getting the science done. I love figuring out things
+like:
 
-Nowadays, it's not unusual to expect everyone to have at least one smart device on or around their person at all times. Smart devices, particularly phones, have become ubiquitous in modern day life, and these devices capture *a lot of data about us*.
+* Documentation: Knowledge is a resource, and everyone should have access to the
+"how-to's," in a lab. I pride myself on creating clear, concise, and engaging documentation
+of both refined systems, and best practices and tutorials. I use tools such as
+automated documentation generators (`roxygen`, `pkgdown`, Sphinx, Quarto, Github Pages).
 
-Unfortunately, most companies use our personal data against us by encouraging us to do one thing: **consume all the time**. Because we live in a world where our phones understand human behavior (particularly, *your* behavior) better than we do, the idea of sharing data with your phone and the cloud can be scary. But this data can be useful in other ways. Apps and technologies that are built from your personalized data can [direct you to music or movies you didn't know you'd like](https://towardsdatascience.com/uncovering-how-the-spotify-algorithm-works-4d3c021ebc0); they can create flexible directions on the road based on your habits; they can help you [discover your preferred clothing style](https://algorithms-tour.stitchfix.com/); and importantly, they can empower us to be more in control of our health.
+* Reproducible Data Pipelines: Nothing's worse than looking back over several hours of work
+and being unable to figure out how you ended up where you did. I enjoy creating
+reproducible and well documented pipelines for data transformation and analysis,
+using tools like Quarto, Jupyter, `targets`, `pytask`, `testhat`, `pytest`, `datalad`,
+and CI/CD tools like Github Actions.
 
-My goal as a PhD student is to study how individuals ***interact*** with their phones and other wearable devices. I want to use the data collected by these devices to try and ***infer*** something about their mental health. Once we know our inferences are robust, we can then deploy technologies on their devices that can ***predict*** what mental health state an individual is in throughout their daily life. If the technology predicts that the individual may be about to encounter a stressful situation that could derail their mental health, we can then deploy a personalized, just-in-time technology to that person that can ***intervene*** on that scenario, in a way that the person can engage with on their own terms.
+* Tooling: Your analysis shouldn't be hampered because you can't open an IDE or
+install a library; nothing gives me more joy than tinkering with a silly installation
+so that it "just works," for everyone who tries it later.
 
-This is just one of the many ways *Personal Health Informatics* is changing the way we think about healthcare.
+* Accessibility: I don't believe in "gatekeeping" data science — it's not true that
+only "real programmers" use `vim` to write scripts. It's okay to use tools and
+other helpful strategies to make programming more accessible to you, including
+friendly IDEs, libraries, and problem-solving paradigms. This is why I'm a huge
+advocate of **notebook-driven development** with tools like
+[`nbdev` (Python)](https://nbdev.fast.ai/getting_started.html) and
+[`fusen` (R)](https://thinkr-open.github.io/fusen/index.html).
 
-## When I'm Not Doing Research...🏡
 
--   I'm a mentor in the R for Data Science ([R4DS](https://www.rfordatasci.com/)) slack group (join [here!](r4ds.io/join))
+## When I'm Not Doing Data Stuff...🏡
+
+-   I'm a mentor in the Data Science Learning Community ([DSLC](https://www.dslc.io/)) slack group (join [here!](https://dslcio.slack.com/ssb/redirect))
+
+-   I'm also a member of the [US Research Software Engineer Association](https://us-rse.org)
 
 -   I [jump rope](https://www.healthline.com/health/fitness/jump-rope-vs-running) as my exercise of choice
 

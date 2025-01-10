@@ -6,7 +6,7 @@ about:
   links:
     - icon: twitter
       text: Twitter
-      href: https://twitter.com/TaperaTinashe
+      href: https://bsky.app/profile/tinashemtapera.bsky.social
     - icon: linkedin
       text: LinkedIn
       href: https://linkedin.com/in/tinashemtapera
@@ -21,18 +21,18 @@ about:
 ::: {.column width="33.33%"}
 
 ### {{< fa graduation-cap >}} 
-### PhD student
+### Research Software Engineer
 
-I'm a PhD Student at Northeastern University, co-mentored by Varun Mishra
-and Stephen Intille. I study how to detect mental health states from
-personal devices like mobile phones and smart watches.
+I'm a [Research Software Engineer](https://www.nature.com/articles/d41586-022-01516-2) 
+with a background in a wide range of academic and professional fields. I'm currently
+completing a Master's degree at Northeastern University in Health Informatics.
 :::
 
 ::: {.column width="33.33%"}
 ### <i class="fa-brands fa-r-project"></i>
 ### #Rstats Nerd
 I've been writing R code for over 7 years and _love_ introducing people
-to the exciting world of programming through R.
+to the exciting world of programming and data analysis with R.
 :::
 
 ::: {.column width="33.33%"}
