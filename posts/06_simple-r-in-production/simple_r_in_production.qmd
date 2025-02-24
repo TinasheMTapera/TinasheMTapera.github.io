@@ -1,0 +1,229 @@
+---
+title: "A Simple Demonstration of R in Production"
+author: "Tinashe M. Tapera"
+date: "2025-02-23"
+image: https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2017/06/R-Programming_02.png
+---
+
+![](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExeG1kemZ3eW9rMnI4ZjB3eG9ud2lobXJ3YjlxaDVjM3BmbGhkMWxudiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/UPqYp2tj61XlBhlPbH/giphy.gif)
+
+Last summer, I found a part-time job that had no fixed
+schedule; instead, a schedule was sent week-to-week,
+meaning that I had to check the app we used for HR pretty
+much two or three times a week to know ahead of time when I would
+be working. This ended up being a huge pain, as adding the shifts
+by hand was tedious and, of course, error prone. So, naturally,
+I did what anyone with some programming chops would do: try to automate it.
+
+Now, for most people in this scenario, they might lean directly on
+a traditional "app development" option like building a standalone iOS app,
+but I wanted to try out something different. Recently, the 
+[Data Science Learning Community (DSLC.io)](https://dslc.io) finished our first cohort reading the
+book [DevOps for Data Science](https://do4ds.com) in which author Alex Gold
+from Posit gives data scientists a gentle introduction to the world of DevOps.
+In the book's introduction, Gold writes:
+
+> Data science alone is pretty useless... What does matter is
+[that your work] affects decisions at your organization or in the broader world.
+
+In other words, making a fancy model or having the prettiest graph
+isn't quite the end-goal of data science. Instead, whatever data crunching you do should provide some value
+to someone in some actionable way. Gold considers this to be "in production."
+
+> For some organizations, in production means a report that gets rendered and emailed around. For others, it means hosting a live app or dashboard that people visit. For the most sophisticated, it means serving live predictions to another service from a machine learning model via an application programming interface (API).
+Regardless of the maturity or the form, every organization wants to know that the work is reliable, the environment is safe, and that the product will be available when people need it.
+
+This struck me as incredibly poignant advice, because for many years I'd been
+wrestling with the argument, both internally and online with others,
+that [R cannot be used in production](https://mkaye.dev/blog/lessons-learned-from-running-r-in-production). Of course, this is complete hogwash,
+but it can be hard to argue authoritatively when I myself had rarely had
+significant use cases to the contrary. Thus, I set out, in this simple project,
+to demonstrate that R is absolutely viable in production, even for a small
+task like automating my shift scheduling[^1].
+
+## Using R in Production: Why It’s More Than Just a Research Tool
+
+When it comes to production environments, Python often gets all the attention in data science. 
+But why not R? Can it really hold its own in the world of production?
+The answer is a tentative *yes, with the right tools and infrastructure.* 
+R can be just as capable as Python for many production scenarios; it just takes
+a little bit of forethought, which, let's be honest, you were going
+to have to do in any language anyway.
+
+### The Benefits of R in Production
+
+R is renowned for its statistical and data analysis capabilities. It’s the go-to
+language for data scientists and researchers, and for good reason. 
+With packages like the `tidyverse`, `tidymodels`, and `data.table`, 
+R makes data manipulation and visualization a breeze. But these strengths 
+aren’t limited to research; they’re just as valuable in production environments where data
+needs to be churned into value.
+
+Another advantage of R is its speed of development. Frameworks like Shiny
+allow for rapid prototyping and deployment of interactive applications. 
+This agility is a significant asset in production environments where quick
+iteration is often necessary, and combined with Posit's commercial product offering
+of production environment tools, a data science ecosystem is just a few clicks away[^2].
+
+### Overcoming R’s Limitations
+
+Of course, R isn’t without its limitations. Its single-threaded 
+out-of-the-box nature can limit concurrency, which is a challenge in high-traffic
+environments. However, tools like `httpuv` and the recently released [`valve`](https://valve.josiahparry.com)
+can help mitigate this by handling multiple requests concurrently.
+Performance is another area where R *might* lag behind compiled languages. But for many tasks, R’s
+performance is comparable to Python’s, especially when using optimized packages like `data.table`.
+Besides, there's ample evidence to suggest that [the argument that R is specifically too
+slow for production is bogus](https://josiahparry.com/posts/2023-07-06-r-is-still-fast)[^3].
+Lastly, R’s package ecosystem is vast but can be a tad complex. Tools like `renv` help manage package
+dependencies, ensuring that your application uses consistent versions of packages across different environments.
+
+### The Power of Infrastructure
+So, how do we overcome these limitations and make R production-ready? The key is leveraging the right infrastructure:
+- Containerization with Docker: Docker simplifies deployment by encapsulating your application and its dependencies, ensuring consistent environments across different machines.
+- Cloud Services: Platforms like AWS or Google Cloud provide scalable infrastructure that can handle high traffic and concurrency issues.
+- API Frameworks: Tools like Plumber enable R to be used as a backend for web applications, integrating seamlessly with other technologies.
+
+## A Real-World Example: Calendar Event Generator
+
+Let’s walk through the development of a simple application that demonstrates R’s potential in production: 
+an API that generates calendar events from screenshots of my schedule.
+
+### Step 1: Plumber API Development
+
+![Plumber to the rescue!](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExa3BiNWdtZGRkNHJ6OGJwajF3Z2gxb29sc2EzaXAxaWpsZnMxajV4ayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/HOsHtiVdeypFxOhLAf/giphy.gif)
+
+First, we need to create API endpoints using Plumber. For this application, 
+we’ll define an endpoint that accepts a screenshot and returns an .ics file.
+Since the screenshot was always a standard shape and text, I used the simple
+`tesseract` library to use OCR to extract text from the image (I'm sure
+that nowadays, a fancy AI solution might do it even better, but I was
+going for simplicity here). You can simply create a function like this:
+
+```{r, eval=FALSE}
+#' extract_text
+#' 
+#' @description
+#' Extract text from a screenshot image
+#'
+#' @param img_file Screenshot of the schedule for the week
+#' @importFrom tesseract tesseract ocr
+#' @return Text extracted from the screenshot
+#' @export
+extract_text <- function(img_file) {
+  
+  eng <- tesseract("eng")
+  text <- ocr(img_file, engine = eng)
+
+  text
+}
+```
+
+This function can then be wrapped in some processing function,
+which we use as the endpoint for the API in `plumber`. I have
+included pseudocode here to represent the processing steps, which included
+string manipulation (`stringr`), datetime manipulation (`lubridate`),
+and dynamic string variable generation (`glue`).
+It's also worth mentioning that you can convert a dataframe
+into an iCal file with the `calendar` library:
+
+```{r, eval=FALSE}
+#* Convert the input image to an ical event
+#* @param img_file:file the screenshot
+#* @param event_title:string title of the event
+#* @post /schedule
+#* @serializer text
+function(img_file, event_title = "Reservoir (autogenerated)") {
+  
+  # Process the screenshot to extract event details
+  text <- extract_text(img_file)
+
+  ic <- process_text_into_dataframe(text) %>%
+    convert_data_frame_to_ic_file()
+
+  # Generate an .ics file and return it as an attachment
+  as_attachment(ic, "output.ics")
+}
+```
+
+Note that we've used `renv` to manage package dependencies for,
+these libraries, ensuring that our application uses consistent
+versions of packages across environments. The dependencies are
+recorded in the `renv.lock` file.
+
+### Step 2: Dockerization
+
+![It's time to Dockerize](/assets/img/oie_2ekNy9GFgopy.jpg)
+
+Next, we’ll create a Dockerfile that installs necessary dependencies, copies the application code, and sets up the environment for running the Plumber API.
+
+```{dockerfile, eval=FALSE}
+FROM rocker/r-ver
+
+# Install renv and other dependencies
+RUN R -e "install.packages('renv', repos = c(CRAN = 'https://cloud.r-project.org'))"
+
+# Copy renv.lock and activate renv
+WORKDIR /project
+COPY renv.lock renv.lock
+ENV RENV_PATHS_LIBRARY renv/library
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y libxml2-dev libssl-dev
+
+# Copy application code
+COPY . .
+
+# Restore renv environment
+RUN R -e "renv::restore()"
+
+# Expose port for API
+EXPOSE 8080
+
+# Run Plumber API
+ENTRYPOINT ["R", "-e", "pr <- plumber::plumb('plumber.R'); pr$run(host='0.0.0.0', port=as.numeric(Sys.getenv('PORT')))", "8080"]
+```
+
+### Step 3: Deployment
+
+![Are you ready....?](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2ljbnB6Zng5YzJqN2d3ZHpoOGRpZDNnYjgyZTdvamRoeTlvMmxmYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/PApUm1HPVYlDNLoMmr/giphy.gif)
+
+Next, we build the Docker image and deploy it to a cloud platform — I chose Google Cloud — which allows for easy scaling and management of the application. Specifically, I followed [this humorous tutorial](https://youtu.be/cw34KMPSt4k?si=_uO5T2gdpXftUK4t)
+on how to deploy any Docker container to the cloud.
+
+### Step 4: Accessing
+
+The last step was to create a very simple iOS shortcut "app". The basic process is to capture
+a screenshot to the clipboard, and then send the clipboard content to the plumber endpoint listening
+on Google cloud. Once the plumber endpoint receives the screenshot, it processes it using
+our R code, produces the iCal file, and sends it back to the phone, which opens it up in Calendar.
+
+![iOS Shortcut as an App](/assets/img/Screenshot 2025-02-23 at 23.43.57.png)
+
+### Conclusion
+
+And just like that, Bob's your uncle. A fully functioning application that runs on my phone,
+using the internet, providing every day value to me, and that is completely powered by R.
+You can see the repo with the actual code for this app [here](https://github.com/TinasheMTapera/ScreenShot2CalendarEndpoint).
+As you can see, with a little bit of elbow grease, R can be more than just a research tool; 
+it’s a capable language for production environments.
+By leveraging the right infrastructure and tools, R applications can be robust, 
+reliable, and efficient. Whether you’re working with data analysis, machine learning, 
+or web applications, R has the potential to shine in production. So, the next time you’re 
+considering "productionizing" a project, don’t overlook R. With its strengths in statistical
+analysis and data visualization, combined with modern tools and infrastructure,
+R can bridge the gap between research and production, offering a cost-effective and 
+efficient solution for data-driven applications.
+
+![Happy coding!](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdW8xY3hrMGcwMXNibHQ5bHFyMHZheWEyeTd0Z2ViMnFrdzUwbTRwcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/wcgn5fVDjvR7pdvz4C/giphy.gif)
+
+[^1]: For the record, DO4DS is not a language opinionated book — it features labs
+in both R and Python, and I encourage anyone who has ever been "mystified" by this
+idea of data science in production to give it a thorough read.
+
+[^2]: It's worth noting that Hadley Wickham, head of Posit and veritable godhead of
+the R pantheon, is himself working on [a book about R in production](https://r-in-production.org); so watch this space...
+
+[^3]: Josiah Parry's thoughts in this space are interesting; I highly encourage reading the
+back-and-forth arguments about R's speed to learn specifically _why_ the argument about
+speed in production is actually misaligned to whether or not R is appropriate.
