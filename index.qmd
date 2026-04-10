@@ -37,11 +37,10 @@ to the exciting world of programming and data analysis with R.
 
 ::: {.column width="33.33%"}
 ### {{< fa magnifying-glass-chart >}}
-### Data Scientist
+### Curious About Reproducibility
 I have professional experience developing tools and software in academia and
-industry. My favourite data science tasks are data 
-wrangling/ETL, scientific publishing, and
-deploying complex interconnected pipelines in containers.
+industry. I strive for my work to be robust to scale, 
+transparent to scrutiny, and reproducible everywhere.
 :::
 
 :::: 
