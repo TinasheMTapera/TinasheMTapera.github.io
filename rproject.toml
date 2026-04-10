@@ -1,0 +1,33 @@
+# this config was migrated from renv.lock on 2026-04-06
+[project]
+name = "/Users/tit420/projects/TinasheMTapera.github.io"
+r_version = "4.5.3"
+
+repositories = [
+    { alias = "CRAN", url = "https://cran.rstudio.com/"}
+]
+
+dependencies = [
+    { name = "RColorBrewer", repository = "CRAN" },
+    { name = "SnowballC", repository = "CRAN" },
+    { name = "cellranger", repository = "CRAN" },
+    { name = "clipr", repository = "CRAN" },
+    { name = "conflicted", repository = "CRAN" },
+    { name = "ellipsis", repository = "CRAN" },
+    { name = "fastmap", repository = "CRAN" },
+    { name = "ids", repository = "CRAN" },
+    { name = "janeaustenr", repository = "CRAN" },
+    { name = "jquerylib", repository = "CRAN" },
+    { name = "kableExtra", repository = "CRAN" },
+    { name = "lazyeval", repository = "CRAN" },
+    { name = "memoise", repository = "CRAN" },
+    { name = "modelr", repository = "CRAN" },
+    { name = "pkgconfig", repository = "CRAN" },
+    { name = "rematch2", repository = "CRAN" },
+    { name = "tidyverse", repository = "CRAN" },
+    { name = "tokenizers", repository = "CRAN" },
+    { name = "wordcloud", repository = "CRAN" },
+    "gt",
+    "httpgd",
+    "microbenchmark",
+]

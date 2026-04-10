@@ -1,0 +1,15 @@
+{
+    "chatgpt.commentCodeLensEnabled": false,
+    "r.plot.useHttpgd": true,
+    "r.libPaths": [
+        "/Users/tit420/projects/TinasheMTapera.github.io/rv/library/4.5/arm64",
+        "/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library"
+    ],
+    "r.rterm.mac": "/Users/tit420/.cargo/bin/arf",
+    "r.rpath.mac": "/usr/local/bin/R",
+    "python.terminal.activateEnvInCurrentTerminal": true,
+    "r.alwaysUseActiveTerminal": true,
+    "r.bracketedPaste": true,
+    //"r.useRenvLibPath": true,
+    "mssql.autoRevealResultsPanel": true
+}

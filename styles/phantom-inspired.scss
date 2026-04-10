@@ -1,0 +1,261 @@
+/*-- scss:defaults --*/
+
+// Typography
+$font-family-sans-serif: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$headings-font-family: "Poppins", "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$headings-font-weight: 700;
+$font-size-base: 1rem;
+$line-height-base: 1.75;
+
+// Color system
+$body-bg: #f7f7f5;
+$body-color: #2a2a2a;
+
+$primary: #111111;
+$secondary: #8a8f98;
+$success: #2f7d65;
+$info: #5a6c84;
+$warning: #d69e2e;
+$danger: #b94a48;
+$light: #ffffff;
+$dark: #171717;
+
+// Links
+$link-color: #111111;
+$link-decoration: none;
+$link-hover-color: #4c5a6a;
+$link-hover-decoration: none;
+
+// Layout and component feel
+$border-radius: 1rem;
+$border-radius-sm: 0.75rem;
+$border-radius-lg: 1.25rem;
+
+$card-border-width: 0;
+$card-border-radius: 1.25rem;
+$card-bg: #ffffff;
+
+$navbar-bg: rgba(247, 247, 245, 0.88);
+$navbar-fg: #111111;
+$navbar-hl: #4c5a6a;
+
+$code-bg: #f0f1ee;
+$code-color: #7a2f2f;
+
+// Optional section accents
+$hr-border-color: rgba(17, 17, 17, 0.08);
+
+
+/*-- scss:rules --*/
+
+// Global rhythm
+body {
+  letter-spacing: 0.005em;
+  text-rendering: optimizeLegibility;
+}
+
+main.content,
+.quarto-about-jolla,
+.quarto-about-solana {
+  padding-top: 1.5rem;
+  padding-bottom: 3rem;
+}
+
+// Constrain reading width a bit for editorial feel
+.page-columns .content,
+main.content {
+  max-width: 900px;
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  color: #111111;
+}
+
+h1.title,
+.title {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  margin-bottom: 0.75rem;
+}
+
+.subtitle,
+.quarto-title-meta-heading,
+.description {
+  color: #6f7680;
+}
+
+// Hero-like title block
+.quarto-title-block.default .quarto-title-banner {
+  background: linear-gradient(180deg, #f7f7f5 0%, #efefeb 100%);
+  color: #111111;
+  border-bottom: 1px solid rgba(17, 17, 17, 0.06);
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+// Navbar
+.navbar {
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(17, 17, 17, 0.06);
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.03);
+}
+
+.navbar-brand {
+  font-family: $headings-font-family;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.navbar-nav .nav-link {
+  font-weight: 500;
+  color: #444b53;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: #111111;
+}
+
+// Cards / panels
+.card,
+.value-box,
+.callout,
+div.sourceCode,
+pre {
+  border-radius: 1.25rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+}
+
+.card {
+  border: 0;
+  background: #ffffff;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+// Callouts softened to match minimalist portfolio aesthetic
+.callout {
+  border: 1px solid rgba(17, 17, 17, 0.06);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.callout .callout-header {
+  border-bottom: 0;
+  font-weight: 600;
+}
+
+// Buttons
+.btn {
+  border-radius: 999px;
+  font-weight: 600;
+  padding: 0.75rem 1.25rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
+}
+
+.btn-primary {
+  background: #111111;
+  border-color: #111111;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: #2c2c2c;
+  border-color: #2c2c2c;
+}
+
+// Code blocks
+pre,
+div.sourceCode {
+  background: #fcfcfa;
+  border: 1px solid rgba(17, 17, 17, 0.06);
+  padding: 1rem 1.1rem;
+}
+
+code {
+  border-radius: 0.4rem;
+  padding: 0.15rem 0.35rem;
+}
+
+// Tables
+.table,
+table {
+  background: #ffffff;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+table thead {
+  border-bottom: 2px solid rgba(17, 17, 17, 0.08);
+}
+
+table th {
+  font-family: $headings-font-family;
+  font-weight: 600;
+}
+
+// TOC
+#TOC,
+.sidebar nav[role="doc-toc"] {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(17, 17, 17, 0.05);
+  border-radius: 1rem;
+  padding: 1rem;
+  backdrop-filter: blur(6px);
+}
+
+#TOC .active,
+.sidebar nav[role="doc-toc"] .active {
+  font-weight: 700;
+}
+
+// Sections feel like portfolio panels
+section {
+  margin-bottom: 2.5rem;
+}
+
+hr {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  opacity: 1;
+}
+
+// Images
+img,
+.figure-img {
+  border-radius: 1rem;
+}
+
+// Footer
+.nav-footer,
+footer.footer {
+  border-top: 1px solid rgba(17, 17, 17, 0.06);
+  color: #6f7680;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+// Mobile adjustments
+@media (max-width: 768px) {
+  .quarto-title-block.default .quarto-title-banner {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  h1.title,
+  .title {
+    font-size: 2.4rem;
+  }
+
+  .card-body {
+    padding: 1.1rem;
+  }
+}
