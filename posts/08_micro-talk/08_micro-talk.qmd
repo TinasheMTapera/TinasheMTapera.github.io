@@ -1,0 +1,84 @@
+---
+title: "Notebook Driven Development Micro Talk"
+author: "Tinashe M. Tapera"
+date: "2026-04-09"
+image: C3BD12F6-6FE5-49F0-9AF7-12C187EACED3_1_105_c.jpeg
+---
+
+In 2023, I left my PhD to work full-time in academia as a Research Software Engineer.
+
+At first, that decision might seem counterintuitive: why step off the 
+traditional path to an academic career just to stay in academia? The reasons 
+are largely personal, but one thread that runs through all of my different
+career chnages has become increasingly clear: regardless of what research
+lab I am in, or what project I am working on, I have always been deply 
+fascinated and obsessed not with _how_ I was writing code to do the science.
+
+Which packages should I use? What interfaces make me most productive? Why does 
+RStudio behave differently across environments? Why can’t I use Docker on HPC? 
+Why doesn’t this package do the one thing I need? How can I get quick access
+to datasets and models? How can I ensure my work is reproducible and reusable? 
+These questions have always been the driver behind my work.
+
+For many PhD students, code is a means to an end. The goal is the model, the 
+figure, the paper. But as Ian Cosden puts it:
+
+>  A researcher - who will often spend a significant amount of time writing 
+code, and can absolutely practice research software engineering - is typically 
+motivated to write code as an intermediate step in an effort to produce a 
+scholarly result. An RSE on the other hand, writes research software that is 
+then used by, or used in collaboration with, someone else (i.e. a researcher) 
+to produce that scholarly result
+
+That distinction just hit different! I realized I cared deeply about the 
+tools, systems, and workflows behind the science — not just the final outputs.
+
+I leaned into that interest in my current role at Harvard, working across the 
+NSAPH and Golden Lab groups. Since then, I’ve built data pipelines, 
+contributed to high-impact projects, and helped researchers adopt more 
+sustainable and reproducible practices. Just as importantly, I’ve found a 
+community and a role that fits how I think.
+
+One small milestone in that journey was giving a Micro Talk at USRSE’25.
+
+Held in Philadelphia, USRSE’25 was the third annual conference and my first 
+time meeting this community in person. The Micro Talk format — a short, 
+community-selected presentation — was the perfect venue to share something I 
+care deeply about: Notebook-Driven Development.
+
+My path to this idea actually started earlier. As a psychology student, 
+programming always felt intimidating and inaccessible, especially coming
+from a background with limited exposure to technology. 
+
+When I finally needed to learn a little R for a research project, it was a 
+rough start. I nearly gave up. What changed everything for me was discovering 
+RMarkdown and notebooks.
+
+As someone who enjoys writing, notebooks made programming "click," because they
+introduced narrative into the code development process. Instead of treating
+programming as a sequence of opaque commands, I could explain my thinking,
+document decisions, and build analyses as a story. Code became less about
+construction and more about expression.
+
+That simple paradigm shift stuck.
+
+Today, I rarely write code outside of a notebook. While notebooks aren’t ideal 
+for every kind of software engineering, they are incredibly powerful for data 
+science—especially in academic settings. Much of the work we do is inherently 
+narrative: forming hypotheses, transforming data, evaluating models, and 
+interpreting results. Notebooks let you capture that entire process in one 
+place.
+
+You can describe what you expect to find, document each transformation, 
+visualize intermediate steps, and explain your conclusions all alongside the 
+code itself. An added benefit is that by the time you’re ready to write a 
+paper, much of the story is already there.
+
+That was the philosophy behind my Micro Talk. Thankfully, it resonated with 
+others, and I received thoughtful feedback that I’m excited to build on.
+
+I’ve linked the full proceedings on Zenodo below. The slides are fairly 
+minimal—but there are a few SpongeBob memes in there, which might be reason 
+enough to take a look.
+
+USRSE'25 Micro Talk Proceedings: [10.5281/zenodo.17297728](https://doi.org/10.5281/zenodo.17297728)
