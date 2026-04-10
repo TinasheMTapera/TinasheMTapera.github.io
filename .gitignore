@@ -14,3 +14,7 @@ Thumbs.db
 /_site/
 
 **/*.quarto_ipynb
+
+# rv environment
+.rv/
+rv/
