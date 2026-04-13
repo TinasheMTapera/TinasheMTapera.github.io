@@ -10,6 +10,8 @@ listing:
   sort-ui: false
   filter-ui: false
   max-description-length: 125
+execute: 
+  eval: false
 image: "cv_wf.png"
 title-block-banner: true
 ---

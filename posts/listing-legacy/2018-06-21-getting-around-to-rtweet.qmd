@@ -14,6 +14,8 @@ categories:
 - R
 - machine learning
 - data science
+execute: 
+  eval: false
 ---
 
 So recently my Twitter as been bloated by tweets left, right, and centre all to do with <a href="https://twitter.com/kearneymw">Professor Mike Kearney</a> and his work on the `rtweet` package. The hype train has certainly left the station, but I thought it was about time I checked out what all the fuss was about before I became completely out of touch, so let's get down to it!<hr>

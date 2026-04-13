@@ -29,5 +29,5 @@ dependencies = [
     { name = "wordcloud", repository = "CRAN" },
     "gt",
     "httpgd",
-    "microbenchmark",
+    "microbenchmark"
 ]

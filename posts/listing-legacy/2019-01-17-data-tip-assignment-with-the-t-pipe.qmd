@@ -12,6 +12,8 @@ tags:
 # comments: no
 showcomments: yes
 showpagemeta: yes
+execute: 
+  eval: false
 ---
 
 So today, I found myself in an interesting situation wherein I was writing out an R object to disk, but needed to keep the file's name and path in session so I could do something with it later. Typically, doing that would look like this:

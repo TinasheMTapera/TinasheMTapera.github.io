@@ -16,6 +16,8 @@ tags:
 # comments: no
 showcomments: yes
 showpagemeta: yes
+execute: 
+  eval: false
 ---
 
 <center><b>I hate updating my resume.</b></center>

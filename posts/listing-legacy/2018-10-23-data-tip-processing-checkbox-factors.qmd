@@ -12,6 +12,8 @@ tags:
 # comments: no
 showcomments: yes
 showpagemeta: yes
+execute: 
+  eval: false
 ---
 
 The other day I was tasked with processing some data that had been generated from a survey that included checkboxes. You know, the "tick all that apply", kind of questions. Nothing against this style of response, it can be quite effective for collecting unbiased data. However, platforms such as Qualtrics annoyingly make it such that checkbox responses are output as *singular concatenated strings per response!*
