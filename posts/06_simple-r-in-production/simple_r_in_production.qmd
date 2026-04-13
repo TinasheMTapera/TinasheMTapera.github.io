@@ -3,6 +3,7 @@ title: "A Simple Demonstration of R in Production"
 author: "Tinashe M. Tapera"
 date: "2025-02-23"
 image: https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2017/06/R-Programming_02.png
+categories: [r, programming, production, api, plumber]
 ---
 
 ![](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExeG1kemZ3eW9rMnI4ZjB3eG9ud2lobXJ3YjlxaDVjM3BmbGhkMWxudiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/UPqYp2tj61XlBhlPbH/giphy.gif)

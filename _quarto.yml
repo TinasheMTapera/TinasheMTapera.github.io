@@ -61,10 +61,15 @@ website:
 format:
   html:
     theme:
-      - flatly
+      - darkly
       - styles/phantom-inspired.scss
     toc: true
     smooth-scroll: true
+    # footer: |
+    #   <div class="footer-container">
+    #     <span>© 2026 Tinashe M. Tapera</span>
+    #     <img src="assets/img/50F53BB4-147E-488D-8AC7-9BC379BD211D.PNG" class="footer-logo">
+    #   </div>
 
 
 

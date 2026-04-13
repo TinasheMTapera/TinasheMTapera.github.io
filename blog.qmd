@@ -12,7 +12,7 @@ listing:
   sort-ui: false
   filter-ui: false
   max-description-length: 125
-title-block-banner: true
+title-block-banner: assets/img/jackson-sophat-_t-l5FFH8VA-unsplash.jpg
 ---
 
 # Welcome to the blog!

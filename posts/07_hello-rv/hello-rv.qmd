@@ -205,6 +205,58 @@ results <- microbenchmark(
 autoplot(results)
 ```
 
+::: {.callout-important}
+This isn't a perfect comparison, of course, because base R doesn't
+do the environment resolution that `renv` and `rv` do, but it still gives a 
+good sense of the relative performance. To compare, let's add another
+contender: `uvr` by [`nbafrank`](https://github.com/nbafrank/uvr), which is another Rust-based package manager. I
+hadn't learned about `uvr` at the time of writing, but it seems to be a 
+similar tool with a similar design philosophy. So the benchmark should
+apply to both `rv` and `uvr`, and it will be interesting to see how they 
+compare in terms of speed and usability.
+
+```{r}
+bench_uvr <- function() {
+  wd <- make_clean_dir("uvr")
+
+  message("Running uvr install...")
+
+  t <- system.time({
+    old <- setwd(wd)
+    on.exit(setwd(old), add = TRUE)
+
+    system("uvr init", intern = TRUE)
+
+    system(
+      sprintf("uvr add %s", paste(pkgs, collapse = " ")),
+      intern = TRUE
+    )
+
+    system("uvr sync", intern = TRUE)
+
+    # delete the uvr folder to clean up
+    unlink(file.path(wd, "uvr"), recursive = TRUE, force = TRUE)
+  })
+
+  t
+}
+```
+
+```{r, message=FALSE, warning=FALSE}
+results <- microbenchmark(
+    #bare = bench_bare(),
+    renv = bench_renv(),
+    rv = bench_rv(),
+    uvr = bench_uvr(),
+    times = 50
+)
+
+autoplot(results)
+
+```
+
+:::
+
 ## `rv` is Encapsulated
 
 ![](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHdyd211MDljbmoxdzU5eWhzbTN0ZGQ4bjZhODU1anhqdm55aTNzaSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/CvraIN4QgafFgvneqj/giphy.gif)
@@ -280,7 +332,20 @@ I'm going to keep an eye out for any obvious pitfalls, of course, but for now,
 I'm excited to see how `rv` evolves and how it can help data scientists manage their packages and environments more effectively.
 
 ::: {.callout-tip}
-Bonus: If you are developing packages, the `rv` team has recommended that
+Bonus 1: If you are developing packages, the `rv` team has recommended that
 you use `rv` like [this](https://github.com/A2-ai/scicalc/blob/main/rproject.toml)
 to install the package in your local library.
+
+Bonus 2: If you want to use `rv` in a Quarto project, you have to let
+Quarto know not to render anything in the `rv` library. Do this
+by adding the following to your YAML front matter:
+
+```yaml
+project:
+  type: website # or whatever kind of project you have
+  render:
+    - "*.qmd"
+    - "!rv/"
+```
+
 :::

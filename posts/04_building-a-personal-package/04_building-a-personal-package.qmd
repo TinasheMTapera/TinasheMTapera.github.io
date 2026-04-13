@@ -3,6 +3,7 @@ title: "Building a Personal Package"
 author: "Tinashe M. Tapera"
 date: "2024-08-16"
 image: https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcG5rOWxoeDBxOG10dTh2OTZtamVsMmJzbmk3M3VkbGM4YmM1NTBscCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XbJLL1uIH3PwEB2hui/giphy.gif
+categories: [r, programming, package development]
 ---
 
 Do you ever find yourself revisiting short code snippets you’ve written over and over

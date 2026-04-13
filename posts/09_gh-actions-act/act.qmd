@@ -1,0 +1,207 @@
+---
+title: "Speeding Up The GitHub Actions Development Cycle with `act`"
+author: "Tinashe M. Tapera"
+date: "2026-04-12"
+image: https://spacelift.io/_next/image?url=https%3A%2F%2Fspacelift.io%2Fwp-content%2Fuploads%2F2024%2F07%2Fgithub-actions-diagram.png&w=3840&q=75
+categories: [ci/cd, automation, github-actions, coding]
+title-block-banner: true
+---
+
+When I was first introduced to [GitHub Actions (GHA)](https://github.com/features/actions), 
+I was excited about the possibilities it offered for automating workflows. GHA, 
+and its competitors, are powerful automation
+tools that have thrived in the modern era of [DevOps and Continuous Integration/Continuous Deployment (CI/CD)](https://www.redhat.com/en/topics/devops/what-is-ci-cd).
+The basic idea is that instead of running a piece of code on your local
+machine and publishing whatever results you have to GitHub or otherwise, you
+commit your code to a repository and ask GitHub to run the scripts for you in the cloud. 
+With their dirth of cloud resources, GitHub spins up a virtual machine, runs your script exactly as
+you have specified, and then shuts down the machine when it's done. The concept was initially
+built for the convenience of having your code run in the cloud, but developers soon realised that
+they could use this infrastructure as a tool to automate testing of their software product suites
+entirely. You could, for example, patch an application locally on your machine, and in order to
+be sure that it will work in production on a stranger's machine, you ask GitHub to spin up
+a host of virtual machines, each with different operating systems and software environments,
+and run tests on your code in each of them. If — and only if — all the tests pass,
+will your code be merged into the main branch and deployed to the real world as a "release". This is the 
+power of CI/CD, and GHA is one of the most popular tools for implementing it.
+
+![](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGVrc2h1eHVoN251ejB1aDFzc2gwMGdiOHZ1NXR4YWN6eW02OTV6eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XZajgUoFG5iA5U60li/giphy.gif)
+
+In my line of work as an RSE, GHA has been powerful for doing exactly this: testing that
+new additions to a pipeline don't break the existing codebase[^1]. Additionally, GitHub provides
+a marketplace of pre-built actions that you can use to automate all kinds of other tasks,
+such as rendering a website to GitHub Pages or deploying a Shiny App to a cloud host.
+Talented developers can contribute their own actions to the marketplace too, so the possibilities are 
+endless. However, one of the paradoxes of GHA is that the development cycle becomes
+quite painstaking. Think about it... You write a piece of code, commit it to GitHub, and then ask GitHub to 
+run it. If the code doesn't work, you have to go back to your local machine, fix the code, and repeat the 
+process. This can be a very slow and frustrating cycle, especially if you're trying to debug a complex 
+workflow with multiple steps and dependencies, and if GHA itself takes a while to spin up and shut down
+each virtual instance.
+
+## Using `act` to Speed Up the Development Cycle
+
+This is where [`act`](https://nektosact.com/) comes in. `act` is a command-line tool that allows you to run your GitHub Actions 
+locally on your machine by simulating the procedure of GitHub spinning up a virtual machine and running your 
+code. This means that you can test and debug your workflows much faster, without having to wait for GitHub 
+to do its thing. _How does it work_, you ask? Once again, it's containers to the rescue!
+
+![](https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2gxNXEwanY2bWpkbjB4Mzd2dzQ1bDVyZzE5ZzIzcDJrenB3eTZodyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cUMNWzWZ5n75LvcCIe/giphy.gif)
+
+`act` uses Docker to create a local environment that mimics the GitHub Actions runner. 
+It reads your workflow files, emulating the GitHub Actions environment variables and context, and then 
+executes the steps defined in your workflow. This allows you to see the output of your actions in real-time, 
+and you can easily debug any issues that arise.
+
+To get started with `act`, you need to have Docker installed on your machine. Once you have Docker set up, 
+you can install `act` using the following command:
+
+```bash
+curl -s https://raw.githubusercontent.com/nektos/act/master/install.sh | sudo bash
+```
+
+The docs are pretty comprehensive, so I won't go into too much detail, but the basic usage is as follows:
+
+```bash
+act <event-name>
+``` 
+
+_Wait a minute, `<event-name>`?_ To explain this, we need to take a quick detour to understand
+workflow language syntax for GHA...
+
+## Understanding GHA Workflow Syntax
+
+To manage the complexity of workflows, GHA uses a YAML-like syntax that allows you to define your workflow 
+in a structured way. The workflow is a file that consists of a number of key-value pairs that specify
+both the components of the virtual machine and the exact commands you want to run on it. The workflow file 
+is stored in the `.github/workflows` directory of your repository, and it is triggered by specific events, 
+such as a `git` push to a branch, a Pull Request, or a scheduled time. In this way, GHA acts a little bit
+like a combination task scheduler pipeline manager[^2]. Here's a simple example of a workflow file that runs 
+a test script whenever there is a push to the `main` branch:
+
+```yaml
+name: Run Tests
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run test script
+        run: Rscript test_script.R
+    
+      - name: My custom step
+        run: |
+          echo "This is a custom step that I added to my workflow!"
+          echo "it has multiple lines"
+          echo "and it can run any command that I want it to run!"
+```
+
+What's nice about these files is that you can take them at face value and understand exactly what they do 
+without needing to know anything about the zaniness of the underlying infrastructure of cloud computing.
+It says, "GitHub, this workflow is called 'Run Tests'. Whenever there is code pushed to the `main` branch,
+I want you to run a job called 'test' on an Ubuntu virtual machine. The job should consist of 
+two steps: first, "check out" the code from the repository (meaning `git clone` 
+into the virtual machine)[^3], and then run the test script using `Rscript`. Then, move to
+my custom step and run each line of code I specify." It's pretty straightforward, and you
+can easily modify it to suit your needs.
+
+With this in mind, the `act` options become obvious:
+
+```bash
+# run a specific job
+act -j <job-name> 
+
+# run a specific event
+act -e <event-name> 
+
+# specify the path to your workflow file
+act -W '.github/workflows/checks.yml' 
+```
+
+## Configuration and Secrets
+
+![](https://gifdb.com/images/high/fine-keep-your-secrets-elijah-wood-2evqkli7id2sga0o.webp)
+
+Something that becomes important very quickly is that your workflow may require
+certain confidential or environment-specific information to run,
+such as API keys, database credentials, or other secrets. On your local machine,
+it's best to always run `act` with your GitHub credentials stored in your
+GitHub token, so that you can be sure it will run the same way on GitHub itself.
+For this, I recommend using the `GITHUB_TOKEN` environment variable, which you 
+can set in your terminal by downloading and using the
+[GitHub CLI](https://cli.github.com/):
+
+```bash
+# this automatically sets the GITHUB_TOKEN environment variable for you
+gh auth login 
+
+# inserts your GitHub token into the container's environment
+act -s GITHUB_TOKEN="$(gh auth token)" 
+# access this with ${{ secrets.GITHUB_TOKEN }} in your workflow file
+```
+
+You can also set all sorts of other variables in the containers environment,
+either by setting them at the command line:
+
+```bash
+# set an environment variable for the container
+act -s MY_SECRET="my_secret_value" 
+
+# set a variable that can be used in the workflow file with ${{ vars.VARIABLE }}
+act --var VARIABLE=some-value 
+```
+
+Or by setting them at the top level of the workflow file itself:
+
+```yaml
+# of course, DO NOT hardcode secrets in your workflow file
+# in case you accidentally commit it, but you can set other variables here
+env:
+  MY_SECRET: ${{ secrets.MY_SECRET }} 
+  MY_VAR1: ${{ vars.MY_VAR }}
+  MY_VAR2: some-value
+```
+
+You can even set environment variables for specific steps in the workflow file:
+
+```yaml
+steps:
+  - name: Step with environment variables
+    env:
+      STEP_VAR1: value1
+      STEP_VAR2: value2
+    run: |
+      echo "This step has its own environment variables!"
+      echo "STEP_VAR1 is $STEP_VAR1"
+      echo "STEP_VAR2 is $STEP_VAR2"
+```
+
+## Final Thoughts
+
+As a rule of thumb, I recommend using `act` for testing and debugging your GitHub Actions workflows locally 
+before pushing them to GitHub, but more importantly, I recommend thinking about this step
+as an additional and separate development work task. The development cycle of GHA is slow,
+and can be a cognitively different process than just writing code for the problem at hand.
+Nevertheless, `act` can be a powerful tool for speeding up this development cycle and making it more 
+efficient, reproducible, and seamless. If you're interested in learning more about `act` and how to use it, 
+I recommend checking out the [official documentation](https://nektosact.com/), and while
+you're experimenting, don't forget to have a look at the 
+[GitHub Actions marketplace](https://github.com/marketplace?type=actions) for some pre-built 
+actions that you can use to automate your workflows, such as installing languages and packages,
+automating LLM reviews, tagging a release, sending a Slack message, and much more. Go forth and automate!
+
+![](https://media1.tenor.com/m/W0DwukIXlskAAAAd/programming.gif)
+
+[^1]: One of my favourite pipelines demonstrating this is the neuroimaging package fMRIPrep, 
+which has an [absolute behemoth of a testing suite](https://github.com/nipreps/fmriprep).
+
+[^2]: I say "a little bit" because GHA is not a full-fledged pipeline manager like 
+[Nextflow](https://www.nextflow.io/) or [Snakemake](https://snakemake.readthedocs.io/en/stable/),
+but it does have some features that allow you to manage the flow of your workflows, such as conditional steps and job dependencies. I've seen some people even use [GHA as a database manager](https://youtu.be/cYP0k_shdWc), which is pretty wild.
+
+[^3]: This is one of those predifined GHA workflows available on marketplace... See how easy it is to add it in?!

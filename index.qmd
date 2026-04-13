@@ -1,6 +1,6 @@
 ---
 title: "Hi, I'm Tinashe..."
-image: assets/img/ZNmgkZSx_400x400.jpg
+image: assets/img/LAV06569.JPG
 about:
   template: jolla
   links:

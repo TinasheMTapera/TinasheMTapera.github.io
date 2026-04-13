@@ -21,9 +21,9 @@ $light: #ffffff;
 $dark: #171717;
 
 // Links
-$link-color: #111111;
+$link-color: #410186;
 $link-decoration: none;
-$link-hover-color: #4c5a6a;
+$link-hover-color: #05458d;
 $link-hover-decoration: none;
 
 // Layout and component feel
@@ -88,7 +88,9 @@ h1.title,
 
 // Hero-like title block
 .quarto-title-block.default .quarto-title-banner {
-  background: linear-gradient(180deg, #f7f7f5 0%, #efefeb 100%);
+  //background: url('assets/img/jackson-sophat-_t-l5FFH8VA-unsplash.jpg') no-repeat center center;
+  background-size: cover;
+  background-position: center;
   color: #111111;
   border-bottom: 1px solid rgba(17, 17, 17, 0.06);
   padding-top: 3rem;
@@ -241,6 +243,18 @@ footer.footer {
   color: #6f7680;
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.footer-logo {
+  height: 30px;   // keep it small
+  opacity: 0.9;
 }
 
 // Mobile adjustments

@@ -2,9 +2,10 @@
 title: "About Me"
 markdown: 
     wrap: 72
+title-block-banner: assets/img/50F53BB4-147E-488D-8AC7-9BC379BD211D.PNG
 ---
 
-I'm a Master's student in Health Informatics, joint between Northeastern University's [Khoury College of Computer Science](https://www.khoury.northeastern.edu/) and [Bouvé College of Health Sciences](https://bouve.northeastern.edu).
+I'm a Research Software Engineer at Harvard University and a Master's student in Health Informatics, joint between Northeastern University's [Khoury College of Computer Science](https://www.khoury.northeastern.edu/) and [Bouvé College of Health Sciences](https://bouve.northeastern.edu).
 
 ## My Background 🇿🇼
 
