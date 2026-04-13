@@ -52,6 +52,10 @@ website:
         href: https://github.com/TinasheMTapera/TinasheMTapera.github.io
       - text: "LICENSE"
         href: LICENSE
+      
+    center: 
+      - text: "© 2026 Tinashe M. Tapera\n\n<img src='assets/img/50F53BB4-147E-488D-8AC7-9BC379BD211D.PNG' alt='Logo' style='height: 150px;' />"
+        href: about.qmd
   #socials
   open-graph: true
 

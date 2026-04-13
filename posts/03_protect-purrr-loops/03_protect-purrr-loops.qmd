@@ -4,6 +4,7 @@ author: "Tinashe M. Tapera"
 date: "2022-08-21"
 image: https://media0.giphy.com/media/jyEpo3XfNNghuMubJO/200w.gif?cid=6c09b952zy0kglvx4sq8g1znubrr2lidaa879xlsnqpdfexu&ep=v1_videos_search&rid=200w.gif&ct=v
 categories: [r, programming, purrr, data science]
+title-block-banner: true
 ---
 
 ```{r, message=FALSE, warning=FALSE}

@@ -3,6 +3,8 @@ title: "Begun, the Package Manager Wars, Have"
 author: "Tinashe M. Tapera"
 date: "2026-04-07"
 image: aotcql.jpg
+categories: [r, package-management, rv, uvr, rust]
+title-block-banner: true
 ---
 
 There’s a quiet war brewing in the data science community, and no, it’s not about which AI model hallucinates the least.

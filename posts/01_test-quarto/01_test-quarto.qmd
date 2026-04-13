@@ -6,6 +6,7 @@ categories: [news, quarto, netlify]
 editor: 
   markdown: 
     wrap: 72
+title-block-banner: true
 ---
 
 This is the first post in a Quarto blog. Welcome!

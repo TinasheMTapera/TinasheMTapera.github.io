@@ -4,6 +4,7 @@ author: "Tinashe M. Tapera"
 date: "2024-08-27"
 image: https://www.concertai.com/hubfs/Concertai_March2024/images/ConcertAI%20Logo%20SQ%20Press%20Blue%20Wave.png
 categories: [biotech, oncology, data science, r, dashboarding]
+title-block-banner: true
 ---
 
 I spent the past summer on leave from my PhD, and instead took

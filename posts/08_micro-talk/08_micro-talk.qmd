@@ -3,6 +3,8 @@ title: "Notebook Driven Development Micro Talk"
 author: "Tinashe M. Tapera"
 date: "2026-04-09"
 image: C3BD12F6-6FE5-49F0-9AF7-12C187EACED3_1_105_c.jpeg
+title-block-banner: true
+categories: [notebooks, reproducibility, research-software-engineering, micro-talk, usrse]
 ---
 
 In 2023, I left my PhD to work full-time in academia as a Research Software Engineer.
