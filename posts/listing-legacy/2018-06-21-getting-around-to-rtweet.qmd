@@ -27,7 +27,7 @@ My father <a href="https://twitter.com/MtaperaTapera">Michael Tapera</a> passed 
 # Setting Up
 
 Loading `rtweet` is really easy through CRAN, and setting up the Twitter API connection is similarly simple; see <a href="http://rtweet.info/articles/auth.html">this page</a> for a how-to.
-```{r,warning=FALSE,message=FALSE}
+```{r,warning=FALSE,message=FALSE, eval=FALSE}
 #install.packages("rtweet")
 library(rtweet)
 library(tidyverse) #include for tidy R programming
@@ -40,7 +40,7 @@ library(kableExtra)
 ```
 
 Now that we've set up, we use `rtweet`'s handy functions to grab our data:
-```{r}
+```{r, eval=FALSE}
 auth_as("default")
 Sys.setenv(TZ="America_New_York")
 tweets = get_timeline(c("MtaperaTapera"))
@@ -49,7 +49,7 @@ tweets = get_timeline(c("MtaperaTapera"))
 # Analysis and Visualisation
 
 We can plot a general visualisation of dad's Twitter activity.
-```{r, message=FALSE}
+```{r, message=FALSE, eval=FALSE}
 tweets%>%
   select(created_at)%>%
   ts_plot("days")+
@@ -60,7 +60,7 @@ It looks like dad probably started tweeting around the time of his operation, an
 
 We can also see what day of the week or hour of day was most popular for his Twitter activity:
 
-```{r}
+```{r , eval=FALSE}
 tweets%>%
   select(created_at)%>%
   mutate(hour_of_day = hour(created_at),
@@ -92,7 +92,7 @@ I call these <strong>clock plots</strong> — the length of the bar on the clock
 
 Of course, it'd also be nice to get an overview of what dad used to Tweet about. We can do some simple text mining on his Twitter feed to find out, using the <a href="https://www.tidytextmining.com/tidytext.html">`tidytext`</a> package.
 
-```{r, message=FALSE}
+```{r, message=FALSE, eval=FALSE}
 #create a dataframe to work with
 text_df = data.frame(tweet = 1:nrow(tweets), date = date(tweets$created_at), text = tweets$text, stringsAsFactors = FALSE)
 
@@ -107,7 +107,7 @@ tidy_tweets = tidy_tweets %>%
 ```
 
 Now let's visualise what words he used most in his Twitter:
-```{r}
+```{r, eval=FALSE}
 tidy_tweets%>%
   count(word)%>%
   filter(n>1)%>%
@@ -164,7 +164,7 @@ process_nrc(folder_path, name_path) # process
 ```
 
 
-```{r, message=FALSE}
+```{r, message=FALSE, eval=FALSE}
 nrc = get_sentiments("nrc")
 tidy_tweets%>%
   inner_join(nrc)%>%
@@ -176,7 +176,7 @@ tidy_tweets%>%
 
 With some overlap, we can see that dad tweeted most with trust, anticipation, and joy words. Encouraging 😊, but some words can belong to different sentiment categories (e.g. "guard" is categorised under both <i>fear</i>, and <i>trust</i>). Instead, we can go with the positive/negative 5-scale score of the <a href="http://www2.imm.dtu.dk/pubdb/views/publication_details.php?id=6010">AFINN lexicon</a>, to give us sentiment scores of each available word, and then average these scores for each tweet.
 
-```{r, message=FALSE}
+```{r, message=FALSE, eval=FALSE}
 afinn = get_sentiments("afinn")
 tidy_tweets%>%
   inner_join(afinn)%>%
@@ -202,7 +202,7 @@ No Twitter text mining exercise is complete without a <strong>word cloud</strong
 
 [^2]: Wordclouds suck; see <a href="https://www.visioncritical.com/pros-and-cons-word-clouds-visualizations/"> this source</a> for more.
 
-```{r, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE, eval=FALSE}
 tidy_tweets%>%
   count(word)%>%
   with(., (wordcloud(word, n, max.words = 100,min.freq = 2)))
