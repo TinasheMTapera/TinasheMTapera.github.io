@@ -1,5 +1,8 @@
 ---
-title: "Tinashe M. Tapera's Blog"
+title: "Writing"
+description: "Notes on research software engineering, notebooks, tooling, and reproducible scientific workflows."
+page-layout: full
+toc: false
 listing:
   contents: 
     - "posts/[0-9]*/*.qmd"
@@ -12,8 +15,9 @@ listing:
   sort-ui: false
   filter-ui: false
   max-description-length: 125
-title-block-banner: assets/img/jackson-sophat-_t-l5FFH8VA-unsplash.jpg
+title-block-banner: true
 ---
 
-# Welcome to the blog!
-
+I write about research software engineering, notebook-driven development,
+R/Python tooling, and the systems work that helps scientific projects stay
+reproducible after the first prototype.

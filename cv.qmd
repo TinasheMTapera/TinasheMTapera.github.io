@@ -1,7 +1,10 @@
 ---
 title: "CV"
+toc: false
 ---
 
-This CV is automatically generated using Google sheets, R, and Github Sctions. Check out my [`ReproducibleResumeCV`](https://github.com/TinasheMTapera/ReproducibleResumeCV) project on GitHub!
+This CV is generated reproducibly from Google Sheets, R, and GitHub Actions.
+The workflow lives in
+[`ReproducibleResumeCV`](https://github.com/TinasheMTapera/ReproducibleResumeCV).
 
-<a href="https://github.com/TinasheMTapera/ReproducibleResumeCV/blob/main/long_form_cv/long_form_cv_vitae.pdf" target="_blank">PDF</a>
+[Open the PDF](https://github.com/TinasheMTapera/ReproducibleResumeCV/blob/main/long_form_cv/long_form_cv_vitae.pdf){target="_blank" .btn .btn-primary}

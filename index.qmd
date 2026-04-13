@@ -1,46 +1,126 @@
 ---
-title: "Hi, I'm Tinashe..."
+title: "Research Software Engineering for Reproducible Science"
+description: "Notebook-driven, reproducible workflows for scientific teams."
+page-layout: full
+toc: false
 image: assets/img/LAV06569.JPG
 about:
-  template: jolla
+  id: hero-intro
+  template: solana
+  image-width: 18em
+  image-shape: rounded
   links:
-    - icon: twitter
-      text: Twitter
+    - icon: github
+      text: GitHub
+      href: https://github.com/TinasheMTapera
+    - icon: bluesky
+      text: Bluesky
       href: https://bsky.app/profile/tinashemtapera.bsky.social
     - icon: linkedin
       text: LinkedIn
       href: https://linkedin.com/in/tinashemtapera
-    - icon: github
-      text: Github
-      href: https://github.com/TinasheMTapera
+listing:
+  - id: featured-writing
+    contents: "posts/[0-9]*/*.qmd"
+    sort: "date desc"
+    type: grid
+    categories: false
+    sort-ui: false
+    filter-ui: false
+    page-size: 3
+    max-description-length: 105
 
 ---
 
-:::: {.columns}
-
-::: {.column width="33.33%"}
-
-### {{< fa graduation-cap >}} 
-### Research Software Engineer
-
-I'm a [Research Software Engineer](https://www.nature.com/articles/d41586-022-01516-2) 
-with a background in a wide range of academic and professional fields. I'm currently
-completing a Master's degree at Northeastern University in Health Informatics.
+::: {.hero-kicker}
+R + Python | Reproducibility | Open and FAIR science
 :::
 
-::: {.column width="33.33%"}
-### <i class="fa-brands fa-r-project"></i>
-### #Rstats Nerd
-I've been writing R code for over 7 years and _love_ introducing people
-to the exciting world of programming and data analysis with R.
+::: {#hero-intro}
+I build notebook-native, reproducible workflows for scientific teams.
+
+My work sits at the intersection of research software engineering, data science,
+and scientist enablement. I have experience across neuroimaging, psychology,
+human-computer interaction, and climate-focused research, and I care most about
+turning exploratory analysis into maintainable, testable, reusable software.
+
+I am especially interested in notebook-driven development, computational
+reproducibility, and helping early-career researchers become effective
+programmers in R and Python.
 :::
 
-::: {.column width="33.33%"}
-### {{< fa magnifying-glass-chart >}}
-### Curious About Reproducibility
-I have professional experience developing tools and software in academia and
-industry. I strive for my work to be robust to scale, 
-transparent to scrutiny, and reproducible everywhere.
+::: {.hero-actions}
+[View CV](cv.qmd){.btn .btn-primary}
+[Read the blog](blog.qmd){.btn .btn-outline-dark}
+[Learn more](about.qmd){.btn .btn-outline-dark}
 :::
 
-:::: 
+## What I Bring
+
+:::: {.signal-grid}
+::: {.signal-card}
+#### Reproducible workflows
+
+I design pipelines, environments, and reporting systems that are easier to
+rerun, review, and hand off across teams.
+:::
+
+::: {.signal-card}
+#### Notebook-driven development
+
+I like starting where scientists already think and work, then shaping notebooks
+into packages, services, and durable project structure.
+:::
+
+::: {.signal-card}
+#### Open and FAIR practice
+
+I care about code, data, and documentation that are transparent, discoverable,
+and useful beyond a single deadline or paper.
+:::
+
+::: {.signal-card}
+#### Scientist enablement
+
+I enjoy mentoring and building training material that helps young researchers
+write better R and Python with more confidence.
+:::
+::::
+
+:::: {.split-panel}
+::: {.split-card}
+### The Kinds of Problems I Like
+
+- Translating research questions into robust analytical software
+- Cleaning up the gap between exploratory work and production-ready workflows
+- Improving documentation, testing, CI/CD, and environment management
+- Making it easier for labs and data teams to sustain their own tools
+:::
+
+::: {.split-card}
+### Where I Have Context
+
+- Neuroimaging and behavioural science
+- Psychology and human-computer interaction
+- Data science in both academic and industry settings
+- Climate, health, and other cross-disciplinary research workflows
+:::
+::::
+
+## Recent Writing
+
+I write about research software engineering, notebook-driven development,
+R/Python tooling, and the everyday work of making scientific computing more
+reproducible.
+
+::: {#featured-writing}
+:::
+
+::: {.cta-panel}
+### Building Better Systems for Science
+
+I am working toward becoming a leading research software engineering specialist
+in notebook-driven development and reproducibility. I am most useful to teams
+that need someone who can bridge scientific context, engineering discipline,
+and practical training.
+:::

@@ -1,59 +1,84 @@
 ---
-title: "About Me"
-markdown: 
-    wrap: 72
-title-block-banner: assets/img/50F53BB4-147E-488D-8AC7-9BC379BD211D.PNG
+title: "About"
+page-layout: full
+toc: false
+markdown:
+  wrap: 72
+title-block-banner: true
 ---
 
-I'm a Research Software Engineer at Harvard University and a Master's student in Health Informatics, joint between Northeastern University's [Khoury College of Computer Science](https://www.khoury.northeastern.edu/) and [Bouvé College of Health Sciences](https://bouve.northeastern.edu).
+::: {.about-intro}
+I am a research software engineer who helps scientific teams turn exploratory
+analysis into reproducible systems, reusable code, and stronger engineering
+habits.
 
-## My Background 🇿🇼
+Today I work at Harvard University while completing graduate study in Health
+Informatics at Northeastern University. Across academia and industry, I have
+worked in neuroimaging, psychology, human-computer interaction, data science,
+and climate-focused research.
+:::
 
-Having grown up in Zimbabwe, my greatest passion was writing, producing, and performing music. I spent most of my time in <a href="https://celebrationmin.org/">my home church</a> and [my high school's music department](https://stjohnszim.com/). I was accepted to Drexel University in 2013 to study <strong>psychology</strong>, and in my junior year I joined the accelerated BSMS in Psychology program mentored by <a href="http://www.pages.drexel.edu/~fz53/homepage.html">Fengqing Zhang of the Quantitative Psychology & Statisics Lab.</a> There, I learned about <strong>statistical/machine learning, data mining, and computer programming in R & Python</strong>, and learned to <strong>apply these skills in a range of mental & behavioural health studies.</strong> In 2017, I interned at Salesforce as a data scientist in <a href = "https://www.mckinsey.com/solutions/orgsolutions/overview/people-analytics">People Analytics</a>, where I worked on NLP and text mining problems geared to improve employee success, and in 2018, I graduated from Drexel with my BSc & MSc in psychology. <br>
+:::: {.signal-grid}
+::: {.signal-card}
+#### What I Bring to a Team
 
-From 2018 to 2022, I worked as a neuroimaging data analyst at the <a href="https://www.satterthwaitelab.com/">Penn Lifespan Informatics and Neuroimaging Center</a>, where I developed and used various software and programming tools to **process, curate, and analyse neuroimaging data.** Primarily, my role as a data analyst involved developing robust, reproducible, and scalable data preprocessing pipelines, using technologies like Python, R, bash, and docker.
+- R and Python workflow design
+- Notebook-driven development and literate programming
+- Testing, CI/CD, and environment management
+- Clear documentation, onboarding, and technical training
+:::
 
-## My Data Science Interests🪚
+::: {.signal-card}
+#### What I Care About
 
-My goal as a research software engineer is to advance the goals of PIs, their labs,
-and their students, by providing high-quality software and engineering support.
-Science is a team sport, and relying on a single data science unicorn is as much a myth as it
-is a handicap to good work. As such, my philosophy is that successful labs and teams
-silo and integrate different skill sets among talented individuals in the 
-data science pipeline. I thrive in roles where I can get my hands dirty tackling 
-the nitty-gritty barriers to getting the science done. I love figuring out things
-like:
+- Open and FAIR science
+- Reproducible computation
+- Accessible programming practice
+- Research software that survives handoff and reuse
+:::
+::::
 
-* Documentation: Knowledge is a resource, and everyone should have access to the
-"how-to's," in a lab. I pride myself on creating clear, concise, and engaging documentation
-of both refined systems, and best practices and tutorials. I use tools such as
-automated documentation generators (`roxygen`, `pkgdown`, Sphinx, Quarto, Github Pages).
+## Career Arc
 
-* Reproducible Data Pipelines: Nothing's worse than looking back over several hours of work
-and being unable to figure out how you ended up where you did. I enjoy creating
-reproducible and well documented pipelines for data transformation and analysis,
-using tools like Quarto, Jupyter, `targets`, `pytask`, `testhat`, `pytest`, `datalad`,
-and CI/CD tools like Github Actions.
+I grew up in Zimbabwe, where writing, music, and performance were my first
+serious creative outlets. That background still shapes how I think about
+technical work: good software should communicate clearly, tell the truth about
+how it was made, and remain usable by more than the person who built it.
 
-* Tooling: Your analysis shouldn't be hampered because you can't open an IDE or
-install a library; nothing gives me more joy than tinkering with a silly installation
-so that it "just works," for everyone who tries it later.
+I moved to the United States to study psychology at Drexel University and
+later completed an accelerated BS/MS track in the field. That training pulled
+me toward quantitative methods, machine learning, and programming in R and
+Python, and it gave me my first real experience building analyses that had to
+stand up inside collaborative research.
 
-* Accessibility: I don't believe in "gatekeeping" data science — it's not true that
-only "real programmers" use `vim` to write scripts. It's okay to use tools and
-other helpful strategies to make programming more accessible to you, including
-friendly IDEs, libraries, and problem-solving paradigms. This is why I'm a huge
-advocate of **notebook-driven development** with tools like
-[`nbdev` (Python)](https://nbdev.fast.ai/getting_started.html) and
-[`fusen` (R)](https://thinkr-open.github.io/fusen/index.html).
+Since then, I have worked across academia and industry: as a data science
+intern at Salesforce, as a neuroimaging data analyst at the Penn Lifespan
+Informatics and Neuroimaging Center, and now as a research software engineer
+supporting research at Harvard. Across those settings, the throughline has
+been consistent. I am at my best when a team needs someone who can bridge
+scientific context, analytical code, and software engineering discipline.
 
+## What I Like Building
 
-## When I'm Not Doing Data Stuff...🏡
+- Reproducible pipelines for data transformation, analysis, and reporting
+- Notebook-native workflows that evolve cleanly into packages, apps, or
+  production services
+- Documentation, templates, and internal tooling that make a lab or team more
+  self-sufficient
+- Training and mentorship that help young scientists become effective
+  programmers in R and Python
 
--   I'm a mentor in the Data Science Learning Community ([DSLC](https://www.dslc.io/)) slack group (join [here!](https://dslcio.slack.com/ssb/redirect))
+## Where I Am Headed
 
--   I'm also a member of the [US Research Software Engineer Association](https://us-rse.org)
+My long-term goal is to become a leading expert in research software
+engineering, with particular depth in notebook-driven development and
+reproducibility. I am especially interested in work that improves team
+practice, research throughput, and the long-term maintainability of open
+scientific projects.
 
--   I [jump rope](https://www.healthline.com/health/fitness/jump-rope-vs-running) as my exercise of choice
+## Outside Work
 
--   I play Apex Legends with my wife and my little brother
+- Mentor in the Data Science Learning Community (DSLC)
+- Member of the US Research Software Engineer Association
+- Jump rope is my preferred exercise
+- Music, writing, and storytelling still influence how I teach and build
