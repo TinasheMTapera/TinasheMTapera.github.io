@@ -30,6 +30,21 @@ listing:
     page-size: 3
     max-description-length: 105
 
+filters:
+  - social-share
+share:
+  permalink: "https://tinashemtapera.com/"
+  description: "awesome page"
+  twitter: true
+  facebook: true
+  reddit: true
+  stumble: true
+  tumblr: true
+  linkedin: true
+  email: true
+  mastodon: true
+  bsky: true
+  location: before-body
 ---
 
 ::: {.hero-kicker}

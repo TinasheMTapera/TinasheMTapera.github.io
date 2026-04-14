@@ -7,6 +7,7 @@ markdown:
 title-block-banner: true
 ---
 
+:::: {.split-panel .about-hero}
 ::: {.about-intro}
 I am a research software engineer who helps scientific teams turn exploratory
 analysis into reproducible systems, reusable code, and stronger engineering
@@ -17,6 +18,11 @@ Informatics at Northeastern University. Across academia and industry, I have
 worked in neuroimaging, psychology, human-computer interaction, data science,
 and climate-focused research.
 :::
+
+::: {.split-card .about-bsky-card}
+{{< bsky "https://bsky.app/profile/tinashemtapera.bsky.social/post/3lpn265elgk24" >}}
+:::
+::::
 
 :::: {.signal-grid}
 ::: {.signal-card}
@@ -78,7 +84,7 @@ scientific projects.
 
 ## Outside Work
 
-- Mentor in the Data Science Learning Community (DSLC)
-- Member of the US Research Software Engineer Association
-- Jump rope is my preferred exercise
-- Music, writing, and storytelling still influence how I teach and build
+- Member of, and Lead Newsletter Editor for, the US Research Software Engineer Association (Read the newsletter [here](https://us-rse.org/newsletters/))
+- Mentor in the Data Science Learning Community ([DSLC](https://dslc.io))
+- I jump rope is my preferred exercise — seriously, it's really fun and a [great workout](https://www.reddit.com/r/jumprope/)!
+- Music, writing, and storytelling still influence how I teach and build software

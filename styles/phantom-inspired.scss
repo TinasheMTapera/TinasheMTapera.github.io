@@ -308,6 +308,36 @@ main.content > p,
   margin-bottom: 1.5rem;
 }
 
+.about-hero {
+  align-items: start;
+  margin: 0 0 1.5rem;
+}
+
+.about-hero .about-intro,
+.about-hero .about-bsky-card {
+  height: 100%;
+  margin-bottom: 0;
+}
+
+.about-bsky-card {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.about-bsky-card > p:empty {
+  display: none;
+}
+
+.about-bsky-card .bluesky-embed,
+.about-bsky-card iframe {
+  width: 100%;
+  max-width: 100% !important;
+  margin: 0;
+}
+
 .cta-panel {
   margin-top: 3rem;
   padding: clamp(1.6rem, 3vw, 2.3rem);

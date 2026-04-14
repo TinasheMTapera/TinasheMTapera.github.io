@@ -12,6 +12,8 @@ website:
   site-url: "https://tinashemtapera.com"
   description: "Research software engineer building reproducible, notebook-driven workflows for scientific teams."
   favicon: "assets/img/favicon/favicon-96x96.png"
+  open-graph: true
+  llms-txt: true
   # preview:
   #   timeout: 3600
   
@@ -36,6 +38,7 @@ website:
    #     href: 
    #   - icon: twitter
    #     href: 
+  # open-graph: true
   search:
     location: navbar
     type: overlay
@@ -54,10 +57,10 @@ website:
         href: LICENSE
       
     center: 
-      - text: "© 2026 Tinashe M. Tapera\n\n<img src='assets/img/50F53BB4-147E-488D-8AC7-9BC379BD211D.PNG' alt='Logo' style='height: 150px;' />"
+      - text: "© 2026 Tinashe M. Tapera\n\n<img src='/assets/img/50F53BB4-147E-488D-8AC7-9BC379BD211D.PNG' alt='Logo' style='height: 150px;' />"
         href: about.qmd
   #socials
-  open-graph: true
+  
 
 format:
   html:

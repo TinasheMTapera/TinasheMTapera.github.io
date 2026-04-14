@@ -16,6 +16,20 @@ listing:
   filter-ui: false
   max-description-length: 125
 title-block-banner: true
+filters:
+  - social-share
+share:
+  permalink: "https://tinashemtapera.com/"
+  description: "Tinashe M. Tapera's writing on research software engineering, notebooks, tooling, and reproducible scientific workflows."
+  twitter: true
+  facebook: true
+  reddit: true
+  stumble: true
+  tumblr: true
+  linkedin: true
+  email: true
+  mastodon: true
+  bsky: true
 ---
 
 I write about research software engineering, notebook-driven development,
