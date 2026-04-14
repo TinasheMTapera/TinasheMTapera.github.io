@@ -44,7 +44,6 @@ share:
   email: true
   mastodon: true
   bsky: true
-  location: before-body
 ---
 
 ::: {.hero-kicker}
