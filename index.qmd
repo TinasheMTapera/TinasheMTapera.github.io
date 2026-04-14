@@ -119,7 +119,7 @@ reproducible.
 ::: {.cta-panel}
 ### Building Better Systems for Science
 
-I am working toward becoming a leading research software engineering specialist
+I strive to be a leading research software engineering specialist
 in notebook-driven development and reproducibility. I am most useful to teams
 that need someone who can bridge scientific context, engineering discipline,
 and practical training.

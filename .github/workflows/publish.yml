@@ -15,6 +15,40 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
+#   ============== R ===================
+
+      # From https://github.com/r-lib/actions/tree/v2-branch/setup-r
+      - name: "🏴‍☠️ Setup R"
+        uses: r-lib/actions/setup-r@v2
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: "🏴‍☠️ Setup rv"
+        run: |
+            curl -sSL https://raw.githubusercontent.com/A2-ai/rv/refs/heads/main/scripts/install.sh | bash
+            echo "$HOME/.local/bin" >> $GITHUB_PATH
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: "🏴‍☠️ Init and sync rv"
+        shell: bash
+        run: |
+            rv init .
+            rv configure repository add --url 'https://cran.r-project.org/' cran
+            rv sync
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: "🏴‍☠️ Verify R stack"
+        run: |
+          echo $PATH
+          which rv || echo "rv not found in PATH"
+
+          which R
+          rv summary
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Render and Publish 
         uses: quarto-dev/quarto-actions/publish@v2
         with:
