@@ -9,12 +9,51 @@ jobs:
   build-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v2 
+        # step category is defined by emoji 😎
 
-      - name: Set up Quarto
+# ============ System Ubuntu =================== 
+      - name: "🌐 Update ubuntu packages"
+        run: |
+          sudo apt-get update && sudo apt-get upgrade -y
+          sudo apt-get install -y build-essential \
+                                  cmake \
+                                  libpng-dev \
+                                  libtiff5-dev \
+                                  libjpeg-dev \
+                                  libwebp-dev \
+                                  libcurl4-openssl-dev \
+                                  libuv1-dev \
+                                  libgit2-dev \
+                                  libharfbuzz-dev \
+                                  libfribidi-bin \
+                                  libfribidi-dev \
+                                  libfreetype6-dev \
+                                  libfontconfig1-dev \
+                                  pkg-config
+      
+      - name: "🥸 Configure git identity"
+        run: |
+            git config --global user.name "${{ github.actor }}"
+            git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+
+      - name: "📥 Check out repository"
+        uses: actions/checkout@v4
+      
+      - name: "🥸 Configure git auth"
+        run: |
+            git config --global url."https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/".insteadOf "https://github.com/"
+
+# ============= Quarto ===================
+      - name: "⚙️ Set up Quarto"
         uses: quarto-dev/quarto-actions/setup@v2
-
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # with:
+        #   # To install LaTeX to build PDF book, uncomment if you want this
+        #   tinytex: true 
+        #   # uncomment below and fill to pin a version
+        #   # version: SPECIFIC-QUARTO-VERSION-HERE
+      
 #   ============== R ===================
 
       # From https://github.com/r-lib/actions/tree/v2-branch/setup-r
@@ -48,8 +87,42 @@ jobs:
           rv summary
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+#   ============== Python ===================
+      # Setup uv
+      - name: "🐍 Setup uv"
+        uses: astral-sh/setup-uv@v7
+        with:
+          python-version-file: ".python-version"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Render and Publish 
+      - name: "🐍 Expose uv venv to PATH"
+        run: echo "${{ github.workspace }}/.venv/bin" >> $GITHUB_PATH
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Install the project dependencies using uv
+      - name: "🐍 Install the uv project"
+        run: uv sync --locked --all-extras --dev
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # verify
+      - name: "🐍 Verify Python stack"
+        run: |
+          echo $PATH
+          which uv || echo "uv not found in PATH"
+
+          uv audit
+          which python
+          python --version
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+#  ============= Render and Publish ===================
+      # NOTE: If Publishing to GitHub Pages, set the permissions correctly (see top of this yaml)
+      - name: "🚀 Render"
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: netlify
