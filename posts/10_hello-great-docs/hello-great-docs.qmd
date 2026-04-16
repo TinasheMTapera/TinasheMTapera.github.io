@@ -3,14 +3,18 @@ title: "Wake Up Babe, New Quarto Product Just Dropped"
 author: "Tinashe M. Tapera"
 date: "2026-04-15"
 image: "FB6D95E2-9380-4DBB-856D-3D92D9BBC6A6.jpeg"
-categories: [ci/cd, automation, github-actions, coding]
+categories: ["writing", "python", "documentation", "quarto", "great-docs"]
 title-block-banner: true
 filters:
    - lightbox
 lightbox: auto
 ---
 
-Posit just announced the release of their new Quarto-based Python package documentation site generator: `great-docs`
+Posit just announced the release of their new Quarto-based Python package documentation site generator: [`great-docs`](https://posit-dev.github.io/great-docs/).
+
+::: {.callout-note}
+[Click here to skip to the tutorial](#ready-to-try-out-great-docs)
+:::
 
 `great-docs` promises to inspect your Python package and generate a beautiful, fully featured documentation website, featuring:
 
@@ -42,9 +46,9 @@ and the documentation space is no different. Each time someone has attempted to
 establish, "the next best docstring format," we’ve ended up back in the 
 "conflicting standards," comic all over again:
 
-[XKCD conflicting standards comic](https://imgs.xkcd.com/comics/standards.png)
+![XKCD conflicting standards comic](https://imgs.xkcd.com/comics/standards.png)
 
-Now, we have great-docs. So why will this time around be any different? Here’s my opinion:
+Now, we have `great-docs`. So why will this time around be any different? Here’s my opinion:
 
 ## `great-docs` is NOT a Docstring Style Specification
 
@@ -81,7 +85,7 @@ creative ideas and tools.[^1]
 Hear me out — as an academic and member of the FOSS community, I am 
 weary of anytime a company promotes a package as a standard for an 
 open source language. However, in this case, we’re talking about Posit PBC, 
-which is a [registered 501(c)](). In case you’re unaware, Hadley Wickham 
+which is a [registered non-profit](https://posit.co/about). In case you’re unaware, Hadley Wickham 
 is the tech-brain behind the venture, with JJ Allaire and Tareef Kawaf serving
 as co-founders. Wickham started out as an R developer back when the company
 was called RStudio. Today, RStudio is synonymous with R itself, 
@@ -152,6 +156,8 @@ git add .
 git commit -am "Initialize project"
 ```
 
+### Hack #1: Resolve the `uv` and `nbdev` TOML clash
+
 Here's our first clash: `uv` has already insisted on a .pyproject.toml file, 
 which is where it manages our dependencies and virtual environment. `nbdev` also wants to
 create a `pyproject.toml` file, and fails to initialize. This will have to be resolved in
@@ -167,6 +173,8 @@ nbdev-new
 git add .
 git commit -m "add uv and nbdev to the project"
 ```
+
+### Hack #2: Resolve the `uv` and `nbdev` Python version clash
 
 Here comes our second clash: `nbdev` requires Python > 3.12, but
 `uv` may not have defaulted to that. Open up the `pyproject.toml` file that `nbdev` 
@@ -230,7 +238,7 @@ Awesome. At this stage, you should have the following:
 6 directories, 24 files
 ```
 
-Next, open up your notebook as normal for `nbdev`,
+Next, open up your Jupyter notebook for the `core` module as normal for `nbdev`,
 add a function or two, and add some docstrings in your preferred style. For example:
 
 ```python
@@ -314,6 +322,55 @@ reference:
     contents:
       - core # add the name of the python file here, without the .py extension. This will document all public functions in that file.
 ```
+### Hack #3: I Thought We Were Using QMDs?
+
+To add the actual notebook content to the site, you'll need
+to add Quarto Markdown files to the `nbs` folder, and then tell
+`great-docs` to include them in the site. `nbdev` has not yet 
+integrated QMD support, but 
+[this Pull Request](https://github.com/AnswerDotAI/nbdev/pull/1521) has implemented it
+perfectly. We can quickly switch over to that version:
+
+```bash
+uv pip install git+https://github.com/bhoov/nbdev
+```
+
+And convert the notebooks with Quarto convert:
+
+```bash
+ls nbs/*.ipynb | xargs -n 1 -P 4 -I {} quarto convert "{}"
+```
+
+This isn't perfect; you'll notice that Quarto borked 
+the directives:
+
+![Quarto borked directives](borked-directives.png)
+
+So, you're gonna have to fix those manually. Not a huge deal,
+but worth flagging for the `nbdev` team to consider in their 
+future integration of Quarto support.
+
+In addition, Quarto will raise an error about the `nbdev` 
+directives, since they are not valid Quarto directives.
+Thanks to [this issue thread](https://github.com/quarto-dev/quarto-cli/issues/3152#issuecomment-1466415796), we know
+that we can get around this by adding a yaml value to each
+non-compliant directive.
+
+Export the fixed notebooks to Python modules again with `nbdev-export`, and then add 
+`sections` to the `great-docs.yml` file, and point it to 
+the `nbdev`'s `nbs` folder that you want to include:
+
+```bash
+nbdev-export
+```
+
+```yaml
+sections:
+  - title: Documentation with `nbdev`
+    dir: nbs
+```
+
+See [this page](https://posit-dev.github.io/great-docs/user-guide/custom-sections.html) for more configuration options for adding qmd notebooks to the project.
 
 Once you're ready, run `great-docs build` to generate the documentation site:
 
