@@ -379,7 +379,15 @@ and you can use the notebooks as a sort of "living documentation" that evolves w
 ![Great Docs Function](great-docs-core-myfunc.png){group="my-gallery"}
 
 Of course, don't forget to enable GitHub Pages for your repository to share your 
-documentation with the world. Happy coding, and remember, documentation is not a chore, 
+documentation with the world:
+
+```bash
+# seriously it's that easy;
+# great-docs detects the optimal gh actions workflow from your uv config!
+great-docs setup-github-pages
+```
+
+. Happy coding, and remember, documentation is not a chore, 
 it's a love letter to your future self and your users. 
 With a combination of notebook-driven development in `nbdev`, and the ease of use of 
 `great-docs`, you can make that love letter as great as the code it describes. 💌✨
