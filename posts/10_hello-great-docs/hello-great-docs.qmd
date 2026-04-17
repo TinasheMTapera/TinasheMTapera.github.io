@@ -1,393 +1,101 @@
 ---
 title: "Wake Up Babe, New Quarto Product Just Dropped"
+description: "A first look at Quarto's new `great-docs` package, why I care, and why I think it might finally give Python package docs a gentler on-ramp."
 author: "Tinashe M. Tapera"
 date: "2026-04-15"
 image: "FB6D95E2-9380-4DBB-856D-3D92D9BBC6A6.jpeg"
 categories: ["writing", "python", "documentation", "quarto", "great-docs"]
 title-block-banner: true
 filters:
-   - lightbox
+  - lightbox
 lightbox: auto
 ---
 
-Posit just announced the release of their new Quarto-based Python package documentation site generator: [`great-docs`](https://posit-dev.github.io/great-docs/).
+Posit just announced the release of their new Quarto-based Python package documentation site generator: [`great-docs`](https://posit-dev.github.io/great-docs/). If you want the source too, the GitHub repo is already live [here](https://github.com/posit-dev/great-docs).
 
 ::: {.callout-note}
-[Click here to skip to the tutorial](#ready-to-try-out-great-docs)
+This is part 1 of a now much saner three-part series.
+
+Part 2 is the deeper walk-through of `great-docs` itself. Part 3 is the notebook-driven development workflow I actually care most about.
 :::
 
-`great-docs` promises to inspect your Python package and generate a beautiful, fully featured documentation website, featuring:
+If you want the 30-second version, the docs say `great-docs` is a Python package documentation site generator that:
 
-- API reference
-- CLI reference 
-- A snazzy landing page
-- Space for user guides, blog posts, tutorials, dev notes, notebooks, etc.
+- inspects your package and auto-generates API reference pages
+- can document Click-based CLIs
+- turns your `README.md` into a landing page
+- renders narrative docs from a `user_guide/` directory
+- supports extra sections for tutorials, recipes, blog posts, and similar content
+- builds the final site with Quarto
 
-In the R world, we’ve been blessed for many years with [`pkgdown`](https://pkgdown.r-lib.org/), 
-and I’ll be honest — it's one of my top reasons to start a multilingual project in R 
-as opposed to Python. With `pkgdown`, you use [Roxygen tags](https://roxygen2.r-lib.org/reference/tags-rd.html)
-(analogous to Python decorators) to annotate your functions, and as `pkgdown` scans your 
-R scripts, it pulls out the tags and fills out R package-compliant documentation files. 
-Once these files are complete, `pkgdown` automates the generation of a 
-package documentation website, which can then be hosted by GitHub Pages or otherwise. 
-Today, `pkgdown` sites are ubiquitous and instantly identifiable, and — in my opinion — are
-a strong indicator of R code quality and attention to detail.
+The happy path is pretty small:
 
-Of course, Python has documentation management for a long time, too. 
-The first time I documented a Python package was with [Sphinx-doc](https://www.sphinx-doc.org/en/master/), 
-and it was...alright. It was certainly more work than Roxygen, 
-requiring an entirely unique phase of development to generate, tidy up, and deploy. 
-Since then, numerous other documentation mechanisms have popped up thanks to 
-Python’s various docstrings specifications, including [Google Style](https://google.github.io/styleguide/pyguide.html), 
-[Numpy](https://numpy.org/doc/stable/), [Sphinx](https://www.sphinx-doc.org/en/master/), [Epytext](https://epytext.readthedocs.io/en/latest/), 
-and possibly more I'm unaware of. One of my gripes with Python is that 
-because it is so easy to publish new things, Python is a bit of an "anything goes," "wild west" language, 
-and the documentation space is no different. Each time someone has attempted to 
-establish, "the next best docstring format," we’ve ended up back in the 
-"conflicting standards," comic all over again:
+```bash
+pip install great-docs
+
+great-docs init
+great-docs build
+great-docs preview
+```
+
+The docs also note two important practical constraints up front: it wants Python `>=3.11`, and Quarto is the rendering engine doing the heavy lifting under the hood.
+
+In the R world, we’ve been blessed for many years with [`pkgdown`](https://pkgdown.r-lib.org/), and I’ll be honest: it is one of my top reasons to start a multilingual project in R instead of Python. With `pkgdown`, you use [Roxygen tags](https://roxygen2.r-lib.org/reference/tags-rd.html) to annotate your functions, and from there most of the annoying package documentation work becomes civilized. Today, `pkgdown` sites are ubiquitous and instantly identifiable, and in my opinion they are a strong indicator of code quality and attention to detail.
+
+Python, of course, has had documentation tooling for a long time too. The first time I documented a Python package, I used [Sphinx](https://www.sphinx-doc.org/en/master/), and it was...alright. It was certainly more work than I wanted, and it felt like I had to stop developing to go become a documentation engineer for a while. Since then, Python has accumulated multiple docstring conventions and documentation workflows, including [Google Style](https://google.github.io/styleguide/pyguide.html), [NumPy style](https://numpydoc.readthedocs.io/en/latest/format.html), and Sphinx-style docstrings. One of my long-running gripes with Python is that because it is so easy to publish new things, the ecosystem can become a bit of an "anything goes" frontier, and the documentation space is no different.
+
+Each time somebody tries to establish the one true standard, we end up back in the old "conflicting standards" comic:
 
 ![XKCD conflicting standards comic](https://imgs.xkcd.com/comics/standards.png)
 
-Now, we have `great-docs`. So why will this time around be any different? Here’s my opinion:
+Now we have `great-docs`. So why do I think this one might actually matter?
 
 ## `great-docs` is NOT a Docstring Style Specification
 
-Despite what I initially thought, the Posit team is not suggesting we 
-adopt a new specification. In my opinion, that decision would be 
-counterproductive (as XKCD rightly points out). Instead, `great-docs` is 
-a Quarto-driven _documentation generator_. Instead of trying to 
-convince the Python community to change its ways yet again, 
-and writing a brand new parser for a a new decorator style, 
-`great-docs` accepts multiple docstring styles and implements a 
-universal parser to ingest them, spitting out a unified API documentation
-that any Python user can read and easily understand. 
-At present, the `great-docs` documentation tells us that it 
-accepts (and automatically detects😱) `numpy`, Google, and Sphinx styles. 
+This was the first thing I wanted to verify in the docs, because if Posit had tried to invent yet another docstring religion, I would have been far less interested.
+
+Thankfully, that is not what is happening here.
+
+`great-docs` is a Quarto-driven documentation generator, not a new docstring style. According to the docs and repo, it detects and works with NumPy, Google, and Sphinx-style docstrings. That is exactly the right move. Instead of asking the Python community to start yet another standards war, it just accepts the reality that the war already happened and tries to produce one clean output from the mess.
+
+That alone makes it instantly more plausible to me.
 
 ## `great-docs` is Driven By Quarto
 
-Quarto is certainly picking up speed in the data science community, 
-with the number of adopters increasing all the time. 
+Quarto is clearly picking up speed in the data science community, and I care a lot about tools that meet scientists and research programmers where they already work.
 
 ![Google Search Trends for Quarto+Posit](quarto-search-trend.png)
 
-The easier it is to integrate Quarto into people’s existing software 
-development infrastructure, the more confidence I have that this will 
-be a worthwhile project. Furthermore, because Quarto has rich 
-and accessible [extension functionality](https://quarto.org/docs/extensions/), 
-I have no doubt that we’re about to see an explosion of 
-creative ideas and tools.[^1]
+The easier it is to integrate Quarto into existing software development infrastructure, the more confidence I have that a tool will actually stick. Quarto already gives us documents, websites, blogs, books, notebooks, and an extension system that is much more fun than it has any right to be.[^1]
 
-[^1]: The extension ecosystem is already exploding, check out the [`awesome-quarto`](https://github.com/mcanouil/awesome-quarto) GitHub repo for some interesting examples.
+If `great-docs` had shown up with its own peculiar rendering stack, I would have been skeptical. Showing up as "use Quarto, but use it for package docs too" makes much more sense.
+
+[^1]: The extension ecosystem is already getting interesting. The [`awesome-quarto`](https://github.com/mcanouil/awesome-quarto) repo is a good place to poke around.
 
 ## Pseudo-Corporate Backing
 
-Hear me out — as an academic and member of the FOSS community, I am 
-weary of anytime a company promotes a package as a standard for an 
-open source language. However, in this case, we’re talking about Posit PBC, 
-which is a [registered non-profit](https://posit.co/about). In case you’re unaware, Hadley Wickham 
-is the tech-brain behind the venture, with JJ Allaire and Tareef Kawaf serving
-as co-founders. Wickham started out as an R developer back when the company
-was called RStudio. Today, RStudio is synonymous with R itself, 
-so if you’ve trusted RStudio this far as a company, I’d bet you can 
-trust Posit, and by extension, their products, Quarto being one of their flagships.
+Hear me out.
+
+As an academic and a FOSS-minded person, I am usually wary any time a company starts drifting toward "this should be the standard." But in this case we are talking about Posit, which has already earned a lot of trust from people who build analytical software for a living. Quarto is one of their flagship projects, and `great-docs` feels like a natural extension of that ecosystem rather than an opportunistic side quest.
+
+If you have already trusted Posit with Quarto, I do not think it is a stretch to trust them to take a serious swing at package documentation too.
 
 ## Multilinguists Will Now Have An Easy On-Ramp
 
-There are a lot of R users who feel skittish about Python. 
-Since they normally come from the statistics world, and Python sits squarely in the software 
-engineers' world, R users sometimes have a hard time getting 
-into the Python community. Fortunately, Posit has positioned 
-itself as a polyglot data science developer company first and foremost[^2]. As a result, 
-its R userbase may be more likely to get their feet wet with Python, 
-since they already know Quarto and will have a sense of familiarity with 
-Posit’s approach to open, welcoming, multilingual data science. 
-Likewise, [Pythonistas](https://medium.com/byte-sized-code/are-you-a-pythonista-197debd5efa6) 
-might get more involved in the world of R, since the two communities are starting to overlap more and more.
+There are a lot of R users who still feel a bit skittish about Python. Part of that is cultural. R tends to feel a little more analyst-native, while Python often feels like you are stepping into the software engineers' world whether you meant to or not.
+
+Posit has spent years positioning itself as a polyglot data science company first and foremost.[^2] That matters. If `great-docs` gives R users a familiar on-ramp into Python package documentation, that is a real contribution. Likewise, if it nudges Python users into the broader Quarto ecosystem, even better. I like tools that lower the social cost of crossing language boundaries.
+
+[^2]: Wes McKinney's [JupyterCon talk](https://www.youtube.com/watch?v=wdmf1msbtVs) is still a good snapshot of Posit's broader commitment to Python and multilingual data science.
 
 ## Verdict
 
-I’m _obviously_ biased, as a fan of everything Posit has done. 
-However, I am still trepidatious. I haven’t fully adopted Positron as my IDE, 
-mainly because I’ve not had error free integration of remote-SSH; I work on 
-HPC compute clusters in academia, so that is non-negotiable. 
-I acknowledge, though, that this may not exactly be Positrons shortcoming, 
-but instead due to the fact that each HPC cluster is different and requires 
-a niche implementation of the IDEs it can run. Additionally, I didn’t have 
-tremendous luck connecting to a MySQL Server instance a few weeks ago.
+I am obviously biased here. I like what Posit builds, and I especially like what Quarto makes possible. That said, I am not completely uncritical. I still have not fully moved into Positron as an IDE, mostly because my life involves remote HPC systems, and those environments are great at humbling product claims.
 
-That being said, everything else I’ve used from Posit has been damn near 
-excellent, and has only added positives to my data journey. I’m certainly 
-going to embrace `great-docs`, and I've already figured out how to
-use it to replace my previous notebook-driven development tool, `nbdev`. 
-With a few couple simple Quarto extensions, we can create beautiful,
-expressive notebook-driven documentation with `great-docs`.
+Still: most of what Posit ships is at least thoughtful, and a lot of it is damn near excellent. After reading through the `great-docs` docs rather than just freestyling from the announcement, I think this is a genuinely promising release.
 
-[^2]: Check out Wes McKinney's [talk at `jupytercon`](https://www.youtube.com/watch?v=wdmf1msbtVs) where he talks about how Posit is firmly committed to supporting the Python community, and how develop polyglot data science tools. 
+More importantly, I think it opens the door to something I care about more than documentation alone: a Quarto-native, notebook-driven development workflow for Python packages that does not feel bolted on after the fact.
 
-## Ready to try out `great-docs`?
+That is where I am headed next.
 
-Getting started with `great-docs` is dead easy. In my case, 
-I’m going to combine this with the extensions `sorting-hat` —
-which selectively includes or excludes code blocks based on 
-programming language and cell — and `ripper` — which allows you to 
-extract cells to individual files — to do some **notebook-driven development**. 
-
-<details>
-Notebook-driven development is a software development workflow where you write your code in 
-Jupyter or Quarto notebooks, and then extract that code into script that 
-can be imported as modules. By keeping the notebook coupled to the final output module,
-you reap all of the benefits of [Donald Knuth's _literate programming_ paradigm](http://literateprogramming.com/).
-</details>
-
-Let's get started by creating a Quarto project:
-
-```bash
-quarto create project default great-docs-demo great-docs-demo --no-prompt --no-open
-```
-
-Next, we need to set up our Python environment. I recommend
-doing this with [`uv`](https://docs.astral.sh/uv/), which is a Python package manager that 
-will help us manage our dependencies and virtual environment for this project:
-
-```bash
-cd great-docs-demo
-
-# important: great-docs requires Python > 3.11
-uv init --lib .
-
-# use uv to create a new virtual environment and install nbdev
-uv venv --python 3.13
-source .venv/bin/activate
-```
-
-With `uv` ready, install and initialize `great-docs`, and to
-use notebooks, install `ipykernel` and `jupyter`:
-
-```bash
-uv pip install great-docs ipykernel jupyter
-
-great-docs init
-
-uv add great-docs quarto jupyter ipykernel
-
-# dont forget to git
-git add .
-git commit -am "Initialize project"
-```
-
-At this point, you should have something like this:
-
-```
-(great-docs-demo) (base) ➜  great-docs-demo git:(main) tree -L 3
-.
-├── README.md
-├── _quarto.yml
-├── great-docs-demo.qmd
-├── great-docs.yml
-├── pyproject.toml
-├── src
-│   └── great_docs_demo
-│       ├── __init__.py
-│       └── py.typed
-└── uv.lock
-
-3 directories, 8 files
-```
-
-It looks a little like a Python package, but there's still more to do. 
-To make notebooks useful for documentation, add the Quarto
-extensions `sorting-hat` and `ripper`, and add two 
-directories `user_guide` and `dev` to hold the notebooks:
-
-```bash
-quarto add coatless-quarto/ripper
-quarto add coatless-quarto/sorting-hat
-
-mkdir user_guide dev
-
-git add .
-git commit -m "Add Quarto extensions for notebook-driven documentation"
-```
-
-
-::: {.callout-tip}
-
-The `user_guide` directory is [reserved in `great-docs`](https://posit-dev.github.io/great-docs/user-guide/user-guides.html) for holding incremental
-documentation guides, tutorials, and other content. `great-docs` automatically
-detects, renders, and indexes any Quarto documents in this directory, so it's perfect
-for our purposes. The `dev` directory is for holding prototype development notebooks
-before they are ready to be added to the user guide. Think of it as a sandbox for your 
-development work.
-:::
-
-Now you can go ahead and develop some Python code in the `dev` directory.
-Let's create a module called `myfunc` that we want to tinker with, test and document.
-To enable notebook-driven development, we want your Python code cells
-to be exported to .py files that `great-docs` can then parse and document.
-Create a new Quarto document in the `dev` directory called `myfunc.qmd`, 
-and configure the extensions in your YAML frontmatter speficying where you 
-want the `.py` files to be exported:
-
-```yaml
-# top of myfunc.qmd
----
-title: "Module 1: `myfunc`"
-subtitle: "An example function to demonstrate great-docs"
-filters:
-    - sorting-hat                            # selectively include/exclude cells on render
-    - ripper                                 # extract code cells to script files
-extensions:
-    sorting-hat:
-        keep:
-            - python
-    ripper:
-        include-yaml: true                   # Include YAML as comments (default: true)
-        output-name: "myfunc"                # Custom base name for py module file
-        output-dir: "../src/great_docs_demo" # Directory to save scripts (relative to the .qmd file)
-format: gfm                                  # render this dev notebook as markdown 
-                                             # into the user guide, while simultaneously 
-                                             # exporting code cells to .py files for 
-                                             # great-docs to parse
----
-```
-
-And add some Python code you want to export to the notebook, with the appropriate docstrings
-and some markdown to explain the code and its purpose.
-
-```markdown
-# plaintext in myfunc.qmd
-I'm creating a function below... blah blah blah, etc.
-```
-
-We invoke `sorting-hat` using Quarto directives:
-
-```python
-# a code cell in myfunc.qmd
-#| sorting-hat: keep
-def myfunc(arg1, arg2, **kwargs):
-    """
-    Example function.
-
-    Parameters
-    ----------
-    arg1 : int
-    arg2 : str
-
-    Returns
-    -------
-    None
-    """
-    return arg1 + arg2
-```
-
-The `sorting-hat: keep` directive communicates that this particular cell should be kept at export time.
-To deliberately exclude a cell from export, use `sorting-hat: remove`. By default, 
-all cells will be included in the export, so you only need to use `keep` or `discard` if you want to override 
-that behavior for specific cells. `ripper` will then handle the export of the code cells to .py files.
-
-::: {.callout-important}
-Funny thing, you have to specify `sorting-hat` _before_ `ripper` because the order of extensions matters. If you 
-specify `ripper` first, it will export all cells to .py files, defeating the purpose.
-:::
-
-To extract the code to .py files, first configure your root `_quarto.yml` file:
-
-```yaml
-# root _quarto.yml
-project:
-  title: "great-docs-demo"
-  output-dir: "user_guide"    # the output directory for intermediate junk; gitignore this!
-  render: 
-    - "dev/*"                 # render the development notebooks for documentation
-    - "!great-docs/**"        # DO NOT render great-docs directory to avoid circular rendering
-    - "!*.md"
-```
-
-...and then run the following command:
-
-```bash
-quarto render
-```
- 
-Now, take a look at your project:
-
-```
-(great-docs-demo) (base) ➜  great-docs-demo git:(main) ✗ tree -L 3 .      
-.
-├── README.md                 <- created by uv
-├── _extensions               <- quarto extensions     
-│   └── coatless-quarto
-│       ├── ripper
-│       └── sorting-hat
-├── _quarto.yml               <- quarto configuration file
-├── dev                       <- development notebooks
-│   └── myfunc.qmd
-├── great-docs-demo.qmd       <- quarto project landing page created by `quarto create`
-├── great-docs.yml            <- great-docs configuration file created by `great-docs init`
-├── pyproject.toml            <- created by uv
-├── src                       <- source code for the Python package created by `uv init`
-│   └── great_docs_demo
-│       ├── __init__.py
-│       ├── __pycache__
-│       ├── myfunc.py         <- created by `ripper` extension
-│       └── py.typed
-├── user_guide                <- rendered documentation notebooks
-│   └── dev
-│       └── myfunc.md         <- rendered from myfunc.qmd by Quarto, with code cells exported to myfunc.py by `ripper`
-└── uv.lock
-
-11 directories, 11 files
-```
-
-At this point, you can now finally invoke `great-docs` to generate 
-your documentation site. To do that, run:
-
-```bash
-great-docs build
-```
-
-If successful, you should see a message like this:
-
-```
-✅ Site built successfully
-
-🔍 Generating SEO files...
-   ⚠️  No base URL configured, skipping sitemap generation
-      Set seo.canonical.base_url in great-docs.yml or configure a GitHub repo
-   Generated robots.txt
-
-🎉 Your site is ready! Open: /Users/tit420/projects/great-docs-demo/great-docs/_site/index.html
-```
-
-Now you can finally preview your documentation site with the API reference page:
-
-```bash
-great docs preview
-```
-
-And just like that, you have a documentation site for your Python package, with an API reference that was automatically generated from your docstrings!
-
-![Great Docs Preview](great-docs-preview.png){group="my-gallery"}
-
-The best part? `great-docs` adds the original notebooks from the `user_guide` directory 
-to the documentation site as well, so users can see the code in its original context, 
-and you can use the notebooks as a sort of "living documentation" that evolves with your code.
-
-![Great Docs Reference Page](great-docs-reference.png){group="my-gallery"}
-
-![Great Docs Function](great-docs-core-myfunc.png){group="my-gallery"}
-
-Of course, don't forget to enable GitHub Pages for your repository to share your 
-documentation with the world:
-
-```bash
-# seriously it's that easy;
-# great-docs detects the optimal gh actions workflow from your uv config!
-great-docs setup-github-pages
-```
-
-. Happy coding, and remember, documentation is not a chore, 
-it's a love letter to your future self and your users. 
-With a combination of notebook-driven development in `nbdev`, and the ease of use of 
-`great-docs`, you can make that love letter as great as the code it describes. 💌✨
+Part 2 is the proper `great-docs` tour. Part 3 is how I am planning to use it for notebook-driven development, which is where things get fun.
