@@ -1,6 +1,6 @@
 ---
 title: "Writing"
-description: "Notes on research software engineering, notebooks, tooling, and reproducible scientific workflows."
+description: "Research Software Engineering for Reproducible Science. Notes on RSE, notebooks, tooling, and reproducible scientific workflows."
 page-layout: full
 toc: false
 listing:
@@ -20,7 +20,7 @@ filters:
   - social-share
 share:
   permalink: "https://tinashemtapera.com/"
-  description: "Tinashe M. Tapera's writing on research software engineering, notebooks, tooling, and reproducible scientific workflows."
+  description: "Tinashe M. Tapera's writing on Research Software Engineering for Reproducible Science."
   twitter: true
   facebook: true
   reddit: true
