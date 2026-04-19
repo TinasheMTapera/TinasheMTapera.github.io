@@ -46,6 +46,9 @@ share:
   bsky: true
 ---
 
+<script data-goatcounter="https://tinashemtapera.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
 ::: {.hero-kicker}
 R + Python | Reproducibility | Open and FAIR science
 :::
